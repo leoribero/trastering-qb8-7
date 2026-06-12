@@ -2266,6 +2266,82 @@ footer {
 <script src="../../../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="e873b67f426a2091b9f02683-|49" defer></script>
 
 
+
+<script>
+(function(){
+  function linkButtons(container){
+    container.querySelectorAll("article.cs0r_product-card").forEach(function(card){
+      var img = card.querySelector(".card-presentation.product-image");
+      if(!img) return;
+      var match = img.classList.contains("mediano_planta_00")
+               || img.classList.contains("mediano_planta_01")
+               || img.classList.contains("mediano");
+      if(!match) return;
+      card.querySelectorAll('button.select-button[data-plan="monthly"]').forEach(function(btn){
+        if(btn.parentNode.tagName==="A") return;
+        var a=document.createElement("a");
+        a.href="../../../legacy-reservas/vila-men-me/";
+        a.appendChild(btn.cloneNode(true));
+        btn.parentNode.replaceChild(a,btn);
+      });
+    });
+  }
+  var c=document.getElementById("cs0r_products-container");
+  if(!c) return;
+  linkButtons(c);
+  new MutationObserver(function(){ linkButtons(c); }).observe(c,{childList:true,subtree:true});
+})();
+</script>
+<script>
+(function(){
+  function linkButtons(container){
+    container.querySelectorAll("article.cs0r_product-card").forEach(function(card){
+      var img = card.querySelector(".card-presentation.product-image");
+      if(!img) return;
+      var match = img.classList.contains("grande_planta_00")
+               || img.classList.contains("grande_planta_01")
+               || img.classList.contains("grande");
+      if(!match) return;
+      card.querySelectorAll('button.select-button[data-plan="monthly"]').forEach(function(btn){
+        if(btn.parentNode.tagName==="A") return;
+        var a=document.createElement("a");
+        a.href="../../../legacy-reservas/vila-men-gr/";
+        a.appendChild(btn.cloneNode(true));
+        btn.parentNode.replaceChild(a,btn);
+      });
+    });
+  }
+  var c=document.getElementById("cs0r_products-container");
+  if(!c) return;
+  linkButtons(c);
+  new MutationObserver(function(){ linkButtons(c); }).observe(c,{childList:true,subtree:true});
+})();
+</script>
+<script>
+(function(){
+  function linkButtons(container){
+    container.querySelectorAll("article.cs0r_product-card").forEach(function(card){
+      var img = card.querySelector(".card-presentation.product-image");
+      if(!img) return;
+      var match = img.classList.contains("maxi_planta_00")
+               || img.classList.contains("maxi_planta_01")
+               || img.classList.contains("maxi");
+      if(!match) return;
+      card.querySelectorAll('button.select-button[data-plan="monthly"]').forEach(function(btn){
+        if(btn.parentNode.tagName==="A") return;
+        var a=document.createElement("a");
+        a.href="../../../legacy-reservas/vila-men-ma/";
+        a.appendChild(btn.cloneNode(true));
+        btn.parentNode.replaceChild(a,btn);
+      });
+    });
+  }
+  var c=document.getElementById("cs0r_products-container");
+  if(!c) return;
+  linkButtons(c);
+  new MutationObserver(function(){ linkButtons(c); }).observe(c,{childList:true,subtree:true});
+})();
+</script>
 <style>
 @media (min-width: 993px) {
   a button.select-button { min-width: 233px; }
