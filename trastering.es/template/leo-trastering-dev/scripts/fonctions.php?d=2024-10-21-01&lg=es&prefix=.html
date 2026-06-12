@@ -1,0 +1,1082 @@
+
+$(document).ready(function(event){
+
+    //ERREUR IMAGE
+    $('img.vignetteArticleFiche').error(function(event){
+         $(this).attr('src', '/images/language/es/photonondispo.jpg');
+    });
+    
+    $('.module_article_vignette a img').error(function(event){
+         $(this).attr('src', '/images/language/es/photonondispo_mini.jpg');
+    });
+    
+    $('.vignetteArticleModule a img').error(function(event){
+         $(this).attr('src', '/images/language/es/photonondispo_thumb.jpg');
+    });
+	
+    var timerHoverArticle;
+    var timerOutArticle;
+    
+    if ($('.ui.checkbox').length > 0)
+    {
+    	$('.ui.checkbox')
+      	.checkbox()
+    	;
+    }
+    
+    if ($('.ui.selection.dropdown').length > 0)
+    {
+    	$('.ui.selection.dropdown')
+      		.dropdown()
+    	;
+    }
+    
+    var idCentreSelect = 0;
+    var idEtapeSelect = 0;
+    var idTailleSelect = 0;
+    
+    
+    
+    //SELECTEUR CENTRE
+    $("#reservationEtape1 .choix .liste div").bind('mouseover', function(event) {
+        var idPrincipale = $(this).attr('id');
+        idCentreSelect = idPrincipale.replace("centreSelecteur_","");
+
+        $("#reservationEtape1 .centreInfos").each(function( index ) {
+            var idTest = $(this).attr('id');
+            idReelleTest = idTest.replace("centreInfos_","");
+
+            if ((idReelleTest != idCentreSelect) && ($(this).is(':visible'))) { 
+                $(this).hide();
+            } else if (idReelleTest == idCentreSelect) {
+                $(this).show();
+            }
+        });
+          
+        event.stopPropagation();
+    });
+    
+    $(".lienEstimateur").bind('click', function(event) {
+        afficherEstimateur(1);
+        
+        event.stopPropagation();        
+    });
+    
+    
+    
+    $("#reservationEtape1 .choix .liste div").bind('click', function(event) {
+    
+        $("#reservationEtape2 .choix .liste div").each(function( index ) {
+            $(this).removeClass('active');
+        });
+
+        $(this).addClass('active');
+
+	var idPrincipale = $(this).attr('id');
+        idCentreSelect = idPrincipale.replace("centreSelecteur_","");
+        
+        var titreCentre = $(this).html();
+        //window.alert(idCentreSelect+" -> "+titreCentre+" -> reservationSelecteurEtape"+idCentreSelect);
+        
+        $("#reservationSelecteurEtape1").html(titreCentre);
+        $("#reservationEtape1").hide();
+        $("#numCentreMemoire").val(idCentreSelect);
+        
+        //CHARGEMENT DES PRODUITS PAR CENTRE
+        var chargement = '<div class="loader">carga</div>';
+        $("#reservationEtape2").html(chargement);
+        
+        var url = "/executions/chargementProduits.php";
+        var parametres = "numBoutique="+idCentreSelect;
+        parametres += "&source=popupResa";
+
+        //window.alert("parametres : "+parametres);
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: parametres,
+            success: function(data){
+                afficheReponseChargementProduitResa(data);
+              }
+        });
+          
+        event.stopPropagation();
+    });
+    
+    
+    
+    
+    
+    $("#cadreReservation .etape .selecteur").bind('click', function(event) {
+        
+        var idPrincipale = $(this).attr('id');
+        idEtapeSelect = idPrincipale.replace("reservationSelecteurEtape","");
+        
+        $("#cadreReservation .etape .popup").each(function( index ) {
+            var idTest = $(this).attr('id');
+            idReelleTest = idTest.replace("reservationEtape","");
+
+            if ((idReelleTest != idEtapeSelect) && ($(this).is(':visible'))) { 
+                $(this).hide();
+            } else if (idReelleTest == idEtapeSelect) {
+                if ($(this).is(':visible')) { 
+                    $(this).hide();
+                } else {
+                    var allumer = "non";
+                    if (idTest == "reservationEtape2") {
+                        if ($("#numCentreMemoire").val() > 0) {
+                            allumer = "oui";
+                        } else {
+                            alerte("<br />Tienes que elegir primero un Centro y luego un Tamaño","ok");
+                        }
+                    } else {
+                        allumer = "oui";
+                    }
+                    
+                    if (allumer == "oui") {
+                        $(this).show();
+                    }
+                }
+            }
+        });
+        
+        event.stopPropagation();
+    });
+
+    
+    //MOUSEOVER ARTICLES
+    
+    
+    $("#colonneBlocks").bind('mouseover', function(event) {
+    	$(this).stop();
+        clearTimeout(timerHoverArticle);
+		var idTest;
+		var idReelleTest;
+        
+        $("#afficheurArticleMozaique .module_article").each(function( index ) {
+            idTest = $(this).attr('id');
+			idReelleTest = idTest.replace("moduleArticle_","");
+
+            if (($("#infosModuleArticle_"+idReelleTest).length != 0) && ($("#infosModuleArticle_"+idReelleTest).is(':visible')))
+            { 
+                $("#infosModuleArticle_"+idReelleTest).hide();
+            }
+            
+        });
+
+		event.stopPropagation();
+	});
+	
+    //SELECTEURS TRI
+    $(".selecteur .ligneBlock .titre").bind('click', function(event) {
+    	$(this).stop();
+    	var id = $(this).attr('id');
+        
+        if ($("#"+id+"_contenu").is(':hidden'))
+        {
+			$(this).addClass('ouvert');
+            $("#"+id+"_contenu").slideDown('slow');
+        }
+        else
+        {
+			$(this).removeClass('ouvert');
+            $("#"+id+"_contenu").slideUp('slow');
+        }
+
+		event.stopPropagation();
+	});
+    
+    $(".zoomPad").bind('click', function(event) {
+    	window.alert("ok");
+        
+        event.stopPropagation();
+    });
+
+    //CHANGEMENT PHOTOS
+    $(".conteneurApercuDiapo").bind('click', function(event) {
+    	$(this).stop();
+    	var id = $(this).attr('id');
+		var idReelle = id.replace("petitePhotoArticle","");
+        
+        changerPhotoArticle(idReelle);
+
+		event.stopPropagation();
+	});
+    
+    //SELECTEURS FICHE
+    $(".selecteurTaille").bind('click', function(event) {
+    	$(this).stop();
+    	var id = $(this).attr('id');
+		var idReelle = id.replace("selecteurTaille","");
+        var catId = document.getElementById("taillesCatId").value;
+        var idSelect = id;
+
+         $(this).children(".case").addClass('active');
+         document.getElementById("article_declinaison_"+catId).value = idReelle;
+        
+        $(".selecteurTaille").each(function( index ) {
+            id = $(this).attr('id');
+
+            if (idSelect != id)
+            {
+                $(this).children(".case").removeClass('active');
+            }
+        });
+
+		event.stopPropagation();
+	});
+    
+    //SELECTEURS SOUS CATEGORIES
+    $("#selecteurCategorie_contenu .colonne, #selecteurSousCategorie_contenu .colonne").bind('click', function(event) {
+    	$(this).stop();
+        
+    	$("#selecteurCategorie_contenu .colonne, #selecteurSousCategorie_contenu .colonne").each(function( index ) {
+            $(this).children(".case").removeClass('cochee');
+        });
+
+        $(this).children(".case").addClass('cochee');
+
+        //ENVOI SESSION
+        saveSession("navigationIsotope");
+        event.stopPropagation();
+    });
+    
+    //MODELE
+    $("#selecteurRefModele_contenu .colonne").bind('click', function(event) {
+    	$(this).stop();
+        
+    	$("#selecteurRefModele_contenu .colonne").each(function( index ) {
+            $(this).children(".case").removeClass('cochee');
+        });
+
+        $(this).children(".case").addClass('cochee');
+
+        //ENVOI SESSION
+        saveSession("navigationIsotope");
+        event.stopPropagation();
+    });
+
+    
+    //SELECTEURS MARQUES
+    $("#selecteurMarques_contenu .colonne").bind('click', function(event) {
+    	$(this).stop();
+        
+    	$("#selecteurMarques_contenu .colonne").each(function( index ) {
+            $(this).children(".case").removeClass('cochee');
+        });
+
+        $(this).children(".case").addClass('cochee');
+        //ENVOI SESSION
+        saveSession("navigationIsotope");
+        
+        event.stopPropagation();
+    });
+    
+    $(".module_article_panier_moins").bind('click', function(event) {
+    	var id = this.id;
+        id = id.replace("panier_moins_","");
+        
+        var quantite = parseInt(document.getElementById('quantite_'+id).value) - 1;
+        
+        if (quantite < 1)
+        {
+        	quantite = 1;
+        }
+        
+        document.getElementById('quantite_'+id).value = quantite;
+        
+        miseajourPrixQuantiteArticle(id,quantite);
+    });
+    
+    $(".module_article_panier_plus").bind('click', function(event) {
+    	
+    	var id = this.id;
+        id = id.replace("panier_plus_","");
+        
+        var quantite = parseInt(document.getElementById('quantite_'+id).value) + 1;
+        
+        document.getElementById('quantite_'+id).value = quantite;
+
+        miseajourPrixQuantiteArticle(id,quantite);
+    });
+    
+    
+    
+    
+    //SELECTEUR COULEURS
+    $(".selecteurCouleur").bind('click', function(event) {
+    	$(this).stop();
+    	var id = $(this).attr('id');
+		
+        var idReelle = id.replace("couleur","");
+        var catId = document.getElementById("couleursCatId").value;
+        var idSelect = id;
+		
+
+         $(this).addClass('active');
+         document.getElementById("article_declinaison_"+catId).value = idReelle;
+         
+         //VIGNETTES
+         if ($("#makeMeScrollable_"+idReelle).length == 0)
+         {
+         }
+         else
+         {
+         	$(".conteneurApercuDiapoInterne").hide();
+         	$("#makeMeScrollable_"+idReelle).show();
+         }
+         
+         //GRANDE PHOTO
+         $(".photoDeclinaison"+idReelle).each(function( index ) {
+
+             if ($(this).is(':hidden'))
+             {
+                var idPhoto = $(this).attr('id');
+                idPhoto = idPhoto.replace("photoArticle","");
+                changerPhotoArticle(idPhoto);
+                return false;
+             }
+
+        });
+        
+        $(".selecteurCouleur").each(function( index ) {
+            id = $(this).attr('id');
+
+            if (idSelect != id)
+            {
+                $(this).removeClass('active');
+            }
+        });
+
+		event.stopPropagation();
+	});
+    
+    $(".selecteurCouleur").bind('mouseover', function(event) {
+    	$(this).stop();
+    	var id = $(this).attr('id');
+        id = id.replace("couleur","");
+        id = parseInt(id);
+        
+        //window.alert(id);
+        verifDispoModele(id);
+        
+        event.stopPropagation();
+    });
+    
+    $(".selecteurCouleur").bind('mouseleave', function(event) {
+    	$(this).stop();
+    	verifDispoModele(0);
+        
+        event.stopPropagation();
+    });
+    
+    
+    
+	$(".slide, .slideBoutique").bind('mouseover', function(event) {
+		$(this).stop();
+		$(this).animate({
+            opacity: 1
+          }, 600, function(event) {
+
+          });
+		  
+		event.stopPropagation();
+	});
+    
+    $(".slide, .slideBoutique").bind('mouseleave', function(event) {
+		$(this).stop();
+		$(this).animate({
+            opacity: 0.90
+          }, 600, function(event) {
+
+          });
+		  
+		event.stopPropagation();
+	});
+    
+    $(".boutonOuvrirCommentaire").bind('click', function(event) {
+    	$("#afficheurCommentaires").hide();
+        $("#formulaireAjoutCommentaire").show();
+    });
+
+	/*$(".navigation_lien").bind('mouseover', function(event) {
+		$(this).stop();
+		$(this).animate({
+            color: '#26d13e'
+          }, 600, function(event) {
+
+          });
+		  
+		event.stopPropagation();
+	});
+		
+        
+    $(".navigation_lien").bind('mouseleave', function(event) {
+		$(this).stop();
+		$(this).animate({
+            color: '#000000'
+          }, 1000, function(event) {
+
+          });
+		  
+		event.stopPropagation();
+	});*/
+
+	$("nav.home ul li a").bind('mouseover', function(event) {
+
+		$(this).animate({
+            marginTop: 0
+          }, 300, function(event) {
+            	// Animation complete
+          });
+		  
+		event.stopPropagation();
+	});
+	
+	$("nav.home ul li a").bind('mouseleave', function(event) {
+    
+    	$(this).stop();
+
+            $(this).animate({
+                marginTop: 5
+                }, 200, function(event) {
+                // Animation complete.
+            });
+                  
+            event.stopPropagation();
+     	
+    });
+	
+	$(".module_article").bind('mouseover', function(event) {
+    	
+        if ($(window).width() < 1601)
+        {
+        	var newTop = 180;
+        }
+        else
+        {
+        	var newTop = 237;
+        }
+        
+		$(this).children(".module_article_detail").stop();
+    	$(this).children(".module_article_detail").animate({
+            top: newTop
+            }, 500, function(event) {
+            // Animation complete.
+        });
+        
+        event.stopPropagation();
+ 		
+    });
+    
+    $(".module_article").bind('mouseleave', function(event) {
+    
+    	$(this).children(".module_article_detail").stop();
+
+            $(this).children(".module_article_detail").animate({
+                top: '325'
+                }, 200, function(event) {
+                // Animation complete.
+            });
+                  
+            event.stopPropagation();
+     	
+    });
+    
+	
+	$(".quantiteFinalArticle").bind('keyup', function(event) {
+    	var id = $(this).attr('id');
+		id = id.replace("quantite_","");
+		
+		var quantite = document.getElementById('quantite_'+id).value;
+		
+		if ((quantite < 1) || (quantite == ""))
+        {
+        	var quantiteFinal = 1;
+			document.getElementById('quantite_'+id).value = 1;
+        }
+		else
+		{
+        	var quantiteFinal = parseInt(quantite);
+		}
+		
+        if (quantiteFinal < 1)
+        {
+        	quantiteFinal = 1;
+			document.getElementById('quantite_'+id).value = 1;
+        }
+		
+		miseajourPrixQuantiteArticle(id,quantiteFinal);
+	});
+
+	
+	//ONGLETS
+	$("div.zone_onglet_bouton").bind('click', function(event) {
+
+		$(this).removeClass('ferme');
+		$(this).addClass('ouvert');
+		
+		$("div.zone_onglet_interne").stop();
+		
+		var idBouton = $(this).attr('id');
+		var numBouton = idBouton.replace("zone_onglet_bouton_","");
+		
+		$("div.zone_onglet_interne").hide();
+		$("#zone_onglet_"+numBouton).fadeIn('slow');
+		
+		$(this).prevAll("div.zone_onglet_bouton").removeClass('ouvert');
+		$(this).nextAll("div.zone_onglet_bouton").removeClass('ouvert');
+		$(this).prevAll("div.zone_onglet_bouton").addClass('ferme');
+		$(this).nextAll("div.zone_onglet_bouton").addClass('ferme');
+		
+		/*if (idBouton == "zone_onglet_bouton_2")
+		{
+			//CHARGEMENT DISPOS
+			var numCook = parseInt(document.getElementById('numCookMemoire').value);
+			
+			if (numCook > 0)
+			{
+				chargementCalendrierDispo(numCook);
+			}
+		}*/
+	});
+	
+	var timerSousMenuGamme;
+	
+	$("nav.main ul li a").bind('mouseover', function(event) {
+		if ($(this).attr('id') != "menuMain_gamme")
+		{
+			masquerSousMenuGamme();
+		}
+	});
+	
+	//SOUS MENU GAMME
+	$("#menuMain_gamme").bind('mouseover', function(event) {
+            clearTimeout(timerSousMenuGamme);
+            if (!$('#sousMenuGamme').length) {
+                    //CREATION De L'ELEMENT SOUS MENU
+                    $('<div class="conteneurSup"><div id="sousMenuGamme" style="display:none"><div class="chargement">carga</div></div></div>').prependTo('body');
+            }
+
+            $("#sousMenuGamme").fadeIn('slow');
+
+            var url = "/executions/chargementGammes.php";
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                async:true,
+                success: function(data){
+                    afficheReponseChargementGammes(data);
+                  }
+            });
+	});
+	
+	$("#sousMenuGamme").live('mouseover', function(event) {
+		clearTimeout(timerSousMenuGamme);
+	});
+	
+	$("#sousMenuGamme").live('mouseleave', function(event) {
+		timerSousMenuGamme = setTimeout('masquerSousMenuGamme()',400);
+                  
+    	event.stopPropagation();
+	});
+	
+	$("#menuMain_gamme").bind('mouseleave', function(event) {
+
+		timerSousMenuGamme = setTimeout('masquerSousMenuGamme()',400);
+                  
+    	event.stopPropagation();
+	});  
+    
+    //SUGGESTION
+    /*$("#search_case_top").bind('keyup', function(event) {
+		$(this).stop();
+		
+        suggestion($(this),event);
+		  
+		event.stopPropagation();
+	});*/
+        
+    //CONFIGURATEUR
+    $("#formSearchConfigurateur .custom-combobox-input").change(function(event) {
+        
+        $(this).removeClass('active');
+    
+        var valeur = $(this).val();
+        window.alert("valeur : "+valeur);
+        
+        var name = $(this).attr('name');
+        if (name != "modele") {
+
+            if ((valeur != "0") && (valeur != "") && (valeur != undefined) && (valeur != "undefined")) {
+
+
+                var url = "/executions/chargementCategorie.php";
+                var parametres = "numCatMere="+valeur;
+                parametres += "&source="+name;
+
+                window.alert("parametres : "+parametres);
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: parametres,
+                    success: function(data){
+                        afficheReponseConfigurateur(data);
+                      }
+                });
+            }
+        }
+    });
+    
+    //FORMULAIRE INSCRIPTION
+    $("#select_typeCompte").bind('click', function(event) {
+        
+        $(this).removeClass('active');
+    
+        var valeur = $(this).children('input').val();
+
+        if ((valeur != "0") && (valeur != "") && (valeur != undefined) && (valeur != "undefined")) {
+
+            //window.alert("valeur : "+valeur);
+            if (valeur == "particulier") {
+                if ($("#cadeTypePro").is(':visible')) {
+                    $("#cadeTypePro").slideUp('slow');
+                }
+            } else if (valeur == "pro") {
+                if ($("#cadeTypePro").is(':hidden')) {
+                    $("#cadeTypePro").slideDown('slow');
+                }
+            }
+        }
+    });
+    
+    //TABLEAU RESA
+    $(".mesresas .tableau .ligne").bind('click', function(event) {
+        
+        $(".mesresas .tableau .ligne").each(function( index ) {
+            $(this).removeClass('active');
+        });
+        
+        $(this).addClass('active');
+        
+        $(this).children(".col").children("input[type=radio]").prop("checked", true);
+        
+        var numResa = $(this).children(".col").children("input[type=radio]").val();
+
+        $("#resaSelectFinal").val(numResa);
+        event.stopPropagation();
+        
+    });
+    
+});
+
+function actionTableauMesResa(action) {
+
+
+   var numResa = $("#resaSelectFinal").val();
+    
+   //alert('numResaFinal = '+numResa);
+   
+   if ((numResa != 0) && (numResa != "0") && (numResa != "")) {
+   
+        if (action == "payerarrhes") {
+            //verif etat résa
+            if (($("#etatResa"+numResa).val() == 4) || ($("#etatResa"+numResa).val() == 1) || ($("#etatResa"+numResa).val() == 2)) {
+                location.href='/Reserva/resumen/?numResa='+numResa;
+            } else {
+                alerte("<br />El estado de esta reserva no nos permite efectuar esta operación : llámanos por favor al [TEL-TRASTERING] o envianos un email a [EMAIL-TRASTERING]","ok");
+            }
+        }
+   } else {
+        alerte("<br />Debes elegir una reserva","ok");
+   }
+
+}
+
+function afficheReponseChargementProduitResa(doc) {
+    if (doc.etat == "ok") {
+        if (doc.nb > 0) {
+            $("#reservationEtape2").html(doc.html);
+            
+            //SELECTEUR TAILLE
+            $("#reservationEtape2 .choix .liste div").bind('mouseover', function(event) {
+
+                var idPrincipale = $(this).attr('id');
+                idTailleSelect = idPrincipale.replace("tailleSelecteur_","");
+
+                $("#reservationEtape2 .tailleInfos").each(function( index ) {
+
+                    var idTest = $(this).attr('id');
+                    idReelleTest = idTest.replace("tailleInfos_","");
+
+                    if ((idReelleTest != idTailleSelect) && ($(this).is(':visible'))) { 
+                        $(this).hide();
+                    } else if (idReelleTest == idTailleSelect) {
+                        $(this).show();
+                    }
+                });
+                
+                $("#reservationEtape2 .tailleInfosTexte").each(function( index ) {
+
+                    var idTest = $(this).attr('id');
+                    idReelleTest = idTest.replace("tailleInfosTexte_","");
+
+                    if ((idReelleTest != idTailleSelect) && ($(this).is(':visible'))) { 
+                        $(this).hide();
+                    } else if (idReelleTest == idTailleSelect) {
+                        $(this).show();
+                    }
+                });
+
+                event.stopPropagation();
+            });
+            
+            
+            $("#reservationEtape2 .choix .liste div").bind('click', function(event) {
+                
+                $("#reservationEtape2 .choix .liste div").each(function( index ) {
+                    $(this).removeClass('active');
+                });
+                
+                $(this).addClass('active');
+                var idPrincipale = $(this).attr('id');
+                
+                idTailleSelect = idPrincipale.replace("tailleSelecteur_","");
+
+                var titreTaille = $(this).html();
+
+                $("#reservationSelecteurEtape2").html(titreTaille);
+                $("#reservationEtape2").hide();
+                $("#numTailleMemoire").val(idTailleSelect);
+
+                event.stopPropagation();
+            });
+
+        } else {
+            alerte("<br>Lo sentimos, no hay ningún Almacén/Trastero del tamaño elegido disponible en este Centro en este momento.","ok");
+            $("#reservationSelecteurEtape1").html('Elige tu Centro');
+            $("#numCentreMemoire").val(0);
+            
+            $("#reservationEtape1 .choix .liste div").each(function( index ) {
+                $(this).removeClass('active');
+            });
+
+        }
+    } else {
+        envoiErreurAdmin('afficheReponseChargementProduitResa',doc.etat);
+    }
+}
+
+
+
+function cacherTest(id)
+{
+	//window.alert("cacher : "+id);
+	$("#infosModuleArticle_"+id).hide();
+    
+}
+
+function showZap()
+{
+	var newTop = $(window).scrollTop() + 100;
+    var newLeft = -20;
+    
+    
+    
+	if ($("#zap").is(':hidden'))
+    {
+    	var leftDepart = -150;
+        
+    	$("#zap").css({
+            "top": newTop+"px",
+            "left":  leftDepart+"px"
+        });
+        
+        $("#zap").show();
+        
+    	$("#zap").animate({
+            left: newLeft+'px'
+          }, 2000, function(event) {
+
+          });
+    }
+    else
+    {
+    	$("#zap").animate({
+            top: newTop+'px'
+          }, 20, function(event) {
+
+          });
+    }
+}
+
+function changerApercuArticle(numArticle,photo)
+{
+	var idTest;
+    var idReelleTest;
+    
+    $("#moduleArticle_"+numArticle+" .module_article_vignette img").attr('src', photo);
+    
+    $("#afficheurArticleMozaique .module_article").each(function( index ) {
+        idTest = $(this).attr('id');
+        idReelleTest = idTest.replace("moduleArticle_","");
+        
+        if (idReelleTest != numArticle)
+        {
+            if ($("#infosModuleArticle_"+idReelleTest).length != 0)
+            { 
+                $("#infosModuleArticle_"+idReelleTest+" .contenu").animate({
+                    marginLeft: '95px'
+                  }, 200, function(event) {
+                        $("#infosModuleArticle_"+idReelleTest).hide();
+                  });
+            }
+        }
+    });
+}
+
+function afficheChargementPhotosApercu(doc)
+{
+	if ((doc.etat == "ok") && (doc.numArticle > 0))
+    {
+    	if (doc.nbPhotos > 0)
+        {
+    		$("#infosModuleArticle_"+doc.numArticle+" .contenu").removeClass('loader');
+    		$("#infosModuleArticle_"+doc.numArticle+" .contenu").html(doc.contenu);
+        }
+        else
+        {
+            $("#infosModuleArticle_"+doc.numArticle+" .contenu").animate({
+                marginLeft: '95px'
+                }, 200, function(event) {
+            });
+        }
+    }
+    else
+    {
+    	window.alert(doc.etat);
+    }
+}
+
+function selecteurOrdreAlpha(id)
+{
+    $("#"+id).isotope({ 
+      sortBy : 'name',
+      sortAscending : true
+    });
+}
+
+function selecteurOrdreAlphaDesc(id)
+{
+    $("#"+id).isotope({ 
+      sortBy : 'name',
+      sortAscending : false
+    });
+}
+
+function selecteurOrdrePrix(id)
+{
+    $("#"+id).isotope({ 
+      sortBy : 'prix',
+      sortAscending : true
+    });
+}
+
+function selecteurOrdrePrixDesc(id)
+{
+    $("#"+id).isotope({ 
+      sortBy : 'prix',
+      sortAscending : false
+    });
+}
+
+function selecteurAlpha(id,selecteur,classe)
+{
+    if ((selecteur == "tous") || (selecteur == "lettretous"))
+    {
+        $("#"+id).isotope({ 
+          filter : "."+classe
+        });
+    }
+    else
+    {
+        //window.alert(classe+"."+selecteur);
+        $("#"+id).isotope({ 
+          filter : "."+classe+"."+selecteur
+        });
+    }
+}
+
+function selecteurBudget(id,minPrice,maxPrice,classe)
+{
+    var filters = [];
+    // get checked checkboxes values
+   	for (i=minPrice; i<=maxPrice; i++)
+    {
+      filters.push( '.'+i );
+    }
+    // ['.red', '.blue'] -> '.red, .blue'
+    filters = filters.join(', ');
+    $("#"+id).isotope({ filter: filters });
+}
+
+function changerPhotoArticle(id)
+{
+	//window.alert(id);
+	var idSelect = "";
+    $("#photoArticle"+id).show();
+    
+    $(".conteneurApercuDiapo").each(function( index ) {
+        idSelect = $(this).attr('id');
+		idSelect = idSelect.replace("petitePhotoArticle","");
+        if (idSelect != id)
+        {
+            $("#photoArticle"+idSelect).hide();
+            $("#petitePhotoArticle"+idSelect).removeClass("active");
+        }
+   });
+    
+    $("#petitePhotoArticle"+id).addClass("active");
+}
+
+function selectionModeleCouleurDefaut()
+{
+	if (document.getElementById('couleursCatId'))
+    {
+        var catId = document.getElementById('couleursCatId').value;
+        idCouleur = $(".selecteurCouleur.active").attr('id');
+        idCouleur = idCouleur.replace("couleur","");
+        idCouleur = parseInt(idCouleur);
+        
+        //window.alert("ok");
+        
+        document.getElementById("article_declinaison_"+catId).value = idCouleur;
+        verifDispoModele(idCouleur);
+    }
+}
+
+function verifDispoModele(idCouleur)
+{
+    if (document.getElementById('couleursCatId'))
+    {
+        var presenceCouleur = "oui";
+    }
+    else
+    {
+        var presenceCouleur = "non";
+    }
+    
+    if (document.getElementById('taillesCatId'))
+    {
+        var presenceTaille = "oui";
+    }
+    else
+    {
+        var presenceTaille = "non";
+    }
+    
+    if (presenceCouleur == "oui")
+    {
+		var couleursCatId = document.getElementById('couleursCatId').value;
+        if (idCouleur == 0)
+        {
+            idCouleur = $(".selecteurCouleur.active").attr('id');
+            idCouleur = idCouleur.replace("couleur","");
+            idCouleur = parseInt(idCouleur);
+        }
+    }
+    
+    if (presenceTaille == "oui")
+    {
+		var taillesCatId = document.getElementById('taillesCatId').value;
+        var idTaille = 0;
+    }
+
+	
+	if ((presenceTaille == "oui") && (presenceCouleur == "oui"))
+    {
+        for (m=0; m<tableauModeleFiche.length; m++)
+        {
+            if (tableauModeleFiche[m][couleursCatId] == idCouleur)
+            {
+                idTaille = tableauModeleFiche[m][taillesCatId];
+    
+                $("#selecteurTaille"+idTaille).removeClass('indisponible');
+                
+                if (tableauModeleFiche[m]['stock'] <= 0)
+                {
+                    $("#selecteurTaille"+idTaille).addClass('indisponible');
+                }           
+            }
+        }
+    }
+    else if (presenceTaille == "oui")
+    {
+        for (m=0; m<tableauModeleFiche.length; m++)
+        {
+            idTaille = tableauModeleFiche[m][taillesCatId];
+
+            $("#selecteurTaille"+idTaille).removeClass('indisponible');
+            
+            if (tableauModeleFiche[m]['stock'] <= 0)
+            {
+                $("#selecteurTaille"+idTaille).addClass('indisponible');
+            }
+        }
+    }
+}
+
+function masquerSousMenuGamme()
+{
+	$("#sousMenuGamme").fadeOut('slow');
+}
+
+function afficheReponseChargementGammes(doc)
+{
+	if (doc != "aucun")
+    {
+    	document.getElementById('sousMenuGamme').innerHTML = doc;
+    }
+}
+
+function miseajourPrixQuantiteArticle(id,quantite)
+{
+    if (document.getElementById('prixMonnaieInterne_'+id))
+    {
+        var prix = parseInt(document.getElementById('prixMonnaieInterne_'+id).value);
+	var newPrix = prix * quantite;
+
+	document.getElementById('prixFinal_'+id).innerHTML = newPrix+" rushs";
+    }
+    else
+    {
+	var prix = parseFloat(document.getElementById('prix_'+id).value);
+	var newPrix = prix * quantite;
+
+	newPrix = newPrix.toFixed(2);
+
+	document.getElementById('prixFinal_'+id).innerHTML = newPrix+"&euro;";
+	
+	if (document.getElementById('prixOrigine_'+id).value > 0)
+	{
+		var prixOrigine = parseFloat(document.getElementById('prixOrigine_'+id).value);
+		var newPrixOrigine = prixOrigine * quantite;
+		
+		newPrixOrigine = newPrixOrigine.toFixed(2);
+
+		document.getElementById('prixOrigineFinal_'+id).innerHTML = newPrixOrigine+"&euro;";
+	}
+    }
+}
+
+
+
+
+
+
+
+
+

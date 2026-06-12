@@ -1,0 +1,3747 @@
+var actionBoutonEnter = "";
+var lg = "es";
+var urlActuelle = document.location.href;
+var hauteurBox = 195;
+var largeurBox = 340;
+var hauteurPopup = 195;
+var largeurPopup = 340;
+
+document.onkeypress = verifToucheEntree;
+
+var dimension_detect=function()
+{
+    var d={'viewW':0,'viewH':0,'docH':0,'docW':0,'left':0,'top':0};
+    
+    if (document.body.scrollHeight>document.body.offsetHeight)
+    {
+        d.docW=document.body.scrollWidth;
+        d.docH=document.body.scrollHeight;
+    }
+    else
+    {
+        d.docW=document.body.offsetWidth;
+        d.docH=document.body.offsetHeight;
+    }
+     
+    if (self.innerWidth)
+    {
+        d.viewW=self.innerWidth;
+        d.viewH=self.innerHeight;
+        d.left=window.pageXOffset;
+        d.top=window.pageYOffset;
+    }
+    else
+    { 
+        var ie=(document.compatMode&&document.compatMode!='BackCompat')?document.documentElement:document.body; 
+        d.viewW=ie.clientWidth; 
+        d.viewH=ie.clientHeight; 
+        d.left=ie.scrollLeft; 
+        d.top=ie.scrollTop; 
+    }
+    
+    return d; 
+};
+
+$(window).resize(function() {
+    calage();
+});
+
+function saveSession(action) {
+
+    var valeur;
+    
+    if (action == "etat-menu-side") {        
+        if ($("#cl-wrapper").hasClass('sb-collapsed')) {
+            valeur = "ouvert";
+        } else {
+            valeur = "mini";
+        }
+    } else if (action == "navigationIsotope") {    
+        
+        var idCatSelect = 0;
+        var idMarqueSelect = 0;
+        
+        $("#selecteurMarques_contenu .colonne").each(function( index ) {
+            var idMarque = $(this).attr('id');
+            var idMarqueReelle = idMarque.replace("marque_","");
+            if ($(this).children(".case").hasClass('cochee')) {
+                if (idMarqueReelle != "tous") {
+                    idMarqueSelect = idMarqueReelle;
+                }
+            }
+        });
+        
+        $("#selecteurCategorie_contenu .colonne").each(function( index ) {
+            var idCategorie = $(this).attr('id');
+            var idCategorieReelle = idCategorie.replace("souscat_","");
+            
+            if ($(this).children(".case").hasClass('cochee')) {
+                if (idCategorieReelle != "tous") {
+                    idCatSelect = idCategorieReelle;
+                }
+            }
+        });
+        
+        valeur = "urlActuelle="+urlActuelle+"|numMarque="+idMarqueSelect+"|numCat="+idCatSelect;
+    }
+    
+    var url = "/executions/saveSession.php";
+    var parametres = "action="+action;
+    parametres += "&valeur="+valeur;
+
+    //window.alert(parametres);
+    
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: parametres
+    });
+}
+
+function checkAffiliation() {
+    var urlHash = window.location.hash;
+    
+    if ((urlHash != "") && (urlHash != undefined)) {
+    
+        var url = "/executions/checkAffiliation.php";
+        var parametres = "hash="+urlHash;
+        
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: parametres
+        });
+    }
+}
+
+function calage()
+{
+    calageBox();
+    calagePopup();
+    
+     $("#retourHaut").css({
+        'top': (($(window).height() - $("#retourHaut").height() - 15)),
+        'left': (($(window).width() - $("#retourHaut").width() - 15))
+    });    
+}
+
+function actionMenu(id,type,couleur)
+{
+    if (type == "over")
+    {
+   
+        $("#menuGeneral"+id).css({ 'background-image': 'none', 'background-color': '#'+couleur+'' });
+    }
+    else
+    {
+   
+        $("#menuGeneral"+id).css({ 'background-image': 'url(/template/leo-trastering-dev/images/transparent.png)', 'background-color': 'transparent' });
+    }  
+}
+
+
+
+/*INITIALISATION******************************************/
+$(window).load(function() {
+    checkAffiliation();
+            initialisationFormulaire('formContact',1);
+            
+    
+    
+});
+
+function initialisationFormulaire(idForm,id)
+{
+    document.getElementById(idForm).elements[id].focus();
+}
+
+$(window).bind('click', function() {
+    verifBody()
+});
+
+$(document).ready(function(){
+    
+    chargementSousMenu();
+    chargementModules();
+    
+        
+    $("#boutonInscriptionNewsletter").bind('click', function() {
+        verifEnvoiNewsletter();
+    });
+    
+    $("#newsletter_case").bind('keypress', function(event) {
+        var code = event.keyCode ? event.keyCode : event.which;
+    
+        if (code == 13)
+        {
+            verifEnvoiNewsletter();
+        }
+    });
+});
+
+function verifEnvoiNewsletter()
+{
+    var testEmail = document.getElementById('newsletter_case').value;
+    var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
+    
+    if (reg.test(testEmail)==false)
+    {        
+        alerte("<br />Tu e-mail no es válida","ok","bloquerentree");
+        document.getElementById('newsletter_case').focus();
+    }
+    else
+    {
+        var url = "/executions/validAddNewsletter.php";
+        var parametres = "email="+document.getElementById('newsletter_case').value;
+        
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: parametres,
+            success: function(data){
+                afficheReponseAddNewsletter(data);
+              }
+        });
+    }
+}
+
+function verifAddCommentaire(idForm)
+{
+    if ((document.getElementById(idForm).txt_texte.value.length < 5) || (document.getElementById(idForm).txt_texte.value == ""))
+    {
+        alerte("<br />Debe escribir su mensaje","ok");
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+function afficheReponseAddNewsletter(doc)
+{
+    if (doc == "ok")
+    {
+        alerte("Ahora estás suscrito a nuestra newsletter. <br /> Si desea cancelar tu suscripción, usa el enlace que se encuentra en la parte inferior del próximo boletín que recibirás.","ok","bloquerentree");
+    }
+    else if (doc == "emaildoublon")
+    {
+        alerte("<br />Este correo electrónico ya está registrado parte en el boletín.","ok","bloquerentree");
+    }
+    else
+    {
+        envoiErreurAdmin('afficheReponseAddNewsletter',doc);
+    }
+}
+
+function chargementSousMenu() {
+    var url = "/executions/menu.php";
+    
+    $.ajax({
+        type: "POST",
+        url: url,
+        success: function(data){
+            afficheReponseChargementSousMenu(data);
+          }
+    });
+}
+
+function afficheReponseChargementSousMenu(doc) {
+    $("#conteneurmenu").html(doc);
+}
+
+
+function chargementModules() {
+    var url = "/executions/modules.php";
+    
+    $.ajax({
+        type: "POST",
+        url: url,
+        success: function(data){
+            afficheReponseChargementModules(data);
+          }
+    });
+}
+
+function afficheReponseChargementModules(doc)
+{
+    $("#conteneurmodules").html(doc);
+    
+    retourHaut();
+    
+        
+    messageAlerte('');
+    
+    }
+
+function messageAlerte(msg) {
+    if (msg == "indispo") {
+        alerte("<br />Hemos encontrado un problema al intentar reservar este trastero. Por favor, llámanos al 93 293 36 28 para poder ayudarte","reload","/reservation");
+    } else if (msg == "erreurIdentification") {
+        alerte("<br />¡Error! Sus credenciales de acceso no son correctos","erreurIdentification");
+    } else if (msg == "erreurCardNumber") {
+        alerte("<br />El número de la tarjeta introducida es incorrecta","ok");
+    } else if (msg == "erreurCvc") {
+        alerte("<br />El código de verificación es incorrecto.","ok");
+    } else if (msg == "addCommentOk") {
+    alerte("<br />Su comentario ha sido tenido en cuenta. <br /> Será línea tan pronto como se validará el servicio de moderación. <br /> Gracias por su participación.","ok");
+    }  else if (msg == "erreurPaysBloque") {
+    alerte("El país de la dirección de entrega no está disponible para nuestros transportistas. <br /> Gracias a elegir una dirección de envío a otro país.","ok");
+    } else if (msg == "erreur") {
+        alerte("<br />Tienes que elegir un Centro y luego un Tamaño","ok");
+    }
+    else if (msg == "envoiOk") {
+        alerte("<br />Gracias por su mensaje, le responderemos tan pronto como sea posible","ok");
+    } else if (msg == "envoiContactOk") {
+        alerte("<br />Gracias por su mensaje, le responderemos tan pronto como sea posible","reload","/noticias");
+    } else if (msg == "erreurVille") {
+        alerte("<br />Es necesario seleccionar tu ciudad","ok");
+    }
+    else if (msg == "inconnu")
+    {
+        alerte("<br />No se encontraron usuarios","ok");
+    }
+    else if (msg == "sendPw")
+    {
+        alerte("<br />Su nueva contraseña acaba de ser enviado a su correo electrónico","ok");
+    }
+    else if (msg == "erreurcode")
+    {
+        alerte("<br />El código de verificación es incorrecto","ok");
+    }
+    else if (msg == "desinscriptionOk")
+    {
+        alerte("<br />Darse de baja realizada. Ya no recibirá noticias de nosotros.","ok");
+    }
+    else if (msg == "erreuremail")
+    {
+        alerte("<br />Su correo electrónico es incorrecto","ok");
+    }
+    else if (msg == "erreurdoublonemail")
+    {
+        alerte("<br />El correo electrónico que ha introducido ya está en el correo de otro miembro","ok");
+    }
+    else if (msg == "doublonemailResa")
+    {
+        alerte("El email que entraste es el email de un miembro actual de este sitio web.<br/>Si ya tienes una cuenta, gracias por conectarte a través del botón siguiente :","connexionDirecte");
+    }
+    else if (msg == "erreurModif")
+    {
+        alerte("Une erreur s'est produite lors de la modification de vos infos","ok");
+    }
+    else if (msg == "ajoutOk")
+    {
+        alerte("<br />Ajout effectu&eacute;","ok");
+    }
+    else if (msg == "modifOk")
+    {
+        alerte("<br />Modification de vos informations effectu&eacute;e","ok");
+    }
+    else if (msg == "panierstock")
+    {
+        alerte("Cet article n'est plus disponible, veuillez nous en excuser","ok");
+    }
+    else if (msg == "paniertaille")
+    {
+        alerte("Cet article n'est plus disponible dans la taille que vous avez s&eacute;lectionn&eacute;","ok");
+    }
+    else if (msg == "panierok")
+    {
+                    alerte("Cet article a &eacute;t&eacute; ajout&eacute; dans votre panier","ok");
+                }           
+    else if (msg == "panierko")
+    {
+        alerte("Une erreur s'est produite, veuillez recommencer l'op&eacute;ration","ok");
+    }
+    else if (msg == "supprimOk")
+    {
+        alerte("Suppression effectu&eacute;e","ok");
+    }
+    else if (msg == "supprimKo")
+    {
+        alerte("Erreur lors de la suppression","ok");
+    }
+    else if (msg == "tempsDepasse")
+    {
+        alerte("Temps limite d&eacute;pass&eacute; !","ok");
+    }
+    else if (msg == "envoi")
+    {
+        alerte("Nous vous remercions pour votre message,\nnous nous engageons &agrave; vous r&eacute;pondre dans les plus brefs d&eacute;lais","ok");
+    }
+    else if (msg == "erreurMp")
+    {
+        alerte("Le mot de passe que vous avez saisi est incorrect","ok");
+    }
+    else if (msg == "mpOk")
+    {
+        alerte("Votre mot de passe a bien &eacute;t&eacute; chang&eacute;","ok");
+    }
+    else if (msg == "mpOk")
+    {
+        alerte("Votre mot de passe a bien &eacute;t&eacute; chang&eacute;","ok");
+    }
+    else if (msg == "erreurConnexion")
+    {
+        alerte("Les informations saisies sont incorrectes","ok");
+    }
+    else if (msg == "connexion")
+    {
+        alerte(" bienvenue sur Trastering.es !","ok");
+    }
+    else if (msg == "inscriptionok")
+    {
+        alerte("<br />Votre inscription a bien &eacute;t&eacute; valid&eacute;e !","ok");
+    }
+    else if (msg == "email")
+    {
+        alerte("L'e-mail que vous avez saisi est d&eacute;j&agrave; attribu&eacute; &agrave; un membre de Trastering.es","ok");
+    }
+    else if (msg == "emailNonValide")
+    {
+        alerte("Le format de l'email que vous avez saisi n'est pas valide","ok");
+    }
+    else if (msg == "emailDeja")
+    {
+        alerte("Le propi&eacute;taire de l'email  &agrave; d&eacute;j&agrave; re&ccedil;u une invitation","ok");
+    }
+    else if (msg == "emailEnvoye")
+    {
+        alerte("Une invitation a &eacute;t&eacute; envoy&eacute;e &agrave; ","ok");
+    }
+    else if (msg == "emailOk")
+    {
+        alerte("Votre e-mail a bien &eacute;t&eacute; pris en compte","ok");
+    }
+    else if (msg == "insert")
+    {
+        alerte("Une erreur s'est produite lors de l'enregistrement de vos donn&eacute;es","ok");
+    }
+    else if (msg == "compteSupp")
+    {
+        alerte("Compte Supprim&eacute;","ok");
+    }
+}
+
+function retourHaut()
+{
+    $("#retourHaut").css({
+        'top': (($(window).height() - $("#retourHaut").height() - 15)),
+        'left': (($(window).width() - $("#retourHaut").width() - 15))
+    });
+    
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $("#retourHaut").fadeIn('slow');
+        } else {
+            $("#retourHaut").fadeOut('slow');
+        }
+    });
+
+    // scroll body to 0px on click
+    /*$('#back-top a').click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 800);
+        return false;
+    });*/
+
+    $("#retourHaut").bind('click', function(){
+        $('body,html').animate({
+            scrollTop: 0
+        }, 800);
+        return false;
+    });
+}
+
+
+
+function verifResetPassword(idForm)
+{
+    if (document.getElementById(idForm).txt_email.value == "")
+    {
+        document.getElementById('texteAlerteLoginRecover').innerHTML = "Debe introducir su correo electrónico";
+        $("#caseAlerteLoginRecover").slideDown('slow');
+    }
+    else
+    {
+        var testEmail = document.getElementById(idForm).txt_email.value;
+        var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
+        
+        if (reg.test(testEmail)==false)
+        {
+            document.getElementById('texteAlerteLoginRecover').innerHTML = "Tu e-mail no es válida";
+            $("#caseAlerteLoginRecover").slideDown('slow');
+        }
+        else
+        {        
+            document.getElementById(idForm).submit();
+        }
+    }
+}
+
+
+function infoBulle(zone)
+{
+    var topCode = 0;
+    
+    if ($("#infoBulle").is(':hidden'))
+    {
+        $("#infoBulle").fadeIn('slow');
+    }
+    
+    if (zone == "prenom")
+    {
+        document.getElementById("infoBulle").innerHTML = "Saisissez votre pr&eacute;nom, cette information restera confidenteille.";
+        $('#infoBulle').animate({
+            top: '18'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "nom")
+    {
+        document.getElementById("infoBulle").innerHTML = "Saisissez votre nom de famille, cette information restera confidenteille.";
+        $('#infoBulle').animate({
+            top: '84'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "email")
+    {
+        document.getElementById("infoBulle").innerHTML = "ATTENTION ! l'e-mail que vous allez saisir doit &ecirc;tre valide pour que nous puissions vous joindre et vous envoyer vos factures.";
+        $('#infoBulle').animate({
+            top: '150'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "mp")
+    {
+        document.getElementById("infoBulle").innerHTML = "Choissez un mot de passe comportant au minimum 6 caract&egrave;res.";
+        $('#infoBulle').animate({
+            top: '216'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "mp2")
+    {
+        document.getElementById("infoBulle").innerHTML = "Merci de ressaisir le m&ecirc;me mot de passe afin d'effectuer une comparaison et ainsi &eacute;viter les erreurs de saisie.";
+        $('#infoBulle').animate({
+            top: '282'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "adresse")
+    {
+        document.getElementById("infoBulle").innerHTML = "Merci de saisir votre adresse de facturation. Cette adresse pourra &ecirc;tre utilis&eacute;e comme adresse de livraison.";
+        $('#infoBulle').animate({
+            top: '368'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "cp")
+    {
+        document.getElementById("infoBulle").innerHTML = "Merci de saisir votre code postal.";
+        $('#infoBulle').animate({
+            top: '464'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "ville")
+    {
+        
+        document.getElementById("infoBulle").innerHTML = "Merci de saisir votre ville de r&eacute;sidence.";
+        $('#infoBulle').animate({
+            top: '530'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "pays")
+    {
+        document.getElementById("infoBulle").innerHTML = "Merci de s&eacute;lectionner votre pays de r&eacute;sidence.";
+        $('#infoBulle').animate({
+            top: '596'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "tel")
+    {        
+        document.getElementById("infoBulle").innerHTML = "Merci de saisir votre t&eacute;l&eacute;phone. Ce num&eacute;ro sera utile pour vous joindre en cas de difficult&eacute; de livraison de votre commande.";
+        $('#infoBulle').animate({
+            top: '664'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "code")
+    {        
+        document.getElementById("infoBulle").innerHTML = "Pour valider votre inscription vous devez saisir le code de v&eacute;rification dans la case ci-contre.";
+        $('#infoBulle').animate({
+            top: '732'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "prenomLivraison")
+    {
+        document.getElementById("infoBulle").innerHTML = "Saisissez le pr&eacute;nom du destinataire de cette commande.";
+        $('#infoBulle').animate({
+            top: '18'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "nomLivraison")
+    {
+        document.getElementById("infoBulle").innerHTML = "Saisissez le nom du destinataire de cette commande.";
+        $('#infoBulle').animate({
+            top: '85'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "adresseLivraison")
+    {
+        document.getElementById("infoBulle").innerHTML = "Saisissez l'adresse postale du destinataire de cette commande.";
+        $('#infoBulle').animate({
+            top: '173'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "cpLivraison")
+    {
+        document.getElementById("infoBulle").innerHTML = "Saisissez le code postal de la ville du destinataire de cette commande.";
+        $('#infoBulle').animate({
+            top: '268'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "villeLivraison")
+    {        
+        document.getElementById("infoBulle").innerHTML = "Merci de saisir votre ville de destination de cette commande.";
+        $('#infoBulle').animate({
+            top: '334'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "paysLivraison")
+    {
+        document.getElementById("infoBulle").innerHTML = "Merci de s&eacute;lectionner votre pays de destination de cette commande.";
+        $('#infoBulle').animate({
+            top: '400'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "telLivraison")
+    {        
+        document.getElementById("infoBulle").innerHTML = "Merci de saisir le t&eacute;l&eacute;phone du destinatire de cette commande. Ce num&eacute;ro sera utile pour joindre le destinataire en cas de difficult&eacute; de livraison.";
+        $('#infoBulle').animate({
+            top: '466'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "prenomInformation")
+    {
+        document.getElementById("infoBulle").innerHTML = "Votre pr&eacute;nom est utilis&eacute; pour l'adresse de facturation de vos futures commandes, cette information restera confidenteille.";
+        $('#infoBulle').animate({
+            top: '18'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "nomInformation")
+    {
+        document.getElementById("infoBulle").innerHTML = "Votre nom est utilis&eacute; pour l'adresse de facturation de vos futures commandes, cette information restera confidenteille.";
+        $('#infoBulle').animate({
+            top: '85'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "emailInformation")
+    {
+        document.getElementById("infoBulle").innerHTML = "ATTENTION ! le changement de cet email entrainera une demande de reconnexion etant donn&eacute; que votre email vous sert de login de connexion.";
+        $('#infoBulle').animate({
+            top: '153'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "adresseInformation")
+    {
+        document.getElementById("infoBulle").innerHTML = "Cette adresse est utilis&eacute;e pour l'adresse de facturation de vos futures commandes.";
+        $('#infoBulle').animate({
+            top: '240'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "cpInformation")
+    {
+        document.getElementById("infoBulle").innerHTML = "Ce code postal est utilis&eacute; pour l'adresse de facturation de vos futures commandes.";
+        $('#infoBulle').animate({
+            top: '336'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "paysInformation")
+    {
+        document.getElementById("infoBulle").innerHTML = "Ce pays est utilis&eacute; pour l'adresse de facturation de vos futures commandes.";
+        $('#infoBulle').animate({
+            top: '404'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "depInformation")
+    {
+        document.getElementById("infoBulle").innerHTML = "Ce d&eacute;partement est utilis&eacute; pour l'adresse de facturation de vos futures commandes.";
+        $('#infoBulle').animate({
+            top: '474'
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "villeInformation")
+    {
+        topCode = 476;
+        
+        if ($("#ligneDepInscription").is(':visible'))
+        {
+            topCode = topCode + 68;
+        }
+        
+        document.getElementById("infoBulle").innerHTML = "Cette ville est utilis&eacute;e pour l'adresse de facturation de vos futures commandes.";
+        $('#infoBulle').animate({
+            top: topCode
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+    else if (zone == "telInformation")
+    {
+        topCode = 476;
+        
+        if ($("#ligneDepInscription").is(':visible'))
+        {
+            topCode = topCode + 68;
+        }
+        
+        if ($("#ligneVilleInscription").is(':visible'))
+        {
+            topCode = topCode + 68;
+        }
+        
+        document.getElementById("infoBulle").innerHTML = "Ce num&eacute;ro sera utile pour vous joindre en cas de difficult&eacute; de livraison de votre commande.";
+        $('#infoBulle').animate({
+            top: topCode
+          }, 500, function() {
+            // Animation complete.
+          });
+    }
+}
+
+function ouvrirLigne(id)
+{
+    if ($("#boutonOuvrir"+id).is(':hidden'))
+    {
+        $("#infos"+id).slideUp("slow");
+        //document.getElementById("infos"+id).style.display = "none";
+        document.getElementById("boutonFermer"+id).style.display = "none";
+        document.getElementById("boutonOuvrir"+id).style.display = "block";
+    }
+    else
+    {
+        $("#infos"+id).slideDown("slow");
+        document.getElementById("boutonOuvrir"+id).style.display = "none";
+        document.getElementById("boutonFermer"+id).style.display = "block";
+    }
+}
+
+function ouvrirAuto(id)
+{
+    $("#"+id).slideToggle('slow');
+}
+
+function verifEnvoiMessage(idForm)
+{
+    if (document.getElementById(idForm).txt_email)
+    {
+        var testEmail = document.getElementById(idForm).txt_email.value;
+        var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
+    }
+    
+    if ((document.getElementById(idForm).txt_nom) && (document.getElementById(idForm).txt_nom.value == ""))
+    {
+        alerte("<br />Debe introducir su nombre","ok");
+        document.getElementById(idForm).txt_nom.style.borderColor = '#FF0000';
+        document.getElementById(idForm).txt_nom.focus();
+        return false;
+    }
+    else if ((document.getElementById(idForm).txt_email) && (document.getElementById(idForm).txt_email.value == ""))
+    {
+        alerte("<br />Debe introducir su correo electrónico","ok");
+        document.getElementById(idForm).txt_email.style.borderColor = '#FF0000';
+        document.getElementById(idForm).txt_email.focus();
+        return false;
+    }
+    else if ((document.getElementById(idForm).txt_email) && (reg.test(testEmail)==false))
+    {
+        alerte("<br />Tu e-mail no es válida","ok");
+        document.getElementById(idForm).txt_email.style.borderColor = '#FF0000';
+        document.getElementById(idForm).txt_email.focus();
+        return false;
+    }
+    else if (document.getElementById(idForm).txt_sujet.value == "")
+    {
+        alerte("<br />Se debe introducir el asunto del mensaje","ok");
+        document.getElementById(idForm).txt_sujet.style.borderColor = '#FF0000';
+        document.getElementById(idForm).txt_sujet.focus();
+        return false;
+    }
+    else if (document.getElementById(idForm).txt_sujet.value.length < 3)
+    {
+        alerte("<br />Se debe introducir el asunto del mensaje","ok");
+        document.getElementById(idForm).txt_sujet.style.borderColor = '#FF0000';
+        document.getElementById(idForm).txt_sujet.focus();
+        return false;
+    }
+    else if ((document.getElementById(idForm).txt_message.value.length < 3) || (document.getElementById(idForm).txt_message.value == ""))
+    {
+        alerte("<br />Debe escribir su mensaje","ok");
+        document.getElementById(idForm).txt_message.style.borderColor = '#FF0000';
+        document.getElementById(idForm).txt_message.focus();
+        return false;
+    }
+    else if ((document.getElementById(idForm).txt_code) && (document.getElementById(idForm).txt_code.value == ""))
+    {
+        alerte("<br />Debe introducir el código de verificación","ok");
+        document.getElementById(idForm).txt_code.style.borderColor = '#FF0000';
+        document.getElementById(idForm).txt_code.focus();
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+function verifEnvoiQuestion(idForm)
+{
+    if (document.getElementById(idForm).txt_question.value == "")
+    {
+        alerte("<br />Debe introducir su pregunta","ok");
+        document.getElementById(idForm).txt_question.style.borderColor = '#FF0000';
+        document.getElementById(idForm).txt_question.focus();
+        return false;
+    }
+    else if (document.getElementById(idForm).txt_code.value == "")
+    {
+        alerte("<br />Debe introducir el código de verificación","ok");
+        document.getElementById(idForm).txt_code.style.borderColor = '#FF0000';
+        document.getElementById(idForm).txt_code.focus();
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+function verifInscription(idForm,mode)
+{
+    var testEmail = document.getElementById(idForm).txt_caseemail.value;
+    var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
+    
+    if (($("#"+idForm+" input[name='select_typeCompte']").length > 0) && ((document.getElementById(idForm).select_typeCompte.value == "") || (document.getElementById(idForm).select_typeCompte.value == "0")))
+    {
+        alerte("<br />Se debe seleccionar el tipo de cuenta que desea crear","ok");
+        modifetatDonneeFormulaire("civilite","ko");
+        document.getElementById(idForm).select_typeCompte.focus();
+        return false;
+    }
+    else if ((document.getElementById(idForm).select_typeCompte.value == "pro") && (document.getElementById(idForm).txt_caseraisonsociale.value == ""))
+    {
+        alerte("<br />Debes introducir la razón social de tu empresa","ok");
+        modifetatDonneeFormulaire("caseraisonsociale","ko");
+        document.getElementById(idForm).txt_caseraisonsociale.focus();
+        return false;
+    }
+    else if ((document.getElementById(idForm).select_typeCompte.value == "pro") && ((document.getElementById(idForm).txt_casesiret.value == "") || (document.getElementById(idForm).txt_casesiret.value.length < 14)))
+    {
+        alerte("<br />Debe introducir Siret número de su empresa","ok");
+        modifetatDonneeFormulaire("casesiret","ko");
+        document.getElementById(idForm).txt_casesiret.focus();
+        return false;
+    }
+    else if ((document.getElementById(idForm).select_typeCompte.value == "pro") && ((document.getElementById(idForm).txt_casenumerotva.value == "") || (document.getElementById(idForm).txt_casenumerotva.value.length < 6)))
+    {
+        alerte("<br />Debe introducir CIF de su empresa","ok");
+        modifetatDonneeFormulaire("casenumerotva","ko");
+        document.getElementById(idForm).txt_casenumerotva.focus();
+        return false;
+    }
+    else if ((document.getElementById(idForm).select_civilite.value == "") || (document.getElementById(idForm).select_civilite.value == "0"))
+    {
+        alerte("<br />Debe seleccionar el título","ok");
+        modifetatDonneeFormulaire("civilite","ko");
+        document.getElementById(idForm).select_civilite.focus();
+        return false;
+    }
+    else if (document.getElementById(idForm).txt_caseprenom.value == "")
+    {
+        alerte("<br />Debes introducir tu nombre","ok");
+        modifetatDonneeFormulaire("caseprenom","ko");
+        document.getElementById(idForm).txt_caseprenom.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (document.getElementById(idForm).txt_casenom.value == "")
+    {
+        alerte("<br />Debe introducir su nombre","ok");
+        modifetatDonneeFormulaire("casenom","ko");
+        document.getElementById(idForm).txt_casenom.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (reg.test(testEmail)==false)
+    {        
+        alerte("<br />Tu e-mail no es válida","ok");
+        modifetatDonneeFormulaire("caseemail","ko");
+        document.getElementById(idForm).txt_caseemail.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (document.getElementById(idForm).txt_casemp.value == "")
+    {
+        alerte("<br />Debe introducir su contraseña","ok");
+        modifetatDonneeFormulaire("casemp","ko");
+        document.getElementById(idForm).txt_casemp.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (document.getElementById(idForm).txt_casemp.value.length < 6)
+    {
+        alerte("<br />Su contraseña debe contener al menos 6 caracteres","ok");
+        modifetatDonneeFormulaire("casemp","ko");
+        document.getElementById(idForm).txt_casemp.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (document.getElementById(idForm).txt_casemp2.value == "")
+    {
+        alerte("<br />Debe confirmar su contraseña","ok");
+        modifetatDonneeFormulaire("casemp2","ko");
+        document.getElementById(idForm).txt_casemp2.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (document.getElementById(idForm).txt_casemp2.value != document.getElementById(idForm).txt_casemp.value)
+    {
+        alerte("<br />Su confirmación no coincide con la contraseña","ok");
+        modifetatDonneeFormulaire("casemp2","ko");
+        document.getElementById(idForm).txt_casemp2.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (document.getElementById(idForm).txt_caseadresse.value == "")
+    {
+        alerte("<br />Debe introducir su dirección de","ok");
+        modifetatDonneeFormulaire("caseadresse","ko");
+        document.getElementById(idForm).txt_caseadresse.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (document.getElementById(idForm).txt_casecodepostal.value == "")
+    {
+        alerte("<br />Debe introducir su código postal","ok");
+        modifetatDonneeFormulaire("casecodepostal","ko");
+        document.getElementById(idForm).txt_casecodepostal.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (document.getElementById(idForm).txt_caseville.value == "")
+    {
+        alerte("<br />Debe introducir su ciudad","ok");
+        modifetatDonneeFormulaire("caseville","ko");
+        document.getElementById(idForm).txt_caseville.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if ((document.getElementById(idForm).select_pays.value == "") || (document.getElementById(idForm).select_pays.value == "0"))
+    {
+        alerte("<br />Debe seleccionar su país","ok");
+        modifetatDonneeFormulaire("pays","ko");
+        document.getElementById(idForm).select_pays.focus();
+        return false;
+    }
+    else if (document.getElementById(idForm).txt_casetel.value == "")
+    {
+        alerte("<br />Debes introducir tu teléfono","ok");
+        modifetatDonneeFormulaire("casetel","ko");
+        document.getElementById(idForm).txt_casetel.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if ((document.getElementById(idForm).txt_casecode.value == "") || (document.getElementById(idForm).txt_casecode.length < 6))
+    {
+        alerte("<br />Debe introducir el código de verificación","ok");
+        modifetatDonneeFormulaire("casecode","ko");
+        document.getElementById(idForm).txt_casecode.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else
+    {
+        if (mode == "direct")
+        {
+            document.getElementById(idForm).submit();
+        }
+        else if (mode == "form")
+        {
+            return true;
+        }
+    }
+}
+
+function verifHeureRetrait(idForm,mode)
+{    
+    var optionSelectionne = document.getElementById(idForm).select_heureRetrait.selectedIndex;
+    var numHeureRetrait = document.getElementById(idForm).select_heureRetrait.options[optionSelectionne].value;
+    
+    if (numHeureRetrait == 0)
+    {
+        alerte("<br />Se debe seleccionar el tiempo que desea venir a recoger su pedido","ok");
+        modifetatDonneeFormulaire("heureRetrait","ko");
+        document.getElementById(idForm).select_heureRetrait.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else
+    {
+        if (mode == "direct")
+        {
+            document.getElementById(idForm).submit();
+        }
+        else if (mode == "form")
+        {
+            return true;
+        }
+    }      
+}
+
+function verifLivraison(idForm,mode)
+{    
+    if (document.getElementById(idForm).txt_caseprenom.value == "")
+    {
+        alerte("<br />Debes introducir tu nombre","ok");
+        modifetatDonneeFormulaire("caseprenom","ko");
+        document.getElementById(idForm).txt_caseprenom.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (document.getElementById(idForm).txt_casenom.value == "")
+    {
+        alerte("<br />Debe introducir su nombre","ok");
+        modifetatDonneeFormulaire("casenom","ko");
+        document.getElementById(idForm).txt_casenom.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (document.getElementById(idForm).txt_caseadresse.value == "")
+    {
+        alerte("<br />Debe introducir su dirección de","ok");
+        modifetatDonneeFormulaire("caseadresse","ko");
+        document.getElementById(idForm).txt_adresse.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (document.getElementById(idForm).txt_casecodepostal.value == "")
+    {
+        alerte("<br />Debe introducir su código postal","ok");
+        modifetatDonneeFormulaire("casecodepostal","ko");
+        document.getElementById(idForm).txt_casecodepostal.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if ((document.getElementById(idForm).select_pays.value == "") || (document.getElementById(idForm).select_pays.value == "0"))
+    {
+        alerte("<br />Debe seleccionar su país","ok");
+        modifetatDonneeFormulaire("pays","ko");
+        document.getElementById(idForm).select_pays.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (document.getElementById(idForm).txt_caseville.value == "")
+    {
+        alerte("<br />Debes introducir tu teléfono","ok");
+        modifetatDonneeFormulaire("caseville","ko");
+        document.getElementById(idForm).txt_caseville.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (document.getElementById(idForm).txt_casetel.value == "")
+    {
+        alerte("<br />Debes introducir tu teléfono","ok");
+        modifetatDonneeFormulaire("casetel","ko");
+        document.getElementById(idForm).txt_casetel.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else
+    {
+        if (mode == "direct")
+        {
+            document.getElementById(idForm).submit();
+        }
+        else if (mode == "form")
+        {
+            return true;
+        }
+    }      
+}
+
+function verifInformation(idForm,mode)
+{
+    var testEmail = document.getElementById(idForm).txt_caseemail.value;
+    var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
+
+    if (document.getElementById(idForm).txt_caseprenom.value == "")
+    {
+        alerte("<br />Debes introducir tu nombre","ok");
+        modifetatDonneeFormulaire("caseprenom","ko");
+        document.getElementById(idForm).txt_caseprenom.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (document.getElementById(idForm).txt_casenom.value == "")
+    {
+        alerte("<br />Debe introducir su nombre","ok");
+        modifetatDonneeFormulaire("casenom","ko");
+        document.getElementById(idForm).txt_casenom.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (reg.test(testEmail)==false)
+    {        
+        alerte("<br />Tu e-mail no es válida","ok");
+        modifetatDonneeFormulaire("caseemail","ko");
+        document.getElementById(idForm).txt_caseemail.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (document.getElementById(idForm).txt_caseadresse.value == "")
+    {
+        alerte("<br />Debe introducir su dirección de","ok");
+        modifetatDonneeFormulaire("caseadresse","ko");
+        document.getElementById(idForm).txt_caseadresse.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (document.getElementById(idForm).txt_casecodepostal.value == "")
+    {
+        alerte("<br />Debe introducir su código postal","ok");
+        modifetatDonneeFormulaire("casecodepostal","ko");
+        document.getElementById(idForm).txt_casecodepostal.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (document.getElementById(idForm).txt_caseville.value == "")
+    {
+        alerte("<br />Debe introducir su ciudad","ok");
+        modifetatDonneeFormulaire("caseville","ko");
+        document.getElementById(idForm).txt_caseville.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if ((document.getElementById(idForm).select_pays.value == "") || (document.getElementById(idForm).select_pays.value == "0"))
+    {
+    alerte("<br />Debe seleccionar su país","ok");
+        modifetatDonneeFormulaire("pays","ko");
+        document.getElementById(idForm).select_pays.focus();
+        return false;
+    }
+    else if (document.getElementById(idForm).txt_casetel.value == "")
+    {
+    alerte("<br />Debes introducir tu teléfono","ok");
+        modifetatDonneeFormulaire("casetel","ko");
+        document.getElementById(idForm).txt_casetel.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else
+    {
+        if (mode == "direct")
+        {
+            document.getElementById(idForm).submit();
+        }
+        else if (mode == "form")
+        {
+            return true;
+        }
+    }
+}
+
+function verifIndentification(idForm)
+{
+    var testEmail = document.getElementById(idForm).emailConnexion.value;
+    var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
+        
+    if (document.getElementById(idForm).emailConnexion.value == "")
+    {
+        document.getElementById('texteAlerteEmail'+idForm).innerHTML = "Debe introducir su correo electrónico";
+        $("#caseAlerteEmail"+idForm).slideDown('slow');
+        return false;
+    }
+    else if (reg.test(testEmail)==false)
+    {        
+        document.getElementById('texteAlerteEmail'+idForm).innerHTML = "Tu e-mail no es válida";
+        $("#caseAlerteEmail"+idForm).slideDown('slow');
+        return false;
+    }
+    else if ((document.getElementById(idForm).mpConnexion) && (document.getElementById(idForm).mpConnexion.value == ""))
+    {
+        document.getElementById('textePassword'+idForm).innerHTML = "Debe introducir su contraseña";
+        $("#caseAlertePassword"+idForm).slideDown('slow');
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+function verifIndentificationHome(idForm)
+{
+    var testEmail = document.getElementById(idForm).emailConnexion.value;
+    var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
+        
+    if (document.getElementById(idForm).emailConnexion.value == "")
+    {
+        alerte("<br />Debe introducir su correo electrónico","ok");
+        return false;
+    }
+    else if (reg.test(testEmail)==false)
+    {        
+        alerte("<br />Tu e-mail no es válida","ok");
+        return false;
+    }
+    else if ((document.getElementById(idForm).mpConnexion) && (document.getElementById(idForm).mpConnexion.value == ""))
+    {
+        alerte("<br />Debe introducir su contraseña","ok");
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+function verifChangeMp(idForm)
+{
+    if (document.getElementById(idForm).oldMp.value == "")
+    {
+        document.getElementById('texteAlerteOldMpChangeMp').innerHTML = "Debe introducir su contraseña actual";
+        $("#caseAlerteOldMpChangeMp").slideDown('slow');
+    }
+    else if (document.getElementById(idForm).newMp.value == "")
+    {
+        document.getElementById('texteAlerteNewMpChangeMp').innerHTML = "Debe introducir su nueva contraseña";
+        $("#caseAlerteNewMpChangeMp").slideDown('slow');
+    }
+    else if (document.getElementById(idForm).newMp.value.length < 6)
+    {
+        document.getElementById('texteAlerteNewMpChangeMp').innerHTML = "Su contraseña debe contener al menos 6 caracteres";
+        $("#caseAlerteNewMpChangeMp").slideDown('slow');
+    }
+    else if (document.getElementById(idForm).confirmNewMp.value == "")
+    {
+        document.getElementById('texteAlerteConfirmNewMpChangeMp').innerHTML = "Debe confirmar su nueva contraseña";
+        $("#caseAlerteConfirmNewMpChangeMp").slideDown('slow');
+    }
+    else if (document.getElementById(idForm).newMp.value != document.getElementById(idForm).confirmNewMp.value)
+    {
+        document.getElementById('texteAlerteConfirmNewMpChangeMp').innerHTML = "Su confirmación no coincide con la contraseña";
+        $("#caseAlerteConfirmNewMpChangeMp").slideDown('slow');
+    }
+    else
+    {        
+        document.getElementById(idForm).submit();
+        return true;
+    }
+}
+
+function clearCaseSearch(id,couleur)
+{
+    if (document.getElementById(id).value == "Busca aquí...")
+    {
+        document.getElementById(id).value = "";
+        document.getElementById(id).style.color = "#"+couleur;
+    }
+    else if (document.getElementById(id).value == "Escribe aquí tu email*...")
+    {
+        document.getElementById(id).value = "";
+        document.getElementById(id).style.color = "#"+couleur;
+    }
+}
+
+function verifBody()
+{
+    if ($("#caseSuggestion").is(':hidden'))
+    {
+    }
+    else
+    {
+        $("#caseSuggestion").fadeOut('slow');
+    }
+}
+
+function envoiErreurAdmin(source,doc)
+{
+    var url = "/executions/envoiErreurAdmin.php";
+    var parametres = "erreur="+doc;
+    parametres += "&source="+source;
+    
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: parametres,
+        success: function(data){
+            afficheReponseErreurAdmin(data);
+          }
+    });
+}
+
+function afficheReponseErreurAdmin(doc)
+{
+    alerte("Se ha producido un error ! <br /> Se ha transmitido a nosotros. <br /> Vamos a intervenir en el menor tiempo posible","ok");
+}
+
+function verifToucheEntree(event)
+{
+    var code = event.keyCode ? event.keyCode : event.which;
+    
+    if (code == 13)
+    {
+        if ((actionBoutonEnter == "fermerAlerte") && ($("#box").is(':visible')))
+        {
+            actionBoutonEnter = "";
+            fermerAlerte();
+        }
+        else if ((actionBoutonEnter == "reload") && ($("#box").is(':visible')))
+        {
+            actionBoutonEnter = "";
+            location.reload();
+        }
+    }
+}
+
+function verifToucheEntree2(event,mode)
+{
+    var code = event.keyCode ? event.keyCode : event.which;
+    
+    if (code == 13)
+    {
+        if (mode == "verifBonDeReduction")
+        {
+            verifBonDeReduction();
+        }
+    }
+}
+
+function validPanier()
+{
+    location.href='/Compra / identification.php';
+}
+
+function verifBonDeReduction()
+{
+    var codeBon = document.getElementById("txt_bonDeReduction").value;
+
+    if (codeBon == "")
+    {
+        alerte("Introduzca en el cuadro del código de su bono","ok");
+    }
+    else
+    {
+        var presenceReductionPanier = document.getElementById("presenceReductionSurPanier").value;
+        
+        if (presenceReductionPanier == "oui")
+        {
+            alerte("<br />Es imposible combinar un cupón con un producto promocional.","ok");
+        }
+        else
+        {
+            var montantTotalPanier = document.getElementById("txt_montantTotalPanier").value;
+            var montantFraisPanier = document.getElementById("txt_montantFraisPanier").value;
+            var numPaysLivraison = document.getElementById("numPaysLivraison").value;
+            var numTransporteur = document.getElementById("numTransporteur").value;
+            
+            var url = "/executions/verifBonDeReduction.php";
+            
+            var parametres = "codeBon="+codeBon;
+            parametres += "&montantTotalPanier="+montantTotalPanier;
+            parametres += "&montantFraisPanier="+montantFraisPanier;
+            parametres += "&numPaysLivraison="+numPaysLivraison;
+            parametres += "&numTransporteur="+numTransporteur;
+
+            //window.alert(parametres);
+            
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: parametres,
+                success: function(data){
+                    afficheReponseVerifBonDeReduction(data);
+                  }
+            });
+        }
+    }
+}
+
+function afficheReponseVerifBonDeReduction(doc)
+{
+    var tableauResultat = doc.split("|");
+    var retour = tableauResultat[0];
+    
+    //window.alert(doc);
+    
+    if (retour == "inconnu")
+    {
+        var montantPanierNew = tableauResultat[1];
+        alerte("<br />El código que has introducido no produjo ningún bono de reducción válida","ok");
+        
+        $('#lignePanierReduction_prix').fadeOut('slow', function() {
+            document.getElementById('lignePanierReduction_prix').innerHTML = "0&euro;";
+            $('#lignePanierReduction_prix').fadeIn('slow');
+          });
+        
+        $('#lignePanierTotal_prix').fadeOut('slow', function() {
+            document.getElementById('lignePanierTotal_prix').innerHTML = montantPanierNew+"&euro;";
+            $('#lignePanierTotal_prix').fadeIn('slow');
+          });   
+    } else if (retour == "pays") {
+        var montantPanierNew = tableauResultat[1];
+        alerte("<br />Este bono no es válido para el país de entrega","ok");
+        
+        $('#lignePanierReduction_prix').fadeOut('slow', function() {
+            document.getElementById('lignePanierReduction_prix').innerHTML = "0&euro;";
+            $('#lignePanierReduction_prix').fadeIn('slow');
+          });
+        
+        $('#lignePanierTotal_prix').fadeOut('slow', function() {
+            document.getElementById('lignePanierTotal_prix').innerHTML = montantPanierNew+"&euro;";
+            $('#lignePanierTotal_prix').fadeIn('slow');
+          });   
+    }
+    else if ((retour == "minimum") || (retour == "onlyMembers") || (retour == "onlyPros"))
+    {
+        var achatMinimumReduction = tableauResultat[1];
+        var montantPanierNew = tableauResultat[2];
+        
+        if (retour == "minimum") {
+            alerte("<br /> Este bono es válido para una compra con una cantidad mínima de : "+achatMinimumReduction+"&euro;","ok"); 
+        } else if (retour == "onlyMembers") {
+            alerte("<br /> Este descuento no está disponible para los profesionales","ok"); 
+        } else if (retour == "onlyPros") {
+            alerte("<br /> Este descuento sólo está disponible para los profesionales","ok"); 
+        }
+        
+        $('#lignePanierReduction_prix').fadeOut('slow', function() {
+            document.getElementById('lignePanierReduction_prix').innerHTML = "0&euro;";
+            $('#lignePanierReduction_prix').fadeIn('slow');
+          });
+        
+        $('#lignePanierTotal_prix').fadeOut('slow', function() {
+            document.getElementById('lignePanierTotal_prix').innerHTML = montantPanierNew+"&euro;";
+            $('#lignePanierTotal_prix').fadeIn('slow');
+          });
+    }
+    else if (retour == "ok")
+    {
+        var valeurReduction = tableauResultat[1];
+        var typeReduction = tableauResultat[2];
+        var montantPanierNew = tableauResultat[3];
+        var numTransporteurOffert = tableauResultat[4];
+        
+        if (typeReduction == "valeur") {
+            var type = "&euro;";
+        } else if (typeReduction == "monnaieInterne") {
+            var type = "s";
+        } else {
+            var type = "%";
+        }
+        
+        
+        $('#lignePanierReduction_prix').fadeOut('slow', function() {
+            if (typeReduction == "monnaieInterne") {
+                document.getElementById('lignePanierReduction_prix').innerHTML = "+"+valeurReduction+" "+type;
+            } else {
+                document.getElementById('lignePanierReduction_prix').innerHTML = "-"+valeurReduction+type;
+            }
+        $('#lignePanierReduction_prix').fadeIn('slow');
+        });
+        
+        $('#lignePanierTotal_prix').fadeOut('slow', function() {
+        document.getElementById('lignePanierTotal_prix').innerHTML = montantPanierNew+"&euro;";
+        $('#lignePanierTotal_prix').fadeIn('slow');
+        });
+          
+          
+        if (montantPanierNew == "0.00")
+        {
+            $("#conteneurFicheArticle").fadeOut('slow', function() {
+            document.getElementById('conteneurFicheArticle').innerHTML = "<div class=\"ui labeled icon button green\" style=\"margin-top: 50px; margin-left:auto; margin-right:auto\"  onclick=\"verifValidPaiement('formPaiement',6)\"><i class=\"checkmark icon\"></i> Valider ma commande</div>";
+            $("#conteneurFicheArticle").fadeIn('slow');
+            });
+    //RESET
+        }
+        
+        //window.alert("numTransporteurOffert : "+numTransporteurOffert);
+        
+        if (numTransporteurOffert > 0) {
+            document.getElementById("ligneTransporteur"+numTransporteurOffert+"_montant").innerHTML = "ofrecido";
+            var idTransporteurFleche = "ligneTransporteur"+numTransporteurOffert+"_fleche";
+            
+            $(".lignePanierFrais_fleche").each(function( index ) {
+                
+                if ($(this).attr('id') != idTransporteurFleche) {
+                    $(this).fadeOut('slow');
+                }
+            });
+
+            $("#"+idTransporteurFleche).fadeIn('slow');
+        }
+          
+    }
+    else
+    {
+        envoiErreurAdmin('afficheReponseVerifBonDeReduction',doc);
+    }
+}
+
+function verifToucheEntree(event)
+{
+    var code = event.keyCode ? event.keyCode : event.which;
+    
+    if (code == 13)
+    {
+        if ((actionBoutonEnter == "fermerAlerte") && ($("#box").is(':visible')))
+        {
+            actionBoutonEnter = "";
+            fermerAlerte();
+        }
+        else if ((actionBoutonEnter == "reload") && ($("#box").is(':visible')))
+        {
+            actionBoutonEnter = "";
+            location.reload();
+        }
+        else if ((actionBoutonEnter == "panier") && ($("#box").is(':visible')))
+        {
+            actionBoutonEnter = "";
+            location.href="/compra /";
+        }
+        else if ((actionBoutonEnter == "connexion") && ($("#box").is(':visible')))
+        {
+            actionBoutonEnter = "";
+            alerte('connexion','connexion');
+        }
+    }
+}
+
+function alerte(message,bouton,option1,option2,option3,option4,option5,option6) {
+    var titreBox = "Alerte";
+    var messageEntete = "";
+    actionBoutonEnter = "";
+    
+    if (option1 == "fancyBox") {
+        titreBox = "Information";
+    }
+    
+    /*if ((message == "connexion") || (message == "password") || (message == "session") || (message == "changeMp")) {
+        document.getElementById('boxTitre').style.backgroundImage = 'url(/template/leo-trastering-dev/images/boxIdentification.png)';
+    } else if (bouton == "o-n-downloadListingActivities") {
+        document.getElementById('boxTitre').style.backgroundImage = 'url(/template/leo-trastering-dev/images/boxDownload.png)';
+    } else if ((message == "cgv") || (message == "mentions") || (message == "prixBasGaranti") || (message == "paiementSecurise") || (message == "fancyBox") || (option1 == "fancyBox") || (message == "qsn") || (message == "demandeDispo")) {
+        document.getElementById('boxTitre').style.backgroundImage = 'url(/template/leo-trastering-dev/images/boxInfo.png)';
+    } else if ((message == "choixForme")) {
+        document.getElementById('boxTitre').style.backgroundImage = 'url(/template/leo-trastering-dev/images/boxCalcul.png)';
+    } else {
+        document.getElementById('boxTitre').style.backgroundImage = 'url(/template/leo-trastering-dev/images/boxAlerte.png)';
+    }*/
+    
+    if (bouton == "o-n-addTransaction") {
+        titreBox = "Warning";
+    } 
+    
+    if (message == "fancyBox") {
+        hauteurBox = 300;
+        largeurBox = 460;
+        
+        titreBox = "Information";
+        
+        if (option1 == "FancyBoxInfosPromo") {
+            message = "<br />Veras en la pagina siguiente de tarifas que algunos de los Almacenes/Trasteros están en promoción. Las promociones no conllevan ninguna permanencia mínima extra por encima de la permanencia mínima del plan en cuestión (1 mes para el Plan Flexible).<br/>Mientras no hayas finalizado la reserva de tu Almacén/Trastero, estas promociones pueden cambiar o desaparecer en cualquier momento. ¡Reserva ya para no perdertelas !";
+        }
+        
+        var codeHtml = "<div id=\"boxContenuHtml\"><span class=\"texteBox\">"+message+"</span></div>";
+        
+        document.getElementById('boxEnteteDroit').style.display = "none";
+        document.getElementById('boxEnteteDroitFermer').style.display = "block";
+    } else if (message == "session") {
+        hauteurBox = 180;
+        largeurBox = 340;
+        
+        titreBox = "Session problem";
+        messageEntete = "<br />Your session has expired. Thank you to relog on";
+        
+        document.getElementById('boxEnteteDroit').style.display = "none";
+        document.getElementById('boxEnteteDroitFermer').style.display = "block";
+    } else if (message == "ajoutPanier") {
+        hauteurBox = 180;
+        largeurBox = 400;
+        
+        titreBox = "cesta";
+        var codeHtml = "<div id=\"boxContenuHtml\"><span class=\"texteBox\"><br />Su producto ha sido añadido a su cesta.</span></div>";
+        
+        document.getElementById('boxEnteteDroit').style.display = "none";
+        document.getElementById('boxEnteteDroitFermer').style.display = "block";
+    } else if (message == "bonPanierVide") {
+        hauteurBox = 220;
+    largeurBox = 380;
+        
+        var codeHtml = "<div id=\"boxContenuHtml\"><span class=\"texteBox\"><br />Su carrito está vacío, llenar su cesta antes de utilizar su cupón.</span></div>";
+        
+        document.getElementById('boxEnteteDroit').style.display = "none";
+        document.getElementById('boxEnteteDroitFermer').style.display = "block";
+    } else if (message == "alerteDispo") {
+        hauteurBox = 220;
+    largeurBox = 380;
+        
+        if ((option1 != "") && (option1 != "inconnue") && (option1 != "inconue")) {
+            var codeHtml = "<div id=\"boxContenuHtml\"><span class=\"texteBox\"><br />Advertencia: Este artículo está disponible a partir del :<br />"+option1+".</span></div>";
+        } else {
+            var codeHtml = "<div id=\"boxContenuHtml\"><span class=\"texteBox\"><br />Advertencia Este artículo no está disponible temporalmente. Puede ponerse en contacto con nosotros para disponibilidad.</span></div>";
+        }
+        
+        document.getElementById('boxEnteteDroit').style.display = "none";
+        document.getElementById('boxEnteteDroitFermer').style.display = "block";
+    } else if (message == "demandeDispo") {
+        
+                    hauteurBox = 250;
+            largeurBox = 460;
+            
+            var codeHtml = '<div id="boxContenuHtml" class="ui form" style="padding-left:25px; padding-right:25px;">';
+                codeHtml += '<div class="texteBox"><br />¿Quieres recibir un correo electrónico cuando este producto esté disponible?</div>';
+                codeHtml += '<div class="ui left labeled icon input" style="margin-top: 15px">';
+                    codeHtml += '<input type="text" id="case_email_dispoArticle" placeholder="Votre email...">';
+                    codeHtml += '<i class="mail icon"></i>';
+                    codeHtml += '<div class="ui corner label">';
+                        codeHtml += '<i id="indicateur_case_dispoArticle" class="icon"></i>';
+                    codeHtml += '</div>';
+                codeHtml += '</div>';
+            codeHtml += '</div>';
+                    
+        document.getElementById('boxEnteteDroit').style.display = "none";
+        document.getElementById('boxEnteteDroitFermer').style.display = "block";
+    } else if (message == "modifPhoto") {
+        hauteurBox = 354;
+        largeurBox = 400;
+        
+        var codeHtml = "<div class=\"boxContenuLoading\"><span class=\"loader textegris\">carga</span></div>";
+    } else if (message == "progression") {
+        titreBox = "Upload en cours...";
+        messageEntete = option1+"%";
+        
+        hauteurBox = 154;
+        largeurBox = 320;
+
+        var codeHtml = "<div style=\"text-align:center; height: 15px; margin-top: 25px\">";
+            codeHtml += "<span class=\"texteBox\" id=\"barreProgressionTauxBox\">"+messageEntete+"</span>";
+        codeHtml += "</div>";
+        
+        codeHtml += "<div style=\"text-align:center; height: 15px; margin-top: 5px; margin-left: 10px\">";
+            codeHtml += "<div class=\"barreProgressionFond\"><div id=\"barreProgressionBox\"></div></div>";
+        codeHtml += "</div>";
+        
+        document.getElementById('boxEnteteDroitFermer').style.display = "none";
+        document.getElementById('boxEnteteDroit').style.display = "block";
+    } else if (message == "choixForme") {
+        hauteurBox = 610;
+        largeurBox = 650;
+        
+        titreBox = "Calcul de la surface";
+        
+        var codeHtml = "<div class=\"boxContenuLoading\" style=\"margin-top: 150px\"><span class=\"loader textegris\">carga</span></div>";
+    } else if (message == "connexion") {
+        hauteurBox = 480;
+        largeurBox = 480;
+        
+        titreBox = "Identification";
+        
+        codeHtml = "<form action="/scripts/\&quot;\/index.php\&quot;" method=\"post\" id=\"formIdentification\" onsubmit=\"return verifIndentification('formIdentification');\">\r\n\t<input type=\"hidden\" name=\"forwardUrl\" value=\"XXXURLACTUELLEXXX\" \/>\r\n    <div id=\"cadrePrincipalConnexion\" class=\"ui form\">\r\n        <div>\r\n            <span class=\"titreConnexion\">identificaci\u00f3n fomulaire :<\/span>\r\n        <\/div>\r\n        \r\n        \r\n        <div style=\"margin-top: 4px; line-height: 20px\">\r\n            <span class=\"soustitreConnexion\">Gracias a introducir la informaci\u00f3n de abajo para iniciar sesi\u00f3n.<\/span>\r\n        <\/div>\r\n        <a href="/scripts/\&quot;\/inscription.php\&quot;" class=\"textepConnexion\">Crear una cuenta<\/a>\r\n       \r\n        <div class=\"field\" style=\"margin-top: 15px\">\r\n            <label>Escribe aqu\u00ed tu email*<\/label>\r\n            <div class=\"ui left labeled icon input\">\r\n                <input type=\"text\" name=\"emailConnexion\" value=\"\">\r\n                <i class=\"user icon\"><\/i>\r\n                <div class=\"ui corner label\">\r\n                <i class=\"icon asterisk\"><\/i>\r\n                <\/div>\r\n            <\/div>\r\n        <\/div>        \r\n        \r\n        <div id=\"caseAlerteEmailformIdentification\" style=\"display:none; margin-top: 3px\">\r\n        \t<span id=\"texteAlerteEmailformIdentification\" class=\"texteAlerteConnexion\"><\/span>\r\n        <\/div>\r\n    \r\n\r\n        <div class=\"field\" style=\"margin-top: 15px\">\r\n            <label>Contrase\u00f1a<\/label>\r\n            <div class=\"ui left labeled icon input\">\r\n                <input type=\"password\" name=\"mpConnexion\" value=\"\">\r\n                <i class=\"lock icon\"><\/i>\r\n                <div class=\"ui corner label\">\r\n                <i class=\"icon asterisk\"><\/i>\r\n                <\/div>\r\n            <\/div>\r\n        <\/div>  \r\n        \r\n        <div id=\"caseAlertePasswordformIdentification\" style=\"display:none; margin-top: 3px\">\r\n        \t<span id=\"textePasswordformIdentification\" class=\"texteAlerteConnexion\"><\/span>\r\n        <\/div>\r\n        <div style=\"margin-top: 4px\">\r\n            <span class=\"textepConnexion fauxlien\" onclick=\"alerte('password','password');\">contrase\u00f1a olvidada ?<\/span>\r\n        <\/div>\r\n        \r\n        <div style=\"margin-top: 15px; overflow:hidden\">\r\n        \t<div style=\"float:left; padding-top: 8px\">\r\n            \t<input type=\"checkbox\" name=\"remember\" id=\"remember\" value=\"oui\" \/><label for=\"remember\" class=\"soustitreConnexion fauxlien\">&nbsp;se acuerda de mi<\/label>\r\n            <\/div>\r\n            <div style=\"float:right;\">\r\n                <button type=\"submit\" class=\"green ui animated button small\" name=\"login\">\r\n                <div class=\"visible content\">acceder<\/div>\r\n                <div class=\"hidden content\">\r\n                    <i class=\"sign in icon\"><\/i>\r\n                <\/div>\r\n                <\/button>\r\n            <\/div>\r\n        <\/div>\r\n         \r\n    <\/div>\r\n    \r\n <\/form>"        
+        codeHtml = codeHtml.replace("XXXURLACTUELLEXXX",urlActuelle);
+        if ((option1 != "") && (option1 != "undefined") && (option1 != undefined)) {
+            codeHtml = codeHtml.replace('<input type="text" name="emailConnexion"','<input type="text" name="emailConnexion" value="'+option1+'"');
+        }
+        document.getElementById('boxEnteteDroitFermer').style.display = "block";
+        document.getElementById('boxEnteteDroit').style.display = "none";
+    } else if (message == "password") {
+        hauteurBox = 340;
+    largeurBox = 440;
+        
+        titreBox = "contraseña olvidada";
+
+        codeHtml = "<form action="/scripts/\&quot;\/executions\/resetPassword.php\&quot;" method=\"post\" id=\"formRecover\">\r\n\r\n    <div id=\"cadrePrincipalConnexion\" class=\"ui form\">\r\n        <div>\r\n            <span class=\"titreConnexion\">contrase\u00f1a de la regeneraci\u00f3n<\/span>\r\n        <\/div>\r\n        \r\n        <div style=\"margin-top: 4px; line-height: 20px\">\r\n            <span class=\"soustitreConnexion\">Gracias por introducir tu email abajo para poder enviarte tu nueva contrase\u00f1a.<\/span>\r\n        <\/div>\r\n        \r\n\r\n        <div class=\"field\" style=\"margin-top: 15px\">\r\n            <label>Escribe aqu\u00ed tu email*<\/label>\r\n            <div class=\"ui left labeled icon input\">\r\n                <input type=\"text\" name=\"txt_email\" value=\"\">\r\n                <i class=\"user icon\"><\/i>\r\n                <div class=\"ui corner label\">\r\n                <i class=\"icon asterisk\"><\/i>\r\n                <\/div>\r\n            <\/div>\r\n        <\/div>  \r\n\r\n        <div id=\"caseAlerteLoginRecover\" style=\"display:none; margin-top: 3px\">\r\n        \t<span id=\"texteAlerteLoginRecover\" class=\"texteAlerteConnexion\"><\/span>\r\n        <\/div>\r\n        \r\n        <div style=\"margin-top: 15px; text-align:right\">\r\n            <div onclick=\"verifResetPassword('formRecover');\" class=\"green ui animated button small\">\r\n                <div class=\"visible content\">Enviar<\/div>\r\n                <div class=\"hidden content\">\r\n                    <i class=\"setting icon\"><\/i>\r\n                <\/div>\r\n            <\/div>\r\n        <\/div>\r\n         \r\n    <\/div>\r\n    \r\n <\/form>"        
+        document.getElementById('boxEnteteDroitFermer').style.display = "block";
+        document.getElementById('boxEnteteDroit').style.display = "none";
+    } else if (message == "rechercheAutreDispo") {
+        hauteurBox = 500;
+    largeurBox = 700;
+        
+        titreBox = "Consulta nuestras disponibilidades futuras";
+
+        codeHtml = "\r\n<div id=\"cadrePrincipalPopUp\" class=\"ui form boxesNonDispo\">\r\n    <div>\r\n        <span class=\"titreConnexion\">[POPUP-TITRE]<\/span>\r\n    <\/div>\r\n\r\n    <div style=\"margin-top: 4px; line-height: 20px\">\r\n        <span class=\"soustitreConnexion\">Para consultar las disponibilidades futuras, LL\u00c1MANOS al  93 293 36 28 o d\u00e9janos tu email o m\u00f3vil abajo para que te contactemos lo antes posible.<\/span>\r\n    <\/div>\r\n    <input type=\"hidden\" id=\"boxesNonDispoCentre\" value=\"[POPUP-CENTRE-NOM]\" \/>\r\n    <input type=\"hidden\" id=\"boxesNonDispoTaille\" value=\"[POPUP-TAILLE]\" \/>\r\n\r\n    <div class=\"ligne\">\r\n        <div class=\"field email\">\r\n            <label>Escribe aqu\u00ed tu email*<\/label>\r\n            <div class=\"ui left labeled icon input\">\r\n                <input type=\"text\" name=\"txt_email\" id=\"boxesNonDispoEmail\" value=\"\">\r\n                <i class=\"user icon\"><\/i>\r\n                <div class=\"ui corner label\">\r\n                <i class=\"icon asterisk\"><\/i>\r\n                <\/div>\r\n            <\/div>\r\n        <\/div>\r\n        <div class=\"etou\">Y\/o<\/div>\r\n        <div class=\"field tel\">\r\n            <label>Escribe aqu\u00ed tu tel\u00e9fono<\/label>\r\n            <div class=\"ui left labeled icon input\">\r\n                <input type=\"text\" name=\"txt_tel\" id=\"boxesNonDispoTel\" value=\"\">\r\n                <i class=\"phone icon\"><\/i>\r\n                <div class=\"ui corner label\">\r\n                <i class=\"icon asterisk\"><\/i>\r\n                <\/div>\r\n            <\/div>\r\n        <\/div>\r\n    <\/div>\r\n    \r\n    <div id=\"caseAlerteBoxesNonDispo\" style=\"display:none; margin-top: 3px\">\r\n        <span id=\"texteAlerteBoxesNonDispo\" class=\"texteAlerteConnexion\"><\/span>\r\n    <\/div>\r\n\r\n    <div class=\"field\" style=\"margin-top: 15px;\">\r\n        <label>comentario<\/label>\r\n        <div class=\"ui left labeled icon input\">\r\n            <textarea name=\"txt_commentaire\" rows=\"2\" id=\"boxesNonDispoCommentaire\" placeholder=\"Dinos qu\u00e9 tama\u00f1o de Almac\u00e9n\/Trastero y en qu\u00e9 ubicaci\u00f3n est\u00e1s buscando\" style=\"height:100px\"><\/textarea>\r\n        <\/div>\r\n    <\/div>\r\n\r\n    <div id=\"boxesNonDispoBoutons\" style=\"margin-top: 15px; overflow:hidden;\">\r\n        <div onclick=\"fermerAlerte();\" class=\"red ui animated button small\" style=\"float:left; width: 40%; clear:none\">\r\n            <div class=\"visible content\">Cerrar<\/div>\r\n            <div class=\"hidden content\">\r\n                <i class=\"close icon\"><\/i>\r\n            <\/div>\r\n        <\/div>\r\n        <div onclick=\"verifBoxesNonDispo()\" class=\"green ui animated button small\" style=\"float:right; width: 40%; clear:none\">\r\n            <div class=\"visible content\">Enviar<\/div>\r\n            <div class=\"hidden content\">\r\n                <i class=\"setting icon\"><\/i>\r\n            <\/div>\r\n        <\/div>\r\n    <\/div>\r\n    \r\n    <div id=\"boxesNonDispoChargement\" style=\"margin-top: 15px; overflow:hidden; display:none\">\r\n        <div class=\"loader\">carga<\/div>\r\n    <\/div>\r\n<\/div>"        
+        codeHtml = codeHtml.replace("[POPUP-TITRE]",option1);
+        codeHtml = codeHtml.replace("[POPUP-CENTRE-NOM]",option2);
+        codeHtml = codeHtml.replace("[POPUP-TAILLE]",option3);
+        
+        
+        document.getElementById('boxEnteteDroitFermer').style.display = "block";
+        document.getElementById('boxEnteteDroit').style.display = "none";
+    } else if (message == "finaliserContratTel") {
+        hauteurBox = 350;
+    largeurBox = 500;
+        
+        titreBox = "Finalisar tu contrato por teléfono";
+
+        codeHtml = "\r\n<div id=\"cadrePrincipalPopUp\" class=\"ui form finaliserContratTel\">\r\n    <div>\r\n        <span class=\"titreConnexion\">Finalisar tu contrato por tel\u00e9fono<\/span>\r\n    <\/div>\r\n\r\n    <div style=\"margin-top: 4px; line-height: 20px\">\r\n        <span class=\"soustitreConnexion\">Para finalisar tu contrato, ll\u00e1manos al <strong>93 293 3628<\/strong> o rellena tu n\u00famero de tel\u00e9fono abajo y te llamaremos lo antes posible en nuestro horario de Atenci\u00f3n al Cliente.<\/span>\r\n    <\/div>\r\n    \r\n    <div class=\"ligne\">\r\n        <div class=\"field tel\">\r\n            <label>Escribe aqu\u00ed tu tel\u00e9fono<\/label>\r\n            <div class=\"ui left labeled icon input\">\r\n                <input type=\"text\" name=\"txt_tel\" id=\"boxesNonDispoTel\" value=\"\">\r\n                <i class=\"phone icon\"><\/i>\r\n                <div class=\"ui corner label\">\r\n                <i class=\"icon asterisk\"><\/i>\r\n                <\/div>\r\n            <\/div>\r\n        <\/div>\r\n    <\/div>\r\n    \r\n    <div id=\"caseAlerteFinaliserContratTel\" style=\"display:none; margin-top: 3px\">\r\n        <span id=\"texteAlerteFinaliserContratTel\" class=\"texteAlerteConnexion\"><\/span>\r\n    <\/div>\r\n\r\n    <div id=\"boxesNonDispoBoutons\" style=\"margin-top: 15px; overflow:hidden;\">\r\n        <div onclick=\"fermerAlerte();\" class=\"red ui animated button small\" style=\"float:left; width: 40%; clear:none\">\r\n            <div class=\"visible content\">Cerrar<\/div>\r\n            <div class=\"hidden content\">\r\n                <i class=\"close icon\"><\/i>\r\n            <\/div>\r\n        <\/div>\r\n        <div onclick=\"verifFinaliserContratTel()\" class=\"green ui animated button small\" style=\"float:right; width: 40%; clear:none\">\r\n            <div class=\"visible content\">Enviar<\/div>\r\n            <div class=\"hidden content\">\r\n                <i class=\"setting icon\"><\/i>\r\n            <\/div>\r\n        <\/div>\r\n    <\/div>\r\n    \r\n    <div id=\"finaliserContratTelChargement\" style=\"margin-top: 15px; overflow:hidden; display:none\">\r\n        <div class=\"loader\">carga<\/div>\r\n    <\/div>\r\n<\/div>"
+        document.getElementById('boxEnteteDroitFermer').style.display = "block";
+        document.getElementById('boxEnteteDroit').style.display = "none";
+    } else if (message == "changeMp") {
+        hauteurBox = 450;
+        largeurBox = 420;
+        
+        titreBox = "cambio de contraseña";
+
+        codeHtml = "<form action="/scripts/\&quot;\/executions\/validChangePassword.php\&quot;" method=\"post\" id=\"formChangeMp\" onsubmit=\"return verifChangeMp('formChangeMp');\">\r\n\r\n    <div id=\"cadrePrincipalConnexion\" style=\"margin-top: 0px\">\r\n        <div>\r\n            <span class=\"titreConnexion\">Para cambiar su contrase\u00f1a :<\/span>\r\n        <\/div>\r\n        \r\n        <div style=\"margin-top: 4px; line-height: 20px\">\r\n            <span class=\"soustitreConnexion\">Gracias por completar este formulario<\/span>\r\n        <\/div>\r\n        \r\n        <div style=\"margin-top: 15px\">\r\n            <span class=\"enteteConnexion\">Su contrase\u00f1a actual<\/span>\r\n        <\/div>\r\n        <div style=\"margin-top: 4px\">\r\n            <input type=\"password\" name=\"oldMp\" onfocus=\"this.style.borderColor = '#3a79df'\" onblur=\"this.style.borderColor = '#DDDDDD'\" class=\"caseConnexion\" \/>\r\n        <\/div>\r\n        <div id=\"caseAlerteOldMpChangeMp\" style=\"display:none; margin-top: 3px\">\r\n            <span id=\"texteAlerteOldMpChangeMp\" class=\"texteAlerteConnexion\"><\/span>\r\n        <\/div>\r\n    \r\n        <div style=\"margin-top: 15px\">\r\n            <span class=\"enteteConnexion\">Su nueva contrase\u00f1a<\/span>\r\n        <\/div>\r\n        <div style=\"margin-top: 4px\">\r\n            <input type=\"password\" name=\"newMp\" onfocus=\"this.style.borderColor = '#3a79df'\" onblur=\"this.style.borderColor = '#DDDDDD'\" class=\"caseConnexion\" \/>\r\n        <\/div>\r\n        <div id=\"caseAlerteNewMpChangeMp\" style=\"display:none; margin-top: 3px\">\r\n        \t<span id=\"texteAlerteNewMpChangeMp\" class=\"texteAlerteConnexion\"><\/span>\r\n        <\/div>\r\n        \r\n        <div style=\"margin-top: 15px\">\r\n            <span class=\"enteteConnexion\">Confirmar su nueva contrase\u00f1a<\/span>\r\n        <\/div>\r\n        <div style=\"margin-top: 4px\">\r\n            <input type=\"password\" name=\"confirmNewMp\" onfocus=\"this.style.borderColor = '#3a79df'\" onblur=\"this.style.borderColor = '#DDDDDD'\" class=\"caseConnexion\" \/>\r\n        <\/div>\r\n        <div id=\"caseAlerteConfirmNewMpChangeMp\" style=\"display:none; margin-top: 3px\">\r\n        \t<span id=\"texteAlerteConfirmNewMpChangeMp\" class=\"texteAlerteConnexion\"><\/span>\r\n        <\/div>\r\n        \r\n        <div style=\"margin-top: 20px; overflow:hidden\">\r\n        \t<div style=\"float:left\">\r\n            \t<div class=\"boutonNon\" onclick=\"fermerAlerte();\">anular<\/div>\r\n            <\/div>\r\n            <div style=\"float:right\">\r\n            \t<div class=\"boutonOui\" onclick=\"verifChangeMp('formChangeMp');\">confirmar<\/div>\r\n            <\/div>\r\n        <\/div>\r\n         \r\n    <\/div>\r\n    \r\n <\/form>"        
+        document.getElementById('boxEnteteDroitFermer').style.display = "block";
+        document.getElementById('boxEnteteDroit').style.display = "none";
+    } else if (message == "paiementSecurise") {
+        hauteurBox = 470;
+        largeurBox = 670;
+        
+        titreBox = "Pago seguro";
+
+        codeHtml = "\r\n<div id=\"cadrePrincipalBox\" style=\"width: 90%\">\r\n\t<div class=\"caseTexte texteContenu\"><strong>Medios de pago acceptados<\/strong>:<br \/>\r\nDe momento, acceptamos las tarjetas bancarias Visa, Visa Electron, Mastercard y American Express.\u00a0<br \/>\r\n<br \/>\r\n<strong>Seguridad de los pagos por tarjeta bancaria:<\/strong><br \/>\r\nCuando Ud hace un pago por tarjeta bancaria con Trastering, al final de la reserva, ser\u00e1s redirigido hac\u00eda el servidor seguro de STRIPE (Pasarela d epago americana lider mundial en pagos recurrentes) quien utilisa los metodos siguientes de seguridad en sus paginas de pago:\r\n<ul>\r\n\t<li><span style=\"background-color:rgb(255, 255, 255)\">Todos los n\u00fameros de tarjeta se encriptan en disco con AES-256. Las claves de descifrado se almacenan en m\u00e1quinas separadas.<\/span><\/li>\r\n\t<li><span style=\"background-color:rgb(255, 255, 255)\">La infraestructura de Stripe para almacenar, descifrar y transmitir los n\u00fameros de tarjeta se gestiona e una infraestructura de alojamiento independiente y no comparte ninguna credencial con los servicios principales de Stripe.<\/span><\/li>\r\n<\/ul>\r\n<span style=\"background-color:rgb(255, 255, 255)\">Con Stripe, la seguridad se demuestra tambi\u00e9n por las certificaciones y licencias siguientes:<\/span>\r\n\r\n<ul>\r\n\t<li><span style=\"background-color:rgb(255, 255, 255)\">Certificaci\u00f3n PCI DSS de nivel 1<\/span><\/li>\r\n\t<li><span style=\"background-color:rgb(255, 255, 255)\">Licencias de transferencia de dinero en los Estados Unidos<\/span><\/li>\r\n\t<li><span style=\"background-color:rgb(255, 255, 255)\">Cumple con la directiva PSD2 y la autentificaci\u00f3n fuerte de clientes (SCA)<\/span><\/li>\r\n\t<li><span style=\"background-color:rgb(255, 255, 255)\">Informes SSAE18\/SOC 1 de tipo 1 y 2<\/span><\/li>\r\n\t<li><span style=\"background-color:rgb(255, 255, 255)\">Licencia de\u00a0E-money en Europa<\/span><\/li>\r\n<\/ul>\r\nFuente:\u00a0<a href="/scripts/\&quot;http:\/\/www.payline.com\&quot;">https:\/\/stripe.com\/es<\/a><\/div>\r\n<\/div>"        
+        document.getElementById('boxEnteteDroitFermer').style.display = "block";
+        document.getElementById('boxEnteteDroit').style.display = "none";
+    } else if (message == "prixBasGaranti") {
+        hauteurBox = 470;
+        largeurBox = 670;
+        
+        titreBox = "Precios garantizados";
+
+        codeHtml = "\r\n<div id=\"cadrePrincipalBox\" style=\"width: 90%\">\r\n\t<div class=\"caseTexte texteContenu\">Estamos seguros que nuestra relaci\u00f3n calidad\/precio es inmejorable:<br\/>Si encuentras una soluci\u00f3n de self storage m\u00e1s econ\u00f3mica con caracter\u00edsticas equivalentes (tama\u00f1o, planta, horario de acceso y nivel de seguridad f\u00edsica y electr\u00f3nica), te ofreceremos las mismas condiciones econ\u00f3micas que nuestro competidor y un regalo adicional del 50% de tu primera mensualidad.  Esta oferta es valida mientras dispongamos de disponibilidad y solamente bajo presentaci\u00f3n de un presupuesto escrito de menos de 1 mes de un competidor. Es aplicable al Centro de Trastering m\u00e1s cercano al competidor cuyo presupuesto nos ense\u00f1aras, en un radio de 5km alrededor de nuestro Centro.<\/div>\r\n<\/div>"        
+        document.getElementById('boxEnteteDroitFermer').style.display = "block";
+        document.getElementById('boxEnteteDroit').style.display = "none";
+    } else if (message == "qsn") {
+        hauteurBox = 470;
+        largeurBox = 670;
+        
+        titreBox = "Quiénes somos ?";
+
+        codeHtml = "\r\n<div id=\"cadrePrincipalBox\" style=\"width: 90%\">\r\n\t<div class=\"caseTexte texteContenu\" style=\"height: 290px;\"><\/div>\r\n<\/div>"        
+        document.getElementById('boxEnteteDroitFermer').style.display = "block";
+        document.getElementById('boxEnteteDroit').style.display = "none";
+    } else if (message == "cgv") {
+        hauteurBox = 470;
+        largeurBox = 670;
+        
+        titreBox = "Condiciones generales de venta";
+
+        codeHtml = "\r\n<div id=\"cadrePrincipalBox\" style=\"width: 90%\">\r\n\t<div class=\"caseTexte texteContenu\" style=\"height: 290px\"><\/div>\r\n<\/div>"        
+        document.getElementById('boxEnteteDroitFermer').style.display = "block";
+        document.getElementById('boxEnteteDroit').style.display = "none";
+    } else if (message == "mentions") {
+        hauteurBox = 470;
+        largeurBox = 670;
+        
+        titreBox = "Aviso Legal";
+
+        codeHtml = "\r\n<div id=\"cadrePrincipalBox\" style=\"width: 90%\">\r\n\t<div class=\"caseTexte texteContenu\" style=\"height: 290px\">Aviso legal y condiciones generales de uso de la p\u00e1gina Trastering.es<br \/>Se podr\u00e1 hacer uso de nuestro servicio y de la compra de productos y\/o servicios ofertados en \u00e9sta p\u00e1gina web despu\u00e9s de haber le\u00eddo y aceptado este aviso legal de nuestra ?Pol\u00edtica de Privacidad?<br \/>1. Informaci\u00f3n sobre Trastering.es<br \/>2. C\u00f3mo actuamos<br \/>3. Servicio de la pagina web<br \/>4. Uso de la p\u00e1gina web<br \/><br \/>1. INFORMACI\u00d3N SOBRE Trastering.es<br \/>Qui\u00e9nes somos<br \/>Trastering.ess es una p\u00e1gina web propiedad de Trastering, s.l., con CIF B-66514340 y domicilio en la Calle Cobalto 49, 08940 Cornell\u00e0 de Llobregat (Barcelona).<br \/><br \/>2.- C\u00d3MO ACTUAMOS<br \/>Trastering, s.l. es una sociedad mercantil cuyo objeto principal lo constituye la prestaci\u00f3n de servicios de almacenaje de todo tipo de objetos, incluyendo en particular muebles, mercanc\u00edas comerciales, herramientas, suministros y archivos. El alquiler de espacios para uso como trasteros y mini almacenes, as\u00ed como el alquiler de contenedores mar\u00edtimos.<br \/>Los acuerdos que se contengan en esta p\u00e1gina web ser\u00e1n en idioma espa\u00f1ol, y se regir\u00e1n por la legislaci\u00f3n espa\u00f1ola estando sujetos a la jurisdicci\u00f3n de los tribunales espa\u00f1oles.<br \/>Nuestros usuarios podr\u00e1n presentar quejas y reclamaciones, tan pronto consideren que el servicio no ha respetado los intereses legalmente reconocidos como usuario de los servicios que ofrecemos, las buenas pr\u00e1cticas, y  la normativa de. Cualquier cuesti\u00f3n sometida o resuelta por medios judiciales, administrativos o arbitrales quedar\u00e1 excluida.<br \/>Para efectuar una queja o reclamaci\u00f3n, podr\u00e1s hacerlo por escrito, dando tus datos personales, DNI, domicilio y, los motivos que han ocasionado tu queja y la firma del reclamante o la de su representante. El servicio de Atenci\u00f3n al Cliente se encuentra a su disposici\u00f3n para atender quejas y reclamaciones, de conformidad y en desarrollo y cumplimiento de lo estipulado en la ley. Dichas quejas o reclamaciones deber\u00e1n ser dirigidas por correo o correo electr\u00f3nico a:<br \/>Trastering, s.l.<br \/>Departamento de Atenci\u00f3n al Cliente<br \/> Calle Cobalto 49, 08940 Cornell\u00e0 de Llobregat (Barcelona).<br \/>E-mail: clientes@trastering.es<br \/>El Departamento de Atenci\u00f3n al Cliente acusar\u00e1 recibo de las quejas y reclamaciones. Te ser\u00e1n solicitadas las aclaraciones que se consideren necesarias. En el plazo m\u00e1ximo de dos meses tu reclamaci\u00f3n ser\u00e1 resuelta y te enviaremos una notificaci\u00f3n en un plazo de diez d\u00edas naturales. <br \/><br \/>3.- SERVICIO DE LA P\u00c1GINA WEB<br \/>Este servicio est\u00e1 dirigido a particulares y profesionales, as\u00ed como para empresas con domicilio legal en Espa\u00f1a, que buscan la mejor oferta en cuanto a alquiler de trasteros y almacenaje de todo tipo de objetos. <br \/>Una vez le\u00eddo y aceptado nuestros t\u00e9rminos legales y la \"Pol\u00edtica de Privacidad\", podr\u00e1s acceder a seleccionar el tama\u00f1o de tu trastero particular o de tu almac\u00e9n profesional, con ello podr\u00e1s obtener un plan o tarifa seg\u00fan el espacio alquilado, el valor de los bienes a almacenar, as\u00ed como la fecha de inicio del alquiler del trastero.<br \/>Este acuerdo se har\u00e1 en espa\u00f1ol, y est\u00e1 sujeto a la legislaci\u00f3n espa\u00f1ola y a la jurisdicci\u00f3n de los tribunales espa\u00f1oles.<br \/><br \/>4.- USO DE LA WEB<br \/>Contenido de la p\u00e1gina web<br \/>Este sitio Web est\u00e1 disponible para todos los usuarios, sujetos a estos t\u00e9rminos y condiciones generales. <br \/>Cuando Usted realiza una compra en el sitio o usa este sitio de cualquier otro modo, Usted acepta estos t\u00e9rminos y condiciones generales. <br \/>Este sitio Web es propiedad y est\u00e1 operado por Trastering, s.l., una sociedad mercantil espa\u00f1ola con domicilio social en la Calle Cobalto 49, 08940 Cornell\u00e0 de Llobregat (Barcelona), Espa\u00f1a, CIF B-66514340, n\u00famero de tel\u00e9fono ( 34) 932 933 628 y correo electr\u00f3nico de contacto\u00a0clientes@trastering.es\u00a0. Trastero King, s.l. est\u00e1 inscrita en el Registro Mercantil de Barcelona, Tomo 44825, Folio 115, Hoja B-468628, Inscripci\u00f3n 1\u00aa. <br \/>El Usuario declara que es mayor de edad y que dispone de la capacidad legal necesaria para vincularse por este acuerdo y utilizar este sitio Web de conformidad con estos t\u00e9rminos y condiciones generales, que comprende y reconoce en su totalidad. <br \/>El Usuario declara que toda la informaci\u00f3n que proporcione para acceder a este sitio Web, antes y durante su utilizaci\u00f3n, es verdadera, completa y precisa, y se compromete a mantenerla actualizada.<br \/>Este sitio Web es \u00fanica y exclusivamente para uso personal del Usuario. Se proh\u00edbe su modificaci\u00f3n, reproducci\u00f3n, duplicaci\u00f3n, copia, distribuci\u00f3n, venta, reventa y dem\u00e1s formas de explotaci\u00f3n para fines comerciales o equivalentes.<br \/><br \/>El Usuario se compromete a no utilizar este sitio Web para fines ilegales o prohibidos. En particular, el Usuario acepta que los productos o servicios adquiridos a trav\u00e9s de este sitio Web ser\u00e1n para su uso o consumo propio, o el uso o consumo de las personas en nombre de las cuales est\u00e1 legalmente autorizado a actuar. El Usuario no podr\u00e1 revender a terceros los productos o servicios adquiridos a trav\u00e9s de este sitio Web. Trastering, s.l. se reserva el derecho a denegar el acceso al sitio Web en cualquier momento sin previo aviso.<br \/>Copyright<br \/>El copyright del material contenido en esta web pertenece a Trastering, s.l.. Cualquier individuo actuando como persona privada puede imprimir una copia de cualquier parte de este material para su propio uso personal, sujeto a las siguientes condiciones:<br \/>La copia debe retener cualquier copyright u otros avisos contenidos en el material original. El material no puede ser usado para prop\u00f3sitos comerciales. Todas las im\u00e1genes mostradas en este sitio est\u00e1n protegidas: no pueden ser reproducidas ni mostradas sin el permiso escrito de sus respectivos propietarios. De la misma manera ning\u00fan logo o marca comercial podr\u00e1 ser impreso o copiado a menos que forme parte del texto en el cual est\u00e1 incluido. La tecnolog\u00eda utilizada en este sitio web puede estar sujeta a otros derechos de propiedad intelectual reservados por Trastering, s.l.<br \/>Propiedad intelectual<br \/>El nombre de dominio ?Trastering.es? es propiedad de Trastering, s.l., una sociedad mercantil espa\u00f1ola con domicilio social en la Calle Cobalto 49, 08940 Cornell\u00e0 de Llobregat (Barcelona), Espa\u00f1a, CIF B-66514340.<br \/>Todos los contenidos incluidos en la p\u00e1gina web y en particular las marcas, nombres comerciales, dise\u00f1os industriales, dise\u00f1os, textos, fotograf\u00edas, gr\u00e1ficos, logotipos, iconos, software o cualesquiera otros signos susceptibles de utilizaci\u00f3n industrial y comercial est\u00e1n protegidos por derechos de propiedad industrial e intelectual de Trastering, s.l.. o de terceros titulares de los mismos que han autorizado su inclusi\u00f3n en la p\u00e1gina web. Queda por lo tanto prohibida cualquier utilizaci\u00f3n, o reproducci\u00f3n de los mismos sin consentimiento expreso de Trastering, s.l.<br \/>Denegaci\u00f3n y retiro del acceso al Portal y a los servicios<br \/>Trastering, s.l. se reserva el derecho a denegar o retirar el acceso al Portal y\/o a los Servicios, en cualquier momento y sin necesidad de preaviso a aquellos Usuarios que incumplan las presentes condiciones generales.<br \/><\/div>\r\n<\/div>"        
+        document.getElementById('boxEnteteDroitFermer').style.display = "block";
+        document.getElementById('boxEnteteDroit').style.display = "none";
+    } else if (message == "resultatParrainage") {
+        hauteurBox = 300;
+        largeurBox = 500;
+        
+        titreBox = "Los resultados de su envío";
+        
+        codeHtml = '<div id="boxContenuHtml" class="resultatParrainaige">';
+        for (i=0; i<option1.length; i++) {
+            if (option1[i]['etat'] != "vide") {
+                if (option1[i]['etat'] == "ok") {
+                    codeHtml += '<div class="ok"><strong>'+option1[i]['email']+'</strong><br />>> el envío de hecho</div>';
+                } else if (option1[i]['raison'] == "incorrect") {
+                    codeHtml += '<div class="ko"><strong>'+option1[i]['email']+'</strong><br />>> el correo electrónico no es válida</div>';
+                } else if (option1[i]['raison'] == "membre") {
+                    codeHtml += '<div class="ko"><strong>'+option1[i]['email']+'</strong><br />>> este correo electrónico es ya la de un miembro</div>';
+                } else if (option1[i]['raison'] == "doublon") {
+                    codeHtml += '<div class="ko"><strong>'+option1[i]['email']+'</strong><br />>> Ya se están enviando hecho</div>';
+                } else {
+                    codeHtml += '<div class="ko"><strong>'+option1[i]['email']+'</strong><br />>> Tienes que elegir un Centro y luego un Tamaño</div>';
+                }
+            }
+        }
+        codeHtml += '</div>';
+        
+        document.getElementById('boxEnteteDroitFermer').style.display = "none";
+        document.getElementById('boxEnteteDroit').style.display = "block";
+    } else if (message == "monnaieInterneInsuffisante") {
+        largeurBox = 440;
+        hauteurBox = 230;
+        
+        var codeHtml = "<div id=\"boxContenuHtml\"><span class=\"texteBox\"><br />Usted no tiene suficientes Rushs Para pedir este artículo. <br /> Si quieres más Rushs, haga clic en el botón de abajo:</span></div>";
+    } else {
+        hauteurBox = 220;
+        largeurBox = 390;
+        
+        var codeHtml = "<div id=\"boxContenuHtml\"><span class=\"texteBox\">"+message+"</span></div>";
+        
+        document.getElementById('boxEnteteDroit').style.display = "none";
+        document.getElementById('boxEnteteDroitFermer').style.display = "block";
+    }
+    
+    if (bouton == "reload") {
+        document.getElementById('boxEnteteDroitFermer').style.display = "none";
+        document.getElementById('boxEnteteDroit').style.display = "block";
+    }
+    
+    var d=dimension_detect();
+    
+    largEcran = d.viewW;
+    hautEcran = d.viewH;
+
+    document.getElementById('boxFond').style.width = largEcran+"px";
+    document.getElementById('boxFond').style.height = hautEcran+"px";
+    
+    document.getElementById('boxTitre').innerHTML = titreBox;
+    
+    var hauteurBoxInterne = hauteurBox - 54;
+    var largeurBoxInterne = largeurBox - 16;
+    var largeurBoxTitre = largeurBox - 57;
+    var largeurBoxBas = largeurBox - 34;
+    
+    document.getElementById('box').style.height = hauteurBox+"px";
+    document.getElementById('box').style.width = largeurBox+"px";
+    document.getElementById('boxContenu').style.height = hauteurBoxInterne+"px";
+    document.getElementById('boxContenu').style.width = largeurBoxInterne+"px";
+    document.getElementById('boxContenuGauche').style.height = hauteurBoxInterne+"px";
+    document.getElementById('boxContenuDroit').style.height = hauteurBoxInterne+"px";
+    document.getElementById('boxEnteteContenu').style.width = largeurBoxTitre+"px";
+    document.getElementById('boxBasContenu').style.width = largeurBoxBas+"px";
+    
+    calageBox();
+    
+    if (bouton == "ok") {
+        codeHtml += "<div id=\"boxConteneurBouton\" style=\"width: 62px\">";
+            codeHtml += '<div class="ui green button small" onclick="fermerAlerte();">OK</div>';
+        codeHtml += "</div>";   
+        
+        if (option1 != "bloquerentree") {
+            actionBoutonEnter = "fermerAlerte"; 
+        }    
+    } else if (bouton == "monnaieInterneInsuffisante") {
+        codeHtml += "<div id=\"boxConteneurBouton\" style=\"width: 290px\">";
+        codeHtml += "<a href=\"/Cuenta / parrainages.php\" class=\"ui green button small\">Invitar amigos</a>";
+        codeHtml += "<div class=\"ui button small\" style=\"margin-left: 12px;\" onclick=\"fermerAlerte();\">anular</div>";
+        codeHtml += "</div>";
+    } else if (bouton == "resultatParrainage") {
+        codeHtml += "<div id=\"boxConteneurBouton\" style=\"width: 62px\">";
+            codeHtml += '<a href="/Cuenta&#32;/&#32;parrainages.php" class="ui green button small">OK</a>';
+        codeHtml += "</div>";     
+    } else if (bouton == "erreurIdentification") {
+        codeHtml += "<div id=\"boxConteneurBouton\" style=\"width: 80px\">";
+            codeHtml += '<div class="ui green button small" onclick="alerte(\'connexion\',\'connexion\');">OK</div>';
+        codeHtml += "</div>";   
+        
+        actionBoutonEnter = "connexion";     
+    } else if (bouton == "o-n-langue") {
+            codeHtml += "<div id=\"boxConteneurBouton\" style=\"width: 180px\">";
+            codeHtml += "<div class=\"boxBoutonOui\" onclick=\"location.href='http://"+option1+".trastering.es';\">"+option2+"</div>";
+            codeHtml += "<div class=\"boxBoutonNon\" style=\"margin-left: 12px;\" onclick=\"fermerAlerte(); annulerPropositionLangue();\">"+option3+"</div>";
+        codeHtml += "</div>";
+    } else if (bouton == "close") {
+        codeHtml += "<div id=\"boxConteneurBouton\" style=\"width: 80px\">";
+            codeHtml += "<div class=\"boxBoutonNon\" onclick=\"fermerAlerte();\">Cerrar</div>";
+        codeHtml += "</div>";
+        
+        actionBoutonEnter = "fermerAlerte";
+    } else if (bouton == "download") {
+        codeHtml += "<div id=\"boxConteneurBouton\" style=\"width: 172px\">";
+        codeHtml += "<a href="/scripts/\&quot;&quot;+option1+&quot;\&quot;" class=\"boxBoutonOui\">Download</a>";
+        codeHtml += "<div class=\"boxBoutonNon\" style=\"margin-left: 12px;\" onclick=\"fermerAlerte();\">Cerrar</div>";
+        codeHtml += "</div>";
+    } else if (bouton == "show") {
+        codeHtml += "<div id=\"boxConteneurBouton\" style=\"width: 172px\">";
+        codeHtml += "<a href="/scripts/\&quot;&quot;+option1+&quot;\&quot;" class=\"boxBoutonOui\" target=\"_blank\"></a>";
+        codeHtml += "<div class=\"boxBoutonNon\" style=\"margin-left: 12px;\" onclick=\"fermerAlerte();\">Cerrar</div>";
+        codeHtml += "</div>";
+    } else if (bouton == "ajoutPanier") {
+        codeHtml += "<div id=\"boxConteneurBouton\" style=\"width: 286px\">";
+        codeHtml += "<div class=\"boxBoutonNonGrand\" onclick=\"fermerAlerte();\">Continuar comprando</div>";
+        codeHtml += "<a href=\"/compra /\" class=\"boxBoutonOuiGrand\" style=\"margin-left: 12px;\">Carro y la salida</a>";
+        codeHtml += "</div>";
+        
+        actionBoutonEnter = "panier";
+    } else if (bouton == "reload") {
+        codeHtml += '<div id="boxConteneurBouton" style="width: 62px">';
+        if ((option1 != "") && (option1 != "undefined") && (option1 != undefined)) {
+            codeHtml += '<div class="ui green button small" onclick="location.href=\''+option1+'\';">OK</div>';
+        } else {
+            codeHtml += '<div class="ui green button small" onclick="location.reload();">OK</div>';
+        }
+        codeHtml += '</div>';
+        
+        actionBoutonEnter = "reload";
+    } else if (bouton == "supprimer") {
+        codeHtml += "<div id=\"boxConteneurBouton\" style=\"width: 160px\">";
+        codeHtml += "<div class=\"ui green button small\" onclick=\"supprimer('"+option1+"','"+option2+"','"+option3+"','"+option4+"','"+option5+"','"+option6+"');\">sí</div>";
+        codeHtml += "<div class=\"ui button small\" style=\"margin-left: 12px;\" onclick=\"fermerAlerte();\">no</div>";
+        codeHtml += "</div>";
+    } else if (bouton == "alerteDispo") {
+        codeHtml += "<div id=\"boxConteneurBouton\" style=\"width: 260px\">";
+        codeHtml += "<div class=\"ui green button small\" onclick=\"ajoutPanier('"+option2+"','"+option3+"','"+option4+"','"+option5+"');\">orden</div>";
+        codeHtml += "<div class=\"ui button small\" style=\"margin-left: 12px;\" onclick=\"fermerAlerte();\">anular</div>";
+        codeHtml += "</div>";
+    } else if (bouton == "connexionDirecte") {
+        codeHtml += "<div id=\"boxConteneurBouton\" style=\"width: 250px\">";
+        codeHtml += "<div class=\"ui green button small\" onclick=\"alerte('connexion', 'connexion');\">acceder</div>";
+        codeHtml += "<div class=\"ui button small\" style=\"margin-left: 12px;\" onclick=\"fermerAlerte();\">anular</div>";
+        codeHtml += "</div>";
+    } else if (bouton == "demandeDispo") {
+        codeHtml += "<div id=\"boxConteneurBouton\" style=\"width: 160px\">";
+        codeHtml += "<div class=\"ui green button small\" onclick=\"validEnvoiDispoArticle('"+option1+"');\">sí</div>";
+        codeHtml += "<div class=\"ui button small\" style=\"margin-left: 12px;\" onclick=\"fermerAlerte();\">no</div>";
+        codeHtml += "</div>";
+    } else if (bouton == "progression") {
+        //codeHtml += "<div class=\"boxBoutonOui\" style=\"margin-left: 125px;\" onclick=\"fermerAlerte();\">anular</div>";
+    } else if (bouton == "o-n-connexion") {
+        codeHtml += "<div id=\"boxConteneurBouton\" style=\"width: 172px\">";
+        codeHtml += "<div class=\"boxBoutonOui\" onclick=\"location.href='/gamer/"+option1+"/'\">sí</div>";
+        codeHtml += "<div class=\"boxBoutonNon\" style=\"margin-left: 12px;\" onclick=\"fermerAlerte();\">no</div>";
+        codeHtml += "</div>";
+    }
+    
+    if (bouton == "seconnecter") {
+        codeHtml += "</form>";
+    }
+    
+    document.getElementById('boxContenu').innerHTML = codeHtml;
+    
+    $("#boxFond").fadeTo('slow',0.5);
+    $("#box").fadeIn('slow');
+    
+    if (message == "modifPhoto") {
+        afficheModifPhoto(option1,option2,option3,option4);
+    }
+}
+
+function validEnvoiDispoArticle(numArticle) {
+    var continuer = "ko";
+            var testEmail = document.getElementById('case_email_dispoArticle').value;   
+
+        var bonCaracterePattern = "[-a-z0-9\._]+@[-a-z0-9\.]+\.[a-z]{2,4}";
+        var reg= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
+
+        if(reg.test(testEmail)==false) {
+            window.alert("L'E-mail que vous avez saisi est incorrect");
+        } else {
+            continuer = "ok";
+        }
+            
+    if (continuer == "ok") {
+        var url = "/executions/validAlerte.php";
+        var parametres = "type=dispoArticle";
+        parametres += "&numArticle="+numArticle;
+        parametres += "&email="+testEmail;
+        
+        //window.alert(parametres);
+        
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: parametres,
+            success: function(data){
+                afficheReponseDispoArticle(data);
+              }
+        });
+    }
+}
+
+function afficheReponseDispoArticle(doc) {
+    if (doc.etat == "ok") {
+        alerte("<br />Usted recibirá un correo electrónico cuando este producto esté disponible.","ok");
+    } else if (doc.etat == "deja") {
+        alerte("<br />Una alerta ya está programado para este artículo","ok");
+    } else {
+        envoiErreurAdmin('afficheReponseDispoArticle',doc.etat);
+    }
+}
+
+function calageBox() {    
+    largEcran = $(window).width();
+    hautEcran = $(window).height();
+    
+
+            
+        var newTop = (hautEcran / 2) - (hauteurBox / 2);
+        var newLeft = (largEcran / 2) - (largeurBox / 2);
+        
+        newTop = Math.round(newTop,0);
+        newLeft = Math.round(newLeft,0);
+        
+        document.getElementById('boxFond').style.width = largEcran+"px";
+        document.getElementById('boxFond').style.height = hautEcran+"px";
+        
+        
+        document.getElementById('box').style.top = newTop+"px";
+        document.getElementById('box').style.left = newLeft+"px"; 
+            
+    
+    
+}
+
+function fermerAlerte() {  
+    actionBoutonEnter = "";
+    $("#boxFond").fadeOut('slow');
+    $("#box").fadeOut('slow');
+}
+
+function verifSupprimer(num,nom,mode,option,option2,option3) {
+    if (mode == "commande")
+    {
+        alerte("<br />¿Está seguro de que desea cancelar esta orden?","supprimer",num,mode,nom,option);
+    }
+    else if (mode == "itemPanier")
+    {
+        alerte("<br />¿Está seguro de que desea eliminar este artículo de su carrito?","supprimer",num,mode,nom,option,option2,option3);
+    }
+    else if (mode == "adresse")
+    {
+        alerte("<br />¿Está seguro de que desea eliminar esta dirección?","supprimer",num,mode,nom,option);
+    }
+    else if (mode == "messageSupport")
+    {
+        alerte("<br />¿Está seguro de que quiere borrar este mensaje?","supprimer",num,mode,nom,option);
+    }
+}
+
+function modifQuantitePanier(action, numLigne,numArticle,numModele,numDecoupe,refModeleSelect)
+{
+    var quantite = parseInt(document.getElementById("txt_quantite_"+numLigne).value);
+    
+    if (action == "ajouter")
+    {
+        quantite = quantite + 1;
+    }
+    else if (action == "retirer")
+    {
+        quantite = quantite - 1;
+    }
+    
+    if (quantite == 0)
+    {
+        verifSupprimer(numLigne,numArticle,'itemPanier',numModele,numDecoupe)
+    }
+    else
+    {
+        var url = "/executions/validModifPanier.php";
+        var parametres = "numLigne="+numLigne;
+        parametres += "&numArticle="+numArticle;
+        parametres += "&numModele="+numModele;
+        parametres += "&quantite="+quantite;
+        parametres += "&numDecoupe="+numDecoupe;
+        parametres += "&refModeleSelect="+refModeleSelect;
+        
+        //window.alert(parametres);
+        
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: parametres,
+            success: function(data){
+                afficheReponseModifPanier(data);
+              }
+        });
+    }
+}
+
+function afficheReponseModifPanier(doc)
+{
+    var tableauResultat = doc.split("|");
+    var retour = tableauResultat[0];
+    var nbModif = tableauResultat[1];
+    var numLigne = tableauResultat[2];
+    var numArticle = tableauResultat[3];
+    var numModele = tableauResultat[4];
+    var numDecoupe = tableauResultat[5];
+    var option1 = tableauResultat[6];
+    
+    if (retour == "ajouter")
+    {
+        alerte("operación realizada<br /> Número de artículo añadió : "+nbModif,"reload");   
+    }
+    else if (retour == "retirer")
+    {
+        alerte("operación realizada<br /> Número de artículo retira : "+nbModif,"reload"); 
+    }
+    else if (retour == "transporteur")
+    {
+        alerte("<br />operación realizada","reload");   
+    }
+    else if (retour == "multipanier")
+    {
+        alerte("<br />Las cestas y Rushs euro son incompatibles. Antes de pedir este artículo gracias a completar o eliminar su cesta actual.","ok");   
+    }
+    else if (retour == "soldeInsuffisant")
+    {
+        alerte("monnaieInterneInsuffisante","monnaieInterneInsuffisante");  
+    }
+    else if (retour == "quotaArticle")
+    {
+        alerte("<br />Le nombre d'exemplaire commandable pour cet article par personne est limité à "+option1,"ok");  
+    }
+    else if (retour == "indisponible")
+    {
+        alerte("<br />Esta acción no es posible porque este artículo ya no está disponible","ok");   
+    }
+    else if (retour == "inactif")
+    {
+        alerte("<br />La vente privée contenant cet article n'est plus active","ok");  
+    }
+    else
+    {
+        envoiErreurAdmin('afficheReponseModifPanier',doc);
+    }
+}
+
+function modifTransporteurPanier(numTransporteur)
+{
+    if (numTransporteur > 0)
+    {
+        var url = "/executions/validModifPanier.php";
+        var parametres = "numTransporteur="+numTransporteur;
+        
+        //alerte("parametres = "+parametres,"ok");
+        
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: parametres,
+            success: function(data){
+                afficheReponseModifPanier(data);
+              }
+        });
+    }
+}
+
+function choixForme(etape,numArticle,numForme,surface,numDecoupe)
+{
+    alerte('choixForme','choixForme');
+    
+    var url = "/executions/choixForme.php";
+    var parametres = "etape="+etape;
+    parametres += "&numArticle="+numArticle;
+    parametres += "&numForme="+numForme;
+    parametres += "&surface="+surface;
+    parametres += "&numDecoupe="+numDecoupe;
+    
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: parametres,
+        success: function(data){
+            afficheReponseChoixForme(data);
+          }
+    });
+}
+
+function calculSurface(numForme,nbCote,numArticle)
+{
+    var reg = /^\d+$/;
+    
+    $("#resultatCalculSurface").fadeOut('slow', function() {
+    
+    //RESET
+    for (i=1; i<=nbCote; i++)
+    {
+        $("#cote_"+numForme+"_"+i).removeClass('caseiErreur');
+        $("#cote_"+numForme+"_"+i).addClass('casei');
+    }
+    
+    //VERIF FORMAT
+    var erreur = "aucune";
+    
+    for (i=1; i<=nbCote; i++)
+    {
+        if (document.getElementById("cote_"+numForme+"_"+i).value == "")
+        {
+            $("#cote_"+numForme+"_"+i).addClass('caseiErreur');
+            erreur = "Vous devez renseigner toutes les cotes";
+            break;
+        }
+        else if (document.getElementById("cote_"+numForme+"_"+i).value.length < 2)
+        {
+            $("#cote_"+numForme+"_"+i).addClass('caseiErreur');
+            erreur = "Les cotes doivent &ecirc;tre saisies en centim&egrave;tres";
+            break;
+        }
+        else if (reg.test(document.getElementById("cote_"+numForme+"_"+i).value)==false)
+        {
+            $("#cote_"+numForme+"_"+i).addClass('caseiErreur');
+            erreur = "Les cotes doivent &ecirc;tre saisies en centim&egrave;tres";
+            break;
+        }
+    }
+    
+    if (erreur == "aucune")
+    {
+        var url = "/executions/calculSurface.php";
+        var parametres = "numForme="+numForme;
+        parametres += "&numArticle="+numArticle;
+        
+        for (i=1; i<=nbCote; i++)
+        {
+            parametres += "&cote_"+i+"="+document.getElementById("cote_"+numForme+"_"+i).value;
+        }
+        
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: parametres,
+            success: function(data){
+                afficheReponseCalculSurface(data);
+              }
+        });
+    }
+    else
+    {
+        
+        document.getElementById('resultatCalculSurface').innerHTML = "<span class='texter'>"+erreur+"</span>";
+        $("#resultatCalculSurface").fadeIn('slow');
+    }
+    
+    });
+}
+
+function afficheReponseCalculSurface(doc)
+{
+    document.getElementById('resultatCalculSurface').innerHTML = doc;
+    $("#resultatCalculSurface").fadeIn('slow');
+}
+
+function afficheReponseChoixForme(doc)
+{
+    document.getElementById('boxContenu').innerHTML = doc;
+}
+
+function verifMiseajourQuantite(event,numLigne,numArticle,numModele,numDecoupe,refModeleSelect) {
+    if (event.which == 13) {
+        var quantite = document.getElementById("txt_quantite_"+numLigne).value;
+        
+        if (quantite == 0) {
+            verifSupprimer(numLigne,numArticle,'itemPanier',numModele)
+        } else {
+            var url = "/executions/validModifPanier.php";
+            var parametres = "numLigne="+numLigne;
+            parametres += "&numArticle="+numArticle;
+            parametres += "&numModele="+numModele;
+            parametres += "&quantite="+quantite;
+            parametres += "&numDecoupe="+numDecoupe;
+            parametres += "&refModeleSelect="+refModeleSelect;
+            
+            //window.alert(parametres);
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: parametres,
+                success: function(data){
+                    afficheReponseModifPanier(data);
+                  }
+            });
+        }
+    }
+}
+
+
+
+function supprimer(num,mode,option1,option2,option3,option4)
+{
+    actionBoutonEnter = "";
+    document.getElementById('boxContenu').innerHTML = "<div class=\"boxContenuLoading\"><span class=\"loader textegris\">carga</span></div>";
+    
+    var url = "/executions/supprimer.php";
+    var parametres = "num="+num;
+    parametres += "&mode="+mode;
+    
+    if(option1 != "")
+    {
+        parametres += "&option1="+option1;
+    }
+    
+    if(option2 != "")
+    {
+        parametres += "&option2="+option2;
+    }
+    
+    if(option3 != "")
+    {
+        parametres += "&option3="+option3;
+    }
+    
+    if(option4 != "")
+    {
+        parametres += "&option4="+option4;
+    }
+    
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: parametres,
+        success: function(data){
+            afficheReponseSupprimer(data);
+          }
+    });
+}
+
+function afficheReponseSupprimer(doc)
+{    
+    var tableauResultat = doc.split("|");
+    var retour = tableauResultat[0];
+    var num = tableauResultat[1];
+    var mode = tableauResultat[2];
+    
+    if (retour == "ok")
+    {
+        if (mode == "commande")
+        {
+            alerte("<br />para borrar","reload");
+            $("#ligneCommande"+num).slideUp('slow');
+        }
+        else if (mode == "itemPanier")
+        {
+            alerte("<br />artículo suprimido","reload");
+            $("#lignePanier"+num).slideUp('slow');
+        }
+        else if (mode == "adresse")
+        {
+            alerte("<br />dirección borrado","reload");
+            $("#cadreAdresse"+num).slideUp('slow');
+        }
+        else if (mode == "messageSupport")
+        {
+            alerte("<br />mensaje eliminado","reload");
+            $("#ligneSite"+num).slideUp('slow');
+        }   
+    }
+    else if (retour == "impossible")
+    {
+        if (mode == "ticket")
+        {
+            alerte("<br />Impossible to delete this ticket.<br />One or more purchases exists for this ticket","ok");
+        }
+        else if (mode == "topic")
+        {
+            alerte("<br />Impossible to delete this topic.<br />One or more replies exists for this topic","ok");
+        }
+    }
+    else
+    {
+        envoiErreurAdmin('afficheReponseSupprimer',doc);
+    }
+}
+
+function afficherFormAdresse(numAdresse)
+{
+    $("#contenuAdresse"+numAdresse).slideUp('fast');
+    
+    $("#contenuAdresseForm"+numAdresse).slideDown('slow');
+}
+
+
+function afficherEstimateur(phase,mode,option1) {
+    ouvrirPopup("Calcula tu espacio",665,450);
+
+    var url = "/executions/chargementEstimateur.php";
+    var parametres = "phase="+phase;
+    parametres += "&option1="+option1;
+    parametres += "&mode="+mode;
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: parametres,
+        success: function(data){
+            afficheReponseChargementEstimateur(data);
+          }
+    });
+    
+}
+
+function afficheReponseChargementEstimateur(doc) {
+    if (doc.etat == "ok") {        
+        chargementPopup(doc.html);
+        
+        //SELECTEUR ESTIMATEUR
+        $("#estimateurCadre .choix .liste div").bind('mouseover', function(event) {
+            var idPrincipale = $(this).attr('id');
+            idSelect = idPrincipale.replace("phaseSelecteur_","");
+
+            $("#selecteurListe .estimateurInfos").each(function( index ) {
+                var idTest = $(this).attr('id');
+                idReelleTest = idTest.replace("estimateurInfos_","");
+
+                if ((idReelleTest != idSelect) && ($(this).is(':visible'))) { 
+                    $(this).hide();
+                } else if (idReelleTest == idSelect) {
+                    $(this).show();
+                }
+            });
+
+            event.stopPropagation();
+        });
+
+        $("#estimateurCadre .selecteur").bind('click', function(event) {
+
+            if ($("#selecteurListe").is(':visible')) { 
+                $("#selecteurListe").hide();
+            } else {
+                $("#selecteurListe").show();
+            }
+
+
+            event.stopPropagation();
+        });
+        
+        $("#selecteurListe.phase1 .choix .liste div").bind('click', function(event) {
+
+            var idPrincipale = $(this).attr('id');
+            
+            var decalageChargement = parseInt((parseInt($("#popup").height()) / 2) - 50);
+            
+            var codeHtml = '<div style="margin-top: '+decalageChargement+'px;" class="loader">carga</div>';
+    
+            document.getElementById('popupContenu').innerHTML = codeHtml;
+            
+            afficherEstimateur(2,'',idPrincipale);
+            
+            event.stopPropagation();
+        });
+    } else {
+        envoiErreurAdmin('afficheReponseChargementEstimateur',doc.etat);
+    }
+}
+
+function ouvrirPopup(titre,largeur,hauteur) {    
+    //document.getElementById('popupTitre').style.backgroundImage = 'url(/template/leo-trastering-dev/images/boxInfo.png)';
+
+    document.getElementById('popupTitre').innerHTML = titre;
+    
+    largEcran = $(window).width();
+    hautEcran = $(window).height();
+    
+    hauteurPopup = hauteur;
+    largeurPopup = largeur;
+
+    document.getElementById('popupFond').style.width = largEcran+"px";
+    document.getElementById('popupFond').style.height = hautEcran+"px";
+    
+    document.getElementById('popupTitre').innerHTML = titre;
+    
+    var hauteurPopupInterne = hauteurPopup - 54;
+    var largeurPopupInterne = largeurPopup - 16;
+    var largeurPopupTitre = largeurPopup - 57;
+    var largeurPopupBas = largeurPopup - 34;
+    
+    //alerte("largeurPopup : "+largeurPopup+ " / largeurPopupInterne : "+largeurPopupInterne,"ok");
+    
+    document.getElementById('popup').style.height = hauteurPopup+"px";
+    document.getElementById('popup').style.width = largeurPopup+"px";
+    document.getElementById('popupContenu').style.height = hauteurPopupInterne+"px";
+    document.getElementById('popupContenu').style.width = largeurPopupInterne+"px";
+    document.getElementById('popupContenuGauche').style.height = hauteurPopupInterne+"px";
+    document.getElementById('popupContenuDroit').style.height = hauteurPopupInterne+"px";
+    document.getElementById('popupEnteteContenu').style.width = largeurPopupTitre+"px";
+    document.getElementById('popupBasContenu').style.width = largeurPopupBas+"px";
+
+    calagePopup();
+    
+    var decalageChargement = parseInt((hauteurPopup / 2) - 50);
+    
+    var codeHtml = '<div style="margin-top: '+decalageChargement+'px;" class="loader">carga</div>';
+    
+    document.getElementById('popupContenu').innerHTML = codeHtml;
+
+    $("#popupFond").fadeTo('slow',0.50);
+    $("#popup").fadeIn();
+}
+
+function chargementPopup(codeHtml)
+{
+    document.getElementById('popupContenu').innerHTML = codeHtml;
+}
+
+function fermerPopup()
+{
+    $("#popupFond").fadeOut();
+    $("#popup").fadeOut();
+    document.getElementById('popupContenu').innerHTML = "";
+}
+
+function ajoutPanier(mode,idBouton,numArticle,presenceDeclinaison)
+{
+    var configuration = "ko";
+    var optionSelectionne;
+    var type;
+    var nbQuantite;
+    var choixTaille;
+    var refModeleSelect = "";
+    
+    if (mode == "fiche") {
+        if (document.getElementById('quantite_'+numArticle)) {
+            nbQuantite = document.getElementById('quantite_'+numArticle).value;
+            
+            if (nbQuantite == 0) {
+                nbQuantite = 1;
+            }
+        } else {
+            nbQuantite = 1;
+        }
+        
+        configuration = "ok";
+    } else {
+        if (presenceDeclinaison == "non") {
+            configuration = "ok";
+        }
+
+        //VERIF QUANTITE
+        if (document.getElementById("list_article_quantite"+numArticle)) {
+            optionSelectionne = document.getElementById("list_article_quantite"+numArticle).selectedIndex;
+            nbQuantite = document.getElementById("list_article_quantite"+numArticle).options[optionSelectionne].value;
+        } else if (document.getElementById("quantite_"+numArticle)) {
+            nbQuantite = document.getElementById("quantite_"+numArticle).value;
+        } else {
+            nbQuantite = 1;
+        }
+    }
+    
+    if (configuration == "ok") {
+        $("#"+idBouton).hide();
+        $("#"+idBouton+"Chargement").show();
+        
+        refModeleSelect = document.getElementById("refModeleSelect_"+numArticle).value;
+        
+        var erreur = "";
+        var url = "/executions/panierAdd.php";
+        var parametres = "numArticle="+numArticle;
+        parametres += "&refModeleSelect="+refModeleSelect;
+        
+        if (presenceDeclinaison == "oui") {
+            //ANALYSE DECLINAISON
+            var formulaire = document.getElementById('formDeclinaison');
+            var nomInput = "";
+            var valeurInput = "";
+            
+            for(i=0; i<formulaire.length; i++) {
+                if ((formulaire.elements[i].type == "select-one") || (formulaire.elements[i].type == "select-one")) {
+                    nomInput = formulaire.elements[i].name;
+                    optionSelectionne = formulaire.elements[i].selectedIndex;
+                    valeurInput = formulaire.elements[i].options[optionSelectionne].value;
+
+                    if ((valeurInput == "0") || (valeurInput == 0)) {
+                        erreur = "selectionModele";
+                    }
+                    
+                    parametres += "&"+nomInput+"="+valeurInput;
+                } else if (formulaire.elements[i].type == "hidden") {
+                    nomInput = formulaire.elements[i].name;
+                    valeurInput = formulaire.elements[i].value;
+
+                    if ((valeurInput == "0") || (valeurInput == 0) || (valeurInput == "")) {
+                        erreur = "selectionModele";
+                    }
+                    
+                    parametres += "&"+nomInput+"="+valeurInput;
+                }
+            }
+        }
+        
+        if (erreur == "selectionModele") {
+            alerte("<br />Vous devez effectuer la sélection de votre modèle","ok");
+            $("#"+idBouton).show();
+            $("#"+idBouton+"Chargement").hide();
+        } else {
+            parametres += "&nbQuantite="+nbQuantite;
+            parametres += "&idBouton="+idBouton;
+            parametres += "&mode="+mode;
+            
+            //alerte("ok : "+parametres,"ok");
+            
+            if ($("#popup").is(':visible')) {
+                fermerPopup();
+            }
+       
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: parametres,
+                success: function(data){
+                    afficheReponseAjoutPanier(data);
+                  }
+            });
+       }
+    } else {
+        $("#"+idBouton).hide();
+        $("#"+idBouton+"Chargement").show();
+        
+        ouvrirPopup("Choix de la d&eacute;clinaison",770,470);
+        
+        var url = "/executions/choixDeclinaison.php";
+        var parametres = "numArticle="+numArticle;
+        parametres += "&idBouton="+idBouton;
+        
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: parametres,
+            success: function(data){
+                afficheReponseChoixDeclinaison(data);
+              }
+        });
+    }
+}
+
+function afficherFicheDetail(numArticle)
+{
+    ouvrirPopup('Fiche d&eacute;tail',770,500);
+    
+    var url = "/executions/choixDeclinaison.php";
+    var parametres = "numArticle="+numArticle;
+    
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: parametres,
+        success: function(data){
+            afficheReponseChoixDeclinaison(data);
+          }
+    });
+}
+
+
+function afficheReponseAjoutPanier(doc)
+{
+    //window.alert(doc);
+    var tableauResultat = doc.split("|");
+    var numArticle = tableauResultat[0];
+    var retour = tableauResultat[1];
+    var idBouton = tableauResultat[2];
+    var mode = tableauResultat[3];
+    var option1 = tableauResultat[4];
+    
+    if (retour == "ok")
+    {
+        animationPanier();
+        alerte("ajoutPanier","ajoutPanier");  
+    }
+    else if (retour == "inconnu")
+    {
+        alerte("<br />Article inconnu","ok");  
+    }
+    else if (retour == "soldeInsuffisant")
+    {
+        alerte("monnaieInterneInsuffisante","monnaieInterneInsuffisante"); 
+    }
+    else if (retour == "indisponible")
+    {
+        alerte("<br />Cet article n'est malheureusement plus diponible","ok");  
+    }
+    else if (retour == "multipanier")
+    {
+        alerte("<br />Las cestas y Rushs euro son incompatibles. Antes de pedir este artículo gracias a completar o eliminar su cesta actual.","ok");   
+    }
+    else if (retour == "inactif")
+    {
+        alerte("<br />La vente privée contenant cet article n'est plus active","ok");  
+    }
+    else if (retour == "quotaArticle")
+    {
+        alerte("<br />Le nombre d'exemplaire commandable pour cet article par personne est limité à "+option1,"ok");  
+    }
+    else if (retour == "declinaisonIndisponible")
+    {
+        alerte("<br />Cet article n'est plus diponible pour dans cette declinaison","ok");  
+    }
+    else if (retour == "declinaisonIndisponible2")
+    {
+        alerte("<br />Cet article n'est plus diponible pour dans cette declinaison","ok");  
+    }
+    else if (retour == "depassementNombreArticle")
+    {
+        alerte("Op&eacute;ration impossible.<br />La limite du nombre d'article maximum a &eacute;t&eacute; d&eacute;pass&eacute;e","ok");  
+    }
+    else if (retour == "depassementMontantPanier")
+    {
+        alerte("Op&eacute;ration impossible.<br />La limite du montant maximum du panier a &eacute;t&eacute; d&eacute;pass&eacute;e","ok");  
+    }
+    else if (retour == "choixDeclinaison")
+    {
+        alerte("Cet article est disponible dans plusieurs d&eacute;clinaisons.","ok");  
+    }
+    else
+    {
+        envoiErreurAdmin('afficheReponseAjoutPanier',doc);
+    }
+    
+    if ($("#"+idBouton+"Chargement").is(':visible'))
+    {
+        $("#"+idBouton+"Chargement").hide();
+        $("#"+idBouton).show();
+    }
+    
+    if (mode == "listeChoix")
+    {
+        fermerPopup();
+    }
+}
+
+
+
+function afficheReponseChoixDeclinaison(doc)
+{
+    var tableauResultat = doc.split("||");
+    var numArticle = tableauResultat[0];
+    var retour = tableauResultat[1];
+    var idBouton = tableauResultat[2];
+    var codeHtml = tableauResultat[3];
+    
+    if (retour == "ok")
+    {
+        chargementPopup(codeHtml);
+    }
+    else
+    {
+        fermerPopup();
+        envoiErreurAdmin('afficheReponseChoixDeclinaison',doc);
+    }
+    
+    if (idBouton)
+    {
+        $("#"+idBouton+"Chargement").fadeOut('slow');
+        $("#"+idBouton).fadeIn('slow');
+   }
+}
+
+function envoiTaille(numArticle)
+{
+    var optionSelectionne = document.getElementById('list_taille'+numArticle).selectedIndex;
+    var numTaille = document.getElementById('list_taille'+numArticle).options[optionSelectionne].value;
+    
+    if (numTaille > 0)
+    {
+        var nbQuantite = 1;
+        
+        var url = "/executions/panierAdd.php";
+        var parametres = "numArticle="+numArticle;
+        if (numTaille)
+        {
+            parametres += "&numTaille="+numTaille;
+        }
+        parametres += "&nbQuantite="+nbQuantite;
+        parametres += "&mode=listeChoix";
+        
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: parametres,
+            success: function(data){
+                afficheReponseAjoutPanier(data);
+              }
+        });
+    }
+    else
+    {
+        alerte("<br />","ok");
+    }
+}
+
+function animationPanier()
+{
+    if ($('#blockPanier').is(':visible'))
+    {
+        $("#blockPanier").slideUp('slow');
+    }
+    
+    var url = "/executions/panierUpdate.php";
+    var parametres = "";
+    
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: parametres,
+        success: function(data){
+            afficheReponseUpdatePanier(data);
+          }
+    });
+}
+
+function afficheReponseUpdatePanier(doc)
+{
+    if (doc != "ko")
+    {
+        var tableauResultat = doc.split("||");
+        var montantPanier = tableauResultat[0];
+        var retour = tableauResultat[1];
+        
+        $('#panierGlobal_montant').fadeOut('slow', function() {
+            document.getElementById('panierGlobal_montant').innerHTML = montantPanier+'&euro;';
+            $('#panierGlobal_montant').fadeIn('slow');
+          });
+          
+        document.getElementById("blockPanier").innerHTML = retour;
+        $("#blockPanier").slideDown('slow');
+        
+        //ANIMATION VIGNETTE
+        $("#photoPrincipaleArticle .vignetteArticleFiche_cadre img").each(function( index ) {
+
+            if ($(this).is(':visible'))
+            {   
+                var actualTop = $(this).offset().top;
+                var actualLeft = $(this).offset().left;
+                
+                actualTop = actualTop - 50;
+                
+                var newTop = $("#blockPanier").offset().top;
+                newTop = newTop - 0;
+                var newLeft = $("#blockPanier").offset().left;
+                
+                $('<img class="cloneImage" src="/scripts/'+$(this).attr('src')+'" />').show().css({ "top": actualTop+"px","left": actualLeft+"px" }).appendTo('#contenu_page').animate({
+                    top: newTop+'px',
+                    left: newLeft+'px',
+                    width: '45px',
+                    height: '60px',
+                    opacity: 0
+                }, 3000, function() {
+        
+                });
+                
+                return false;
+            }
+        });
+    }
+    else
+    {
+        envoiErreurAdmin('afficheReponseUpdatePanier',doc);
+    }
+}
+
+function calagePopup()
+{    
+    largEcran = $(window).width();
+    hautEcran = $(window).height();
+    
+    
+
+    
+        
+        var newTop = (hautEcran / 2) - (hauteurPopup / 2);
+        var newLeft = (largEcran / 2) - (largeurPopup / 2);
+        
+        newTop = Math.round(newTop,0);
+        newLeft = Math.round(newLeft,0);
+        
+        
+        document.getElementById('popup').style.top = newTop+"px";
+        document.getElementById('popup').style.left = newLeft+"px"; 
+
+            
+    
+    
+}
+
+
+function verifFinaliserContratTel() {
+     if ((document.getElementById("boxesNonDispoTel").value == "") || (document.getElementById("boxesNonDispoTel").value.length < 10)) {
+        document.getElementById('texteAlerteFinaliserContratTel').innerHTML = "Debes introducir tu teléfono";
+        $("#caseAlerteFinaliserContratTel").slideDown('slow');
+    } else {
+    
+        $("#boxesNonDispoBoutons").hide();
+        $("#boxesNonDispoChargement").show();
+    
+        var url = "/executions/validEnvoiContact.php";
+        var parametres = "mode=finaliserContratTel";
+        parametres += "&tel="+document.getElementById("boxesNonDispoTel").value;
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: parametres,
+            success: function(data){
+                afficheReponseFinaliserContratTel(data);
+              }
+        });
+    }
+}
+
+function afficheReponseFinaliserContratTel(doc) {
+
+    if (doc.etat == "ok") {
+        alerte("<br />Gracias potr tu petición, te llamaremos en unos minutos (si estamos dentro del horario de Atención al Cliente).","ok");
+    } else if (doc.etat == "telIncorrect") {
+        alerte("<br />Tu teléfono es incorrecto: debe tener por lo menos 9 dígitos.","ok");
+    } else {
+        envoiErreurAdmin('afficheReponseFinaliserContratTel',doc.etat);
+    }
+}
+
+function verifReapro()
+{
+
+    if (document.getElementById('txt_email_reapro').value == "")
+    {
+        window.alert("Vous devez saisir un email valide");
+    }
+    else
+    {
+        var testEmail = document.getElementById('txt_email_reapro').value;  
+
+        var bonCaracterePattern = "[-a-z0-9\._]+@[-a-z0-9\.]+\.[a-z]{2,4}";
+        var reg= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
+        
+        if(reg.test(testEmail)==true)
+        {
+            location.href="newsletter.php?txt_email="+document.getElementById('txt_email_reapro').value;
+        }
+        else
+        { 
+            window.alert("L'E-mail que vous avez saisi est incorrect");
+        }
+    }
+}
+
+function effacerLivraison()
+{
+    document.forms['formulaire'].txt_nom.value = "";
+    document.forms['formulaire'].txt_prenom.value = "";
+    document.forms['formulaire'].txt_adresse.value = "";
+    document.forms['formulaire'].txt_cp.value = "";
+    document.forms['formulaire'].txt_ville.value = "";
+    document.forms['formulaire'].txt_tel.value = "";
+    document.forms['formulaire'].txt_portable.value = "";
+}
+
+function verifContact(idForm,mode)
+{
+    var testEmail = document.getElementById(idForm).txt_caseemail.value;
+    var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
+    
+    if ((document.getElementById(idForm).select_destinataire.value == "") || (document.getElementById(idForm).select_destinataire.value == "0"))
+    {        
+        alerte("<br />Debe seleccionar el destinatario de este mensaje","ok");
+        modifetatDonneeFormulaire("destinataire","ko");
+        document.getElementById(idForm).select_destinataire.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (reg.test(testEmail)==false)
+    {        
+        alerte("<br />Tu e-mail no es válida","ok");
+        modifetatDonneeFormulaire("caseemail","ko");
+        document.getElementById(idForm).txt_caseemail.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if (document.getElementById(idForm).txt_casemessage.value == "")
+    {
+        alerte("<br />Debe escribir su mensaje","ok");
+        modifetatDonneeFormulaire("casemessage","ko");
+        document.getElementById(idForm).txt_casemessage.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else if ((document.getElementById(idForm).txt_casecode.value == "") || (document.getElementById(idForm).txt_casecode.length < 6))
+    {
+        alerte("<br />Debe introducir el código de verificación","ok");
+        modifetatDonneeFormulaire("casecode","ko");
+        document.getElementById(idForm).txt_casecode.focus();
+        
+        if (mode == "form")
+        {
+            return false;
+        }
+    }
+    else
+    {
+        if (mode == "direct")
+        {
+            document.getElementById(idForm).submit();
+        }
+        else if (mode == "form")
+        {
+            return true;
+        }
+    }
+}
+
+function verifCommande()
+{
+    if (document.forms['formulaire'].txt_nom.value == '')
+    {
+        window.alert("Vous devez saisir le nom du destinataire de cette commande ");
+        return false;
+    }
+    else if (document.forms['formulaire'].txt_prenom.value == '')
+    {
+        window.alert("Vous devez saisir le pr\u00E9nom du destinataire de cette commande ");
+        return false;
+    }
+    else if (document.forms['formulaire'].txt_adresse.value == '')
+    {
+        window.alert("Vous devez saisir l'adresse du destinataire de cette commande ");
+        return false;
+    }
+    else if (document.forms['formulaire'].txt_cp.value == '')
+    {
+        window.alert("Vous devez saisir le code postal du destinataire de cette commande ");
+        return false;
+    }
+    else if (document.forms['formulaire'].txt_ville.value == '')
+    {
+        window.alert("Vous devez saisir la ville du destinataire de cette commande ");
+        return false;
+    }
+    else
+    {
+        document.forms['formulaire'].submit();
+    }
+}
+
+function afficheDateHeure() 
+{
+    var krucial = new Date;
+    var numJour = krucial.getDay();
+    var heure = krucial.getHours();
+    var min = krucial.getMinutes();
+    var sec = krucial.getSeconds();
+    var jour = krucial.getDate();
+    var mois = krucial.getMonth()+1;
+    var annee = krucial.getFullYear();
+
+    if (sec < 10)
+    {
+        sec0 = "0";
+    }
+    else
+    {
+        sec0 = "";
+    }
+
+    if (min < 10)
+    {
+        min0 = "0";
+    }
+    else
+    {
+        min0 = "";
+    }
+
+    if (heure < 10)
+    {
+        heure0 = "0";
+    }
+    else
+    {
+        heure0 = "";
+    }
+
+    if (mois < 10)
+    {
+        mois0 = "0";
+    }
+    else
+    {
+        mois0 = "";
+    }
+
+    if (jour < 10)
+    {
+        jour0 = "0";
+    }
+    else
+    {
+        jour0 = "";
+    }
+
+    if (annee < 10)
+    {
+        annee0 = "0";
+    }
+    else
+    {
+        annee0 = "";
+    }
+
+    
+
+    DinaDate = "" + jour0 + jour +  mois0 + mois + annee0 + annee;
+    DinaHeure = heure0 + heure +  min0 + min + sec0 + sec;
+
+    var heure = DinaHeure.charAt(0);
+
+    heure += DinaHeure.charAt(1);
+
+    heure += ":";
+
+    heure += DinaHeure.charAt(2);
+
+    heure += DinaHeure.charAt(3);
+    
+    var nomJour = new Array("Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi");
+
+    var moisAnnee = new Array("","Janvier","F&eacute;vrier","Mars","Avril","Mai","Juin","Juillet","Ao&ucirc;t","Septembre","Octobre","Novembre","D&eacute;cembre");
+
+    var dateDuJour = nomJour[numJour];
+    
+    dateDuJour += "&nbsp;";
+    
+    dateDuJour += DinaDate.charAt(0);
+
+    dateDuJour += DinaDate.charAt(1);
+
+    dateDuJour += "&nbsp;";
+
+    dateDuJour += moisAnnee[mois];
+
+    dateDuJour += "&nbsp;";
+
+    dateDuJour += DinaDate.charAt(4);
+    dateDuJour += DinaDate.charAt(5);
+    dateDuJour += DinaDate.charAt(6);
+    dateDuJour += DinaDate.charAt(7);
+
+    comment = heure;
+
+    expression = document.getElementById('afficheheure');
+    expression.innerHTML = comment;
+
+    comment = dateDuJour;
+
+    expression = document.getElementById('affichedate');
+    expression.innerHTML = comment;
+
+    setTimeout("afficheDateHeure()",30000);
+}
+
+function aide(evenement,hauteurTableau,largeurTableau)
+{
+    var x = evenement['clientX'];
+    var y = evenement['clientY'];
+
+    var hauteur = y - hauteurTableau - 10;
+    var largeur = x - largeurTableau - 10;
+    
+    document.getElementById('tableauAide').style.top = hauteur;
+    document.getElementById('tableauAide').style.left = largeur;
+    document.getElementById('tableauAide').style.display = "block";
+}
+
+function aideOut()
+{
+    document.getElementById('tableauAide').style.display = "none";
+}
+
+function verifChoixOptionEchelle(prixEchelle)
+{
+    var prixFinalAffiche = parseFloat(document.getElementById('memoirePrixFinal').value);
+    
+    if (document.getElementById('optionEchelle').checked == true)
+    {
+        $("#cadreOptionEchelleDetail").slideDown('slow');
+        prixFinalAffiche = prixFinalAffiche + prixEchelle;
+    }
+    else
+    {
+        $("#cadreOptionEchelleDetail").slideUp('slow');
+    }
+    
+    document.getElementById('casePrixFinal').innerHTML = "<strong>"+prixFinalAffiche+"&euro;</strong>";
+}
+
+function valideDecoupe(numDecoupe,numArticle,prixFinal,prixEchelle)
+{
+    var prixFinalAffiche = parseFloat(document.getElementById('memoirePrixFinal').value);
+    
+    //VERIF OPTIONS
+    var anglesArrondis = "non";
+    var erreur = "non";
+    var decoupeEchelle = "non";
+    
+    if (document.getElementById('optionEchelle').checked == true)
+    {
+        prixFinalAffiche = prixFinalAffiche + prixEchelle;
+        var detailDecoupeEchelle = document.getElementById('optionEchelleDetail').value;
+        decoupeEchelle = "oui";
+        
+        if (detailDecoupeEchelle == "")
+        {
+            erreur = "oui";
+            $("#cadreInfoFormulaire").fadeOut('slow', function() {
+                document.getElementById('cadreInfoFormulaire').style.color = '#FF0000';
+                $("#cadreInfoFormulaire").fadeIn('slow');
+          });
+            
+        }
+    }
+    
+    if (erreur == "non")
+    {
+        if (document.getElementById('optionAnglesArrondis'))
+        {
+            if (document.getElementById('optionAnglesArrondis').checked == true)
+            {
+                anglesArrondis = "oui";
+            }
+        }   
+        
+        var emplacementEnrouleur = document.getElementById('emplacementEnrouleur').value;
+        
+        document.getElementById('boxContenu').innerHTML = "<div class=\"boxContenuLoading\"><span class=\"loader textegris\">carga</span></div>";
+        
+        var url = "/executions/decoupeAdd.php";
+        var parametres = "numArticle="+numArticle;
+        parametres += "&anglesArrondis="+anglesArrondis;
+        parametres += "&nbQuantite=1";
+        parametres += "&prixFinalAffiche="+prixFinalAffiche;
+        parametres += "&numDecoupe="+numDecoupe;
+        parametres += "&emplacementEnrouleur="+emplacementEnrouleur;
+        parametres += "&decoupeEchelle="+decoupeEchelle;
+        parametres += "&detailDecoupeEchelle="+detailDecoupeEchelle;
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: parametres,
+            success: function(data){
+                afficheReponseDecoupeAdd(data);
+              }
+        });
+    }
+}
+
+function afficheReponseDecoupeAdd(doc)
+{
+    var tableauResultat = doc.split("|");
+    var numArticle = tableauResultat[0];
+    var retour = tableauResultat[1];
+    var numDecoupe = tableauResultat[2];
+    
+    if (retour == "ok")
+    {
+        animationPanier();
+        alerte("ajoutPanier","ajoutPanier");
+    }
+    else
+    {
+        envoiErreurAdmin('afficheReponseDecoupeAdd',doc);
+    }
+}
+
+function verifTraiteur(idForm,mode)
+{
+    var testEmail = document.getElementById(idForm).txt_caseemail.value;
+    var testDate = document.getElementById(idForm).txt_casedate.value;
+    var testPrenom = document.getElementById(idForm).txt_caseprenom.value;
+    var testNom = document.getElementById(idForm).txt_casenom.value;
+    
+    var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
+    var regDate = /^\d{2}\/\d{2}\/\d{4}$/;
+    
+    if (reg.test(testEmail)==false)
+    {        
+        alerte("<br />La dirección de correo electrónico introducida no es válida","ok");
+        modifetatDonneeFormulaire("caseemail","ko");
+        document.getElementById(idForm).txt_caseemail.focus();
+        
+        if (mode == "form")
+        {
+            return false
+        }
+    }
+    else if ((testPrenom == "") || (testPrenom.length < 2))
+    {        
+        alerte("<br />El nombre introducido no es válido","ok");
+        modifetatDonneeFormulaire("caseprenom","ko");
+        document.getElementById(idForm).txt_caseprenom.focus();
+        
+        if (mode == "form")
+        {
+            return false
+        }
+    }
+    else if ((testNom == "") || (testNom.length < 2))
+    {        
+        alerte("<br />El nombre introducido no es válido","ok");
+        modifetatDonneeFormulaire("casenom","ko");
+        document.getElementById(idForm).txt_casenom.focus();
+        
+        if (mode == "form")
+        {
+            return false
+        }
+    }
+    else if (regDate.test(testDate)==false)
+    {        
+        alerte("<br />La fecha no es válida","ok");
+        modifetatDonneeFormulaire("casedate","ko");
+        document.getElementById(idForm).txt_casedate.focus();
+        
+        if (mode == "form")
+        {
+            return false
+        }
+    }
+    else
+    {
+        if (mode == "direct")
+        {
+            document.getElementById(idForm).submit();
+        }
+        else if (mode == "form")
+        {
+            return true;
+        }
+    }
+}
+
+function verifRecrutement(idForm,mode)
+{
+    var testEmail = document.getElementById(idForm).txt_caseemail.value;
+    var testDate = document.getElementById(idForm).txt_casedateDeNaissance.value;
+    var testPrenom = document.getElementById(idForm).txt_caseprenom.value;
+    var testNom = document.getElementById(idForm).txt_casenom.value;
+    var testPoste = document.getElementById(idForm).txt_caseposte.value;
+    var testAdresse = document.getElementById(idForm).txt_caseadresse.value;
+    var testCp = document.getElementById(idForm).txt_casecodepostal.value;
+    var testVille = document.getElementById(idForm).txt_caseville.value;
+    var testTel = document.getElementById(idForm).txt_casetel.value;
+    
+    var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
+    var regDate = /^\d{2}\/\d{2}\/\d{4}$/;
+    
+    
+    if ((testNom == "") || (testNom.length < 2))
+    {        
+        alerte("<br />El nombre introducido no es válido","ok");
+        modifetatDonneeFormulaire("casenom","ko");
+        document.getElementById(idForm).txt_casenom.focus();
+        
+        if (mode == "form")
+        {
+            return false
+        }
+    }
+    else if ((testPrenom == "") || (testPrenom.length < 2))
+    {        
+        alerte("<br />El nombre introducido no es válido","ok");
+        modifetatDonneeFormulaire("caseprenom","ko");
+        document.getElementById(idForm).txt_caseprenom.focus();
+        
+        if (mode == "form")
+        {
+            return false
+        }
+    }
+    else if (regDate.test(testDate)==false)
+    {        
+        alerte("<br />La fecha de nacimiento no es válida","ok");
+        modifetatDonneeFormulaire("casedateDeNaissance","ko");
+        document.getElementById(idForm).txt_casedateDeNaissance.focus();
+        
+        if (mode == "form")
+        {
+            return false
+        }
+    }
+    else if ((testPoste == "") || (testPoste.length < 3))
+    {
+        alerte("<br />Debe introducir la posición para la cual usted presenta una candidatura.","ok");
+        modifetatDonneeFormulaire("caseposte","ko");
+        document.getElementById(idForm).txt_caseposte.focus();
+        
+        if (mode == "form")
+        {
+            return false
+        }
+    }
+    else if ((testAdresse == "") || (testAdresse.length < 10))
+    {
+        alerte("<br />Debe introducir su dirección de","ok");
+        modifetatDonneeFormulaire("caseadresse","ko");
+        document.getElementById(idForm).txt_caseadresse.focus();
+        
+        if (mode == "form")
+        {
+            return false
+        }
+    }
+    else if ((testCp == "") || (testCp.length < 5))
+    {
+        alerte("<br />Debe introducir su código postal","ok");
+        modifetatDonneeFormulaire("casecodepostal","ko");
+        document.getElementById(idForm).txt_casecodepostal.focus();
+        
+        if (mode == "form")
+        {
+            return false
+        }
+    }
+    else if ((testVille == "") || (testVille.length < 2))
+    {
+        alerte("<br />Debe introducir su ciudad","ok");
+        modifetatDonneeFormulaire("caseville","ko");
+        document.getElementById(idForm).txt_caseville.focus();
+        
+        if (mode == "form")
+        {
+            return false
+        }
+    }
+    else if ((testTel == "") || (testTel.length < 2))
+    {
+        alerte("<br />Tu número de teléfono no tiene un formato correcto","ok");
+        modifetatDonneeFormulaire("casetel","ko");
+        document.getElementById(idForm).txt_casetel.focus();
+        
+        if (mode == "form")
+        {
+            return false
+        }
+    }
+    else if (reg.test(testEmail)==false)
+    {        
+        alerte("<br />La dirección de correo electrónico introducida no es válida","ok");
+        modifetatDonneeFormulaire("caseemail","ko");
+        document.getElementById(idForm).txt_caseemail.focus();
+        
+        if (mode == "form")
+        {
+            return false
+        }
+    }
+    else
+    {
+        if (mode == "direct")
+        {
+            document.getElementById(idForm).submit();
+        }
+        else if (mode == "form")
+        {
+            return true;
+        }
+    }
+}
+
+function changeAffichageResultat(mode)
+{
+    if ((mode == "mozaique") && $("#afficheurArticleMozaique").is(':hidden'))
+    {
+        $("#afficheurArticleLigne").hide();
+        $("#afficheurArticleMozaique").fadeIn('slow');
+    }
+    else if ((mode == "ligne") && $("#afficheurArticleLigne").is(':hidden'))
+    {
+        $("#afficheurArticleMozaique").hide();
+        $("#afficheurArticleLigne").fadeIn('slow');
+    }
+}
+
+function validParrainageSend()
+{
+    $("#boutonParrainageSend").hide();
+    $("#boutonParrainageWaiting").show();
+    
+    var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/;
+    var email1 = $("#emailParrainage1").val();
+    var email2 = $("#emailParrainage2").val();
+    var email3 = $("#emailParrainage3").val();
+    
+    $("#controleurEmailParrainage1").removeClass('error');
+    $("#controleurEmailParrainage2").removeClass('error');
+    $("#controleurEmailParrainage3").removeClass('error');
+    
+    if (reg.test(email1)==false)
+    {        
+        alerte("<br />La dirección de correo electrónico introducida no es válida","ok");
+        $("#boutonParrainageWaiting").hide();
+        $("#boutonParrainageSend").show();
+        $("#controleurEmailParrainage1").addClass('error');
+    }
+    else if ((reg.test(email2)==false) && (email2 != ""))
+    {        
+        alerte("<br />La dirección de correo electrónico introducida no es válida","ok");
+        $("#boutonParrainageWaiting").hide();
+        $("#boutonParrainageSend").show();
+        $("#controleurEmailParrainage2").addClass('error');
+    }
+    else if ((reg.test(email3)==false) && (email3 != ""))
+    {        
+        alerte("<br />La dirección de correo electrónico introducida no es válida","ok");
+        $("#boutonParrainageWaiting").hide();
+        $("#boutonParrainageSend").show();
+        $("#controleurEmailParrainage3").addClass('error');
+    }
+    else
+    {
+        var url = "/executions/validAddParrainage.php";
+        var parametres = "email1="+email1;
+        if (email2 != "")
+        {
+            parametres += "&email2="+email2;
+        }
+        
+        if (email3 != "")
+        {
+            parametres += "&email3="+email3;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: parametres,
+            success: function(data){
+                afficheReponseParrainageSend(data);
+              }
+        });
+    }
+}
+
+function afficheReponseParrainageSend(doc)
+{        
+    if (doc.etat == "ok")
+    {
+        if (doc.tableauResultat.length > 0)
+        {
+            alerte("resultatParrainage","resultatParrainage",doc.tableauResultat);
+        }
+        else
+        {
+            envoiErreurAdmin('afficheReponseParrainageSend',"aucun resultat");
+        }
+    }
+    else
+    {
+        alerte("Retour : "+doc.etat+" -> "+doc.raison,"ok");
+    }
+}
+function recursivelyWalk(nodes, cb) {
+    for (var i = 0, len = nodes.length; i < len; i++) {
+        var node = nodes[i];
+        var ret = cb(node);
+        if (ret) {
+            return ret;
+        }
+        if (node.childNodes && node.childNodes.length) {
+            var ret = recursivelyWalk(node.childNodes, cb);
+            if (ret) {
+                return ret;
+            }
+        }
+    }
+}
+
+function testNodeForComparePosition(node, other) {
+    if (node === other) {
+        return true;
+    }
+}
+
+var DOCUMENT_POSITION_DISCONNECTED = 1;
+var DOCUMENT_POSITION_PRECEDING = 2;
+var DOCUMENT_POSITION_FOLLOWING = 4;
+var DOCUMENT_POSITION_CONTAINS = 8;
+var DOCUMENT_POSITION_CONTAINED_BY = 16;
+
+function compareDocumentPosition(thisNode, other) {
+    function identifyWhichIsFirst(node) {
+        if (node === other) {
+            return "other";
+        } else if (node === reference) {
+            return "reference";
+        }
+    }
+
+    var reference = thisNode,
+        referenceTop = thisNode,
+        otherTop = other;
+
+    if (this === other) {
+        return 0;
+    }
+    while (referenceTop.parentNode && typeof referenceTop != "undefined") {
+        referenceTop = referenceTop.parentNode;
+    }
+    while (otherTop.parentNode && typeof otherTop != "undefined") {
+        otherTop = otherTop.parentNode;
+    }
+
+    if (referenceTop !== otherTop) {
+        return DOCUMENT_POSITION_DISCONNECTED;
+    }
+
+    var children = reference.childNodes;
+    var ret = recursivelyWalk(
+        children,
+        function(p) {
+            (function() {
+                var localOther = other;
+                return testNodeForComparePosition(localOther, p);
+            })();
+        }
+    );
+    if (ret) {
+        return DOCUMENT_POSITION_CONTAINED_BY +
+            DOCUMENT_POSITION_FOLLOWING;
+    }
+
+    var children = other.childNodes;
+    var ret = recursivelyWalk(
+        children,
+        function(p) {
+            (function() {
+                var localOther = reference;
+                return testNodeForComparePosition(localOther, p);
+            })();
+        }
+    );
+    if (ret) {
+        return DOCUMENT_POSITION_CONTAINS +
+            DOCUMENT_POSITION_PRECEDING;
+    }
+
+    var ret = recursivelyWalk(
+        [referenceTop],
+        identifyWhichIsFirst
+    );
+    if (ret === "other") {
+        return DOCUMENT_POSITION_PRECEDING;
+    } else {
+        return DOCUMENT_POSITION_FOLLOWING;
+    }
+}

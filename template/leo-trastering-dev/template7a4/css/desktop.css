@@ -1,0 +1,2430 @@
+@media (min-width: 992px) {
+    html {
+        font-size: 17px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    h3 {
+        font-size: 1.1em;
+    }
+
+    h4 {
+        font-size: 1em;
+    }
+
+    h5 {
+        font-size: 1em;
+    }
+
+    h6 {
+        font-size: 1em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .megamenu h2 {
+        font-size: 1.5em;
+        padding-left: 10%;
+    }
+
+    .megamenu h3{
+        font-size: 0.7em;
+        color: rgb(255, 255, 255);
+    }
+    .megamenu h3 a {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+    }
+
+    div#breadcrumb-container1 {
+
+        font-size: 0.7em;
+    }
+
+    .lev2.blog-s-text-right.halfprop.xy-align-items-flex-end.blog-entry-img {
+        /* width: 107%; */
+        margin: 0 !important;
+    }
+
+    .lev2.blog-s-text-right.halfprop.xy-align-items-flex-end.blog-entry-img img {
+        /* width: 200px; */
+    }
+
+    .xy-display-flex-responsive {
+        flex-direction: row;
+    }
+
+    .xy-section.xy-display-flex-responsive .column1 {
+        width: 50%;
+    }
+
+    .xycontainer.xy-infocentres {
+        display: flex;
+    }
+
+    .xy-position-top-10 {
+        position: relative;
+        top: 10px;
+    }
+
+    .xy-map-v2x2-container {
+        width: 200px;
+    }
+
+    #xy-map-v2x2 {
+        height: 160px;
+    }
+
+    section.xy-map-v2x2-section {
+        display: flex;
+    }
+
+    div#inside-of-xy-tabtoggle-y0y02.xy-tabtoggle-y0y0-content {
+        /* left: 39px;
+        max-width: 232px; */
+        padding: 20px;
+    }
+
+    .xyventaja.lev2 {
+        height: 130px;
+    }
+
+    .xycontainer-1.xy-infocentres.infocentres-col {
+        align-items: flex-end;
+        width: 50%;
+        max-width: 600px;
+    }
+    .pseudo-wrapper.off-on-mobile {
+        justify-content: space-between;
+    }
+    .hyper-wrapp .pseudo-wrapper {
+        flex-direction: column;
+        width: 50%;
+        justify-content: center;
+        text-align: center;
+        height: 310px;
+        /* background-color: antiquewhite; */
+    }
+    div#breadcrumb-container1 {
+        background-color: #f4efef;
+        border-top-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 0 0 0 30px;
+        display: flex;
+        align-items: center;
+    }
+    .carousel-wrapperq1x1 {
+        width: 60%;
+    }
+
+    .carousel__slideq1x1 .context {
+        bottom: 46px;
+    }
+
+    .carousel__navdotsq1x1 {
+        bottom: 12px;
+    }
+
+    #xy-centre-pbcornella .carouselq1x1 {
+        padding-bottom: 60px;
+    }
+
+    .hyper-wrapp,
+    .carousel__slideq1x1 {
+        height: 356px;
+    }
+
+    .subfooter-nav-columns .subfooter-column ul li a {
+        padding: 0 20px;
+    }
+
+    .subfooter-nav-columns {
+        /* top: 80px; */
+        max-width: 1280px;
+    }
+
+    .footer-bottom-level2,
+    .xy-footer-zona-ssmm-icons {
+        max-width: 1280px;
+        margin: auto;
+    }
+
+    #footer-nav ul.xy__footer-item {
+        padding: 0;
+    }
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+    }
+
+    .hamburger-menu {
+        display: none;
+        cursor: pointer;
+    }
+
+    .faq-section {
+        margin-bottom: 30px;
+    }
+
+    .faq-section ul {
+        /* width: 60%; */
+    }
+
+    .faq-section div#toggle-z02y02 {
+        /* width: 60%; */
+        /* margin-left: 30px; */
+    }
+
+    .display-none-when-bigger-939px {
+        display: none;
+    }
+
+    .faq-section ul li {
+        padding-top: 20px;
+    }
+
+    .xysection-gray-top-rounded,
+    .xysection-gray-top-rounded-inside,
+    .xysection-gray-top-rounded-no-background {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .xysection-gray-top-rounded {
+        padding-bottom: 40px;
+    }
+
+    .xysection-gray-top-rounded.centros-cercanos {
+        padding-bottom: inherit;
+
+    }
+
+    .xysection-gray-top-rounded.clients-reviews {
+        padding-bottom: inherit;
+
+    }
+
+    div#app-products.xysection-gray-top-rounded {
+        padding-bottom: inherit;
+
+    }
+
+
+    .xy-single-main-column-container {
+        width: 80%;
+        /* margin: auto; */
+        /* padding-right: 20%; */
+        margin: 0 auto 15px auto;
+        min-width: 600px;
+    }
+
+    .lev2.selector__center {
+        align-items: center;
+        width: 50%;
+        /* min-width: 612px; */
+    }
+
+    .lev2.halfpropx.posted,
+    .lev2.blog-s.halfpropx {
+        width: 30%;
+    }
+
+    .xsection.xy-section-PORQUE-ELEGIR-TRASTERING .halfprop p,
+    .xsection.xy-section-PORQUE-ELEGIR-TRASTERING .halfprop h1 {
+        padding-left: 60px;
+    }
+
+    .halfprop img {
+        /* width: 360px; */
+        padding-left: 60px;
+    }
+
+    .blog .xygeneral-padding.xy-single-main-column-container h2 {
+        padding-left: 20px;
+    }
+
+    .img-xy-3steps-v1 img {
+        height: 230px;
+    }
+
+    .xy-single-main-column-container ul {
+        padding-bottom: 40px;
+    }
+
+    .xy-3steps-v1 span.numberlist-steps {
+        background-color: red;
+        padding: 6px 14px;
+        border-radius: 50%;
+        width: 44px;
+        font-size: 1.4em;
+        font-weight: 900;
+        color: white;
+        margin-right: 15px;
+        position: relative;
+        top: 7px;
+    }
+
+    .xy-3steps-v1 .mode-ol-container {
+        height: 85px;
+    }
+
+    section.xsection.xygeneral-padding.xycenter-vertical {
+        justify-content: space-between;
+    }
+
+    .xsection ul {
+        margin: 0 0 0 auto;
+    }
+
+    .halfprop p {
+        padding: 15px 0 0 0;
+        max-width: 95%;
+    }
+
+    .halfprop.xyslider3 {
+        display: flex;
+        padding-top: 10px;
+    }
+
+    .xy-3steps li {
+        padding-bottom: 10px;
+        color: red;
+    }
+
+    .halfprop.xy-3steps-video {
+        display: flex;
+        padding-top: 10px;
+    }
+
+    .xy3ventajas .xp p {
+        font-weight: 1.2em;
+    }
+
+    .xyimg.n1,
+    .xyimg.n2,
+    .xyimg.n3 {
+        background-size: cover;
+        width: 100%;
+        height: 240px;
+        border-radius: 15px;
+    }
+
+    .lev1.xcontainer_selector_and_paragraph {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .justifycontent-space-between {
+        justify-content: space-between;
+    }
+
+    .proportion-20wide {
+        width: 20%;
+    }
+
+    .proportion-30wide {
+        width: 30%;
+    }
+
+    .proportion-40wide {
+        width: 40%;
+    }
+
+    .proportion-60wide {
+        width: 60%;
+    }
+
+    .proportion-70wide {
+        width: 70%;
+    }
+
+    .proportion-80wide {
+        width: 80%;
+    }
+
+    .halfprop .carousel,
+    .proportion-20wide .carousel,
+    .proportion-30wide .carousel,
+    .proportion-40wide .carousel,
+    .proportion-60wide .carousel,
+    .proportion-70wide .carousel,
+    .proportion-80wide .carousel {
+        padding-top: 20px;
+    }
+
+    .xsection .proportion-20wide p,
+    .xsection .proportion-30wide p,
+    .xsection .proportion-40wide p,
+    .xsection .proportion-60wide p,
+    .xsection .proportion-70wide p,
+    .xsection .proportion-80wide p {
+        width: 100%;
+        max-width: inherit;
+    }
+
+    .padding-left-10 {
+        padding-left: 10px;
+    }
+
+    .padding-left-20 {
+        padding-right: 20px;
+    }
+
+    .padding-left-30 {
+        padding-left: 30px;
+    }
+
+    .padding-right-10 {
+        padding-right: 10px;
+    }
+
+    .padding-top-10 {
+        padding-top: 10px;
+    }
+
+    .padding-top-30 {
+        padding-top: 30px;
+    }
+
+    .padding-bottom-10 {
+        padding-bottom: 10px;
+    }
+
+    .padding-right-20 {
+        padding-right: 20px;
+    }
+
+    .padding-top-20 {
+        padding-top: 20px;
+    }
+
+    .padding-bottom-20 {
+        padding-bottom: 20px;
+    }
+
+    .padding-20 {
+        padding: 20px;
+    }
+
+    .padding-10 {
+        padding: 10px;
+    }
+
+    .padding-5 {
+        padding: 5px;
+    }
+
+    .padding-0 {
+        padding: 0;
+    }
+
+    .margin-20 {
+        margin: 20px;
+    }
+
+    .margin-10 {
+        margin: 10px;
+    }
+
+    .margin-5 {
+        margin: 5px;
+    }
+
+    .margin-0 {
+        margin: 0;
+    }
+
+    .margin-top-20 {
+        margin-top: 20px;
+    }
+
+    .margin-top-30 {
+        margin-top: 30px;
+    }
+
+    .margin-top-40 {
+        margin-top: 40px;
+    }
+
+    .margin-top-10 {
+        margin-top: 10px;
+    }
+
+    .margin-top-5 {
+        margin-top: 5px;
+    }
+
+    .margin-top-0 {
+        margin-top: 0;
+    }
+
+    .margin-bottom-20 {
+        margin-bottom: 20px;
+    }
+
+    .margin-bottom-10 {
+        margin-bottom: 10px;
+    }
+
+    .margin-bottom-5 {
+        margin-bottom: 5px;
+    }
+
+    .margin-bottom-0 {
+        margin-bottom: 0;
+    }
+
+    .margin-left-20 {
+        margin-left: 20px;
+    }
+
+    .margin-left-30 {
+        margin-left: 30px;
+    }
+
+    .margin-left-10 {
+        margin-left: 10px;
+    }
+
+    .margin-left-5 {
+        margin-left: 5px;
+    }
+
+    .margin-left-0 {
+        margin-left: 0;
+    }
+
+    .margin-right-20 {
+        margin-right: 20px;
+    }
+
+    .margin-right-10 {
+        margin-right: 10px;
+    }
+
+    .margin-right-5 {
+        margin-right: 5px;
+    }
+
+    .margin-right-0 {
+        margin-right: 0;
+    }
+
+    .margin-auto {
+        margin: auto;
+    }
+
+    .margin-auto-top {
+        margin-top: auto;
+    }
+
+    .margin-auto-bottom {
+        margin-bottom: auto;
+    }
+
+    .margin-auto-left {
+        margin-left: auto;
+    }
+
+    .margin-auto-right {
+        margin-right: auto;
+    }
+
+    .padding-auto {
+        padding: auto;
+    }
+
+    .padding-auto-top {
+        padding-top: auto;
+    }
+
+    .padding-auto-bottom {
+        padding-bottom: auto;
+    }
+
+    .padding-auto-left {
+        padding-left: auto;
+    }
+
+    .padding-auto-right {
+        padding-right: auto;
+    }
+
+    .halfprop {
+        width: 50%;
+    }
+
+    .info-facility {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        /* padding-right: 20px; */
+    }
+
+    .seconddiv {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .seconddiv p {
+        width: 100%;
+        display: flex;
+        max-width: inherit;
+    }
+
+    .xcta1 {
+        box-sizing: border-box;
+        width: 124px;
+        height: 40px;
+        background: #ff0000;
+        border: 3px solid #ffd0d0;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 900;
+        cursor: pointer;
+    }
+
+    .xy-section .thirddiv {
+        /* padding: 8px 15px 8px 0; */
+    }
+
+    .info-facility .thirddiv {
+        /* overflow: hidden; */
+    }
+
+    .cenView.info-facility .thirddiv img,
+    #home .info-facility .thirddiv img,
+    #nohome .info-facility .thirddiv img {
+        border-radius: 11px;
+        width: 306px;
+        /* margin-right: 20px; */
+        height: 180px;
+        position: relative;
+    }
+
+    .cenView.info-facility .thirddiv img {
+        top: 2px;
+        left: -20px;
+    }
+
+    #home .info-facility .thirddiv img,
+    #nohome .info-facility .thirddiv img {
+        /* top: 2px; */
+        /* left: -20px; */
+    }
+
+    .accordion .title {
+        top: 87px;
+    }
+
+    .xyxwrapp2 {
+        /* width: -webkit-fill-available; */
+        /* width: 116px; */
+        /* background-color: aquamarine; */
+        display: flex;
+        align-content: center;
+        align-items: center;
+    }
+
+    .xyxwrapp4 {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .xywrapp-horarios {
+        padding-top: 10px;
+    }
+
+    .xywrapp-horarios .xyhorario1,
+    .xywrapp-horarios .xyhorario2 {
+        font-size: 0.85em;
+    }
+    #home .xyhorario1,
+    #nohome .xyhorario1  {
+        font-size: 0.95em;
+    }
+    #home .xyhorario2,
+    #nohome .xyhorario2 {
+        font-size: 0.85em;
+    }
+
+    .xyxwrapp4 span.xmapspot1.fileinc {
+        position: relative;
+        top: 36px;
+    }
+
+    .cenView .firstdiv {
+        min-width: 48%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+    }
+
+
+    .lev2.blog-s-text-right.halfprop.xy-align-items-flex-end.blog-entry-img.empresa-mini-almacen img {
+        /* padding: 15px 0 0 0; */
+    }
+
+    .lev2.blog-s-text-right.halfprop.xy-align-items-flex-end.empresa-mini-almacen img {
+        position: relative;
+        top: 20px;
+    }
+
+    .xyplus {
+        font-size: 1.1em;
+        font-weight: 900;
+    }
+
+    .xyregular {
+        font-size: 0.85em;
+        font-weight: 400;
+    }
+
+    .subtext {
+        font-size: 0.9em;
+        /* font-weight: 900; */
+        padding-bottom: 10px;
+    }
+
+    .xyplus-subtext {
+        font-size: 1em;
+        color: red;
+    }
+
+    .xy-faqs p {
+        padding-top: 20px;
+        margin-left: 3em;
+    }
+
+    li.xy-sublist-container {
+        display: block;
+    }
+
+    li.xy-sublist-container li {
+        font-weight: 900;
+    }
+
+    #xy-map-v1,
+    #xy-map-v2,
+    #xy-map-v3,
+    #xy-map-v4,
+    #xy-map-v5,
+    #xy-map-v6,
+    #xy-map-v9,
+    #xy-map-vMostoles,
+    #xy-map-vFuenlabrada {
+        height: 260px;
+    }
+
+    section.xy-map-v1-section,
+    section.xy-map-v2-section,
+    section.xy-map-v3-section,
+    section.xy-map-v4-section,
+    section.xy-map-v5-section,
+    section.xy-map-v6-section,
+    section.xy-map-v9-section,
+    section.xy-map-vMostoles-section,
+    section.xy-map-vFuenlabrada-section {
+        display: flex;
+    }
+
+    .z8y8accordion .column1 {
+        width: 50%;
+    }
+
+    .z8y8accordion .z8y8title {
+        height: 50px;
+    }
+
+    .z8y8accordion .z8y8title h3 {
+        padding-right: 30px !important;
+    }
+
+    div#toggle-z02y02 {
+        display: flex;
+    }
+
+    .z02y02accordion .column1 {
+        width: 50%;
+    }
+
+    .z02y02accordion .z02y02title {
+        height: 50px;
+    }
+
+    .z02y02accordion .z02y02title h3 {
+        padding-right: 30px !important;
+    }
+
+    div#toggle-z7y7 {
+        display: flex;
+    }
+
+    .z7y7accordion .column1 {
+        width: 50%;
+    }
+
+    .z7y7accordion .z7y7title {
+        height: 50px;
+    }
+
+    .z7y7accordion .z7y7title h3 {
+        padding-right: 30px !important;
+    }
+
+    .z0yaccordion {
+        display: none;
+    }
+
+    .z1yaccordion {
+        display: none;
+    }
+
+    #xy-porque-elegir-trastering .xsection ul {
+        width: 50%;
+    }
+
+    button.xycta-center {
+        /* padding: 15px 60px; */
+        top: 1248px;
+        cursor: pointer;
+        width: 100%;
+        height: 80px;
+    }
+
+    button.xycta-center span.xy-cta-centre-btntxt1 {
+        font-size: 1.6em;
+        font-weight: 900;
+    }
+
+    button.xycta-center span.xy-cta-centre-btntxt2 {
+        font-size: 1.2em;
+    }
+
+    .frame-fixed-overlayq1x1 {
+        position: absolute;
+        z-index: 1;
+        top: 470px;
+    }
+    .xy-promo-main {
+        position: relative;
+        top: 20px;
+    }
+    .frame-fixed-overlayq1x1 .banner_text {
+        line-height: 16px;
+        background-color: white;
+        width: fit-content;
+        border-radius: 0 20px 20px 0;
+        color: red;
+    }
+
+    .carousel__slideq1x1 {
+        width: 100%;
+    }
+
+    .carousel__slidesq1x1,
+    .carousel__navdotsq1x1 {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .hyper-wrapp {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .hyper-wrapp .pseudo-wrapper>div {
+        /* padding: 9px 0;
+        height: 62px; */
+    }
+
+    .pseudo-wrapper.singleCta {
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        padding: 30px 0 0 0;
+    }
+
+    .xy-promo-main .promo_l1 {
+        font-size: 2.1em;
+        font-weight: 900;
+        color: red;
+    }
+
+    .pseudo-wrapper.singleCta .xy-promo-main2 {
+        display: flex;
+        align-items: center;
+    }
+
+
+    .lev2.blog-s-text-right.halfprop {
+        margin: 0 0 0 30px;
+    }
+
+    .lev2.blog-s-text-left.halfprop {
+        margin: 0 30px 0 0;
+    }
+
+    .pseudo-wrapper.singleCta .frame-cta-centres {
+        width: 50%
+    }
+
+    .pseudo-wrapper.singleCta .frame-cta-centres-2 {
+        width: 50%
+    }
+
+    .pseudo-wrapper.singleCta .frame-cta-centres-2 a {
+        text-decoration: none;
+    }
+
+    .carousel__navdots2 {
+        bottom: 70px;
+    }
+
+    .pseudo-wrapper.singleCta .xy-promo-main2 .promo_l1 {
+        font-size: 1.4em;
+        font-weight: 900;
+        color: red;
+    }
+
+    .xy-promo-main .promo_l2 {
+        font-size: 1.7em;
+        font-weight: 700;
+    }
+
+    .pseudo-wrapper.singleCta .xy-promo-main2 .promo_l2 {
+        font-size: 1.1em;
+        font-weight: 700;
+    }
+
+    .hyper-wrapp .pseudo-wrapper p {
+        padding: 0 20px;
+        position: relative;
+        top: 8px;
+    }
+
+    .carouselq1x1 {
+        padding-right: 30px;
+    }
+
+    #xy-home-carousel h3.banner_text {
+        text-align: left;
+        font-weight: 400;
+        line-height: 16px;
+        background-color: white;
+        padding: 10px 15px;
+        border-radius: 0 15px 15px 0;
+        font-size: 1.4em;
+    }
+
+    .carousel__slide2 .container__banner {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .carousel__slide2 .container__banner .xytestimonio-client {
+        width: 75%;
+        text-shadow: 0px 0px 7px rgba(0, 0, 0, 9.9);
+    }
+
+    .carousel__slide .context {
+        border-radius: 0 15px 15px 0;
+        position: relative;
+        bottom: 25px;
+    }
+
+    .carousel__slide2 .context {
+        position: relative;
+        bottom: 25px;
+        color: #fff;
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .carousel__slide2 .context .xytestimonio-client span {
+        font-weight: 900;
+        font-style: italic;
+    }
+
+    .carousel__slide2 .context .xyname-client span {
+        font-size: 1.4em;
+        font-weight: 900;
+        text-shadow: 0px 0px 7px rgba(0, 0, 0, 9.9);
+    }
+
+    .carousel__slide2 .context .xyname-client a {
+        text-decoration: none;
+        position: relative;
+        right: 20px;
+    }
+
+    .carousel__slide2 .context .xyname-client button {
+        box-sizing: border-box;
+        background: #ff0000;
+        border: 3px solid #ffd0d0;
+        border-radius: 15px;
+        font-family: "Lato";
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #ffffff;
+        padding: 7px 16px;
+        cursor: pointer;
+    }
+
+    .blog.bodyblog {
+        width: 90%;
+        margin: auto;
+    }
+
+    .carousel__slide3 .context {
+        width: 100%;
+        border-radius: 0 15px 15px 0;
+        position: relative;
+        bottom: 46px;
+    }
+
+    .carousel__navdots {
+        bottom: 75px;
+    }
+
+    ol.menusubitems li {
+        padding: 0 4rem 0 0;
+    }
+
+    ol.menusubitems li a {
+        font-size: 0.95em;
+    }
+
+    @media (max-width: 1160px) {
+        ol.menusubitems li a {
+            font-size: 0.85em;
+        }
+
+        ol.menusubitems li {
+            padding: 0 60px 0 0;
+        }
+    }
+
+    .carousel3 {
+        padding-bottom: 60px;
+        position: relative;
+        /* margin: 0 auto; */
+        width: 100%;
+    }
+
+
+
+    .menusubitems {
+        min-width: 460px;
+    }
+
+    .carousel__slideq0x0 .container__banner {
+        padding: 5px;
+    }
+
+    .carousel__slideq0x0 .context {
+        max-width: 50%;
+        background-color: white;
+        border-radius: 0 15px 15px 0;
+        position: relative;
+        bottom: 46px;
+    }
+
+    .carousel__slideq0x0 .xytestimonio-client span {
+        font-size: 0.9em;
+        font-style: italic;
+        font-weight: 300;
+    }
+
+    .carousel__slideq0x0 {
+        height: 280px;
+        background-size: contain;
+        box-shadow: inset 0 0 3px #90cce0;
+        background-size: cover;
+    }
+
+    .fitting-slider-right {
+        background-color: antiquewhite;
+        height: 10px;
+        width: 20%;
+    }
+
+    /* media queries from 600 code AB3MQ */
+
+    .cenView.info-facility {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        border: 1px solid;
+        /* padding: 20px; */
+        margin: 5px 0;
+        border-radius: 20px;
+        width: 48% !important;
+    }
+
+    /* img.leaflet-marker-icon.leaflet-zoom-animated.leaflet-interactive {
+        top: -35px;
+    } */
+
+    div#mapping.squareVersionBcn {
+        height: 100%;
+        border-radius: 20px;
+    }
+
+    .xy-container-map-and-list-centers {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #home.xy-listado-centros,
+    #nohome.xy-listado-centros {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    #home .column1, #home .column2,
+    #nohome .column1, #nohome .column2 {
+        width: 50%;
+    }   
+
+    div#xy-map-barcelona-provincia {
+        width: 50%;
+    }
+
+    .xy-donde-encontrar-trasteros-cerca #home .info-facility,
+    .xy-donde-encontrar-trasteros-cerca #nohome .info-facility {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        border: 1px solid;
+        margin: 5px 0;
+        border-radius: 20px;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        flex-direction: column;
+        max-height: 200px;
+    }
+
+    #home .wrapping,
+    #nohome .wrapping,
+    #home .xy-container-xy-horario1.xymobile-wrapp-timetable-and-cta,
+    #nohome .xy-container-xy-horario1.xymobile-wrapp-timetable-and-cta {
+        display: flex;
+        width: 95%;
+        justify-content: space-between;
+        margin: 10px auto 0 auto;
+    }
+
+    #home .xy-container-xy-horario1.xymobile-wrapp-timetable-and-cta,
+    #nohome .xy-container-xy-horario1.xymobile-wrapp-timetable-and-cta {
+        position: relative;
+        bottom: 60px;
+        align-items: flex-end;
+    }
+
+    #home .firstdiv.xaddresect,
+    #nohome .firstdiv.xaddresect {
+        display: flex;
+        flex-direction: column;
+    }
+    #home .xymobile-wrapp-cta {
+        margin-right: 10px;
+        display: none;
+    }
+    #home .xymobile-wrapp-cta a,
+    #nohome .xymobile-wrapp-cta a {
+        text-decoration: none;
+    }
+
+    #home .thirddiv,
+    #nohome .thirddiv {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .xy-donde-encontrar-trasteros-cerca .info-facility.xy-region-list-centers:hover {
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    .xy-old-price-display.xy-region-list-centers {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .cenView-cont .column1 {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .carousel__slideq1x1 {
+        flex: 0 0 auto;
+        scroll-snap-align: center;
+        border-radius: 16px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position-y: top;
+        background-position-x: center;
+        align-items: flex-end;
+        display: flex;
+    }
+
+    .size-selector-zone .accordion .box {
+        max-height: 0;
+        transition: max-height 0.3s ease-out;
+        width: 230px;
+        color: black;
+        z-index: 1;
+        position: relative;
+    }
+
+    .size-selector-zone .accordion .trigger_BB321::before {
+        /* content: ''; */
+        content: url(../../xy1-images/ordenar-d.png);
+    }
+
+    .size-selector-zone .accordion .trigger_BB322::before {
+        /* content: ''; */
+        content: url(../../xy1-images/filter-d.png);
+    }
+
+    .size-selector-zone .accordion .trigger_BB321::after {
+        /* content: ''; */
+        content: url(../../xy1-images/ordenar.png);
+        top: 10px;
+    }
+
+    .size-selector-zone .accordion .trigger_BB322::after {
+        /* content: ''; */
+        content: url(../../xy1-images/filter.png);
+        top: 10px;
+    }
+
+    .size-selector-zone .trigger-title {
+        position: relative;
+        left: 0;
+        font-weight: 500;
+        color: black;
+    }
+
+    .size-selector-zone .accordion .trigger_BB321,
+    .size-selector-zone .accordion .trigger_BB322 {
+        position: relative;
+        padding: 10px;
+        transition: 0.3s background-color;
+        height: 22px;
+    }
+
+    .wrapp-xy-sf {
+        display: flex;
+        padding: 10px;
+    }
+
+    div#xy-sort-filter-prices-app.xtriggers.xsizes-according-to-target {
+        display: block;
+    }
+
+    .size-selector-zone {
+        display: flex;
+        margin: auto;
+        gap: 15px;
+        /* Espacio entre acordeones */
+    }
+
+    .size-selector-zone .accordion .trigger_BB321::before,
+    .size-selector-zone .accordion .trigger_BB322::before,
+    .size-selector-zone .accordion .trigger_BB321::after,
+    .size-selector-zone .accordion .trigger_BB322::after {
+        position: absolute;
+        right: 80px;
+    }
+
+    .modal-content ul li {
+        list-style-position: outside;
+    }
+
+    button.mas-info.active {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        font: inherit;
+        color: inherit;
+        cursor: pointer;
+    }
+
+    /* Estilos para el modal */
+    .modal {
+        display: none;
+        /* Oculto por defecto */
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Fondo oscuro */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        width: 80%;
+        max-width: 500px;
+        position: relative;
+        height: 80%;
+        overflow: auto;
+        scroll-behavior: auto;
+        max-height: 600px;
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .close-modal:hover {
+        color: red;
+    }
+
+    /* Ocultar los botones "Más info" por defecto */
+    .mas-info {
+        display: none;
+    }
+
+    /* Mostrar el botón "Más info" correspondiente a la pestaña activa */
+    .mas-info-a.active,
+    .mas-info-b.active {
+        display: inline-block;
+        /* O el valor que prefieras (block, inline, etc.) */
+    }
+
+    .xy-center-prices-app {
+        margin-bottom: 30px;
+    }
+
+    .xy-center-prices-app .deskview.xsizes-according-to-target {
+        display: flex;
+        margin-bottom: 85px;
+    }
+
+    #particulares-mostoles-madrid .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq.jpg);
+    }
+    
+    #particulares-mostoles-madrid .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+    
+    #particulares-mostoles-madrid .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-md.jpg);
+    }
+    
+    #particulares-mostoles-madrid .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-gr.jpg);
+    }
+    
+    #particulares-mostoles-madrid .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mx.jpg);
+    }
+    
+    #particulares-cornella-hospitalet .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq.jpg);
+    }
+    
+    
+
+    #particulares-vicalvaro-madrid .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq.jpg);
+    }
+
+    #particulares-vicalvaro-madrid .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+
+    #particulares-vicalvaro-madrid .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-md.jpg);
+    }
+
+    #particulares-vicalvaro-madrid .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-gr.jpg);
+    }
+
+    #particulares-vicalvaro-madrid .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mx.jpg);
+    }
+
+    #particulares-cornella-hospitalet .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq.jpg);
+    }
+
+    #particulares-cornella-hospitalet .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+
+    #particulares-cornella-hospitalet .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-md.jpg);
+    }
+
+    #particulares-cornella-hospitalet .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-gr.jpg);
+    }
+
+    #particulares-cornella-hospitalet .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mx.jpg);
+    }
+
+    #particulares-gava-castelldefels .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq.jpg);
+    }
+
+    #particulares-gava-castelldefels .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+
+    #particulares-gava-castelldefels .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-md.jpg);
+    }
+
+    #particulares-gava-castelldefels .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-gr.jpg);
+    }
+
+    #particulares-gava-castelldefels .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mx.jpg);
+    }
+
+    #particulares-llagosta-mollet-valles .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq.jpg);
+    }
+
+    #particulares-llagosta-mollet-valles .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+
+    #particulares-llagosta-mollet-valles .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-md.jpg);
+    }
+
+    #particulares-llagosta-mollet-valles .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-gr.jpg);
+    }
+
+    #particulares-llagosta-mollet-valles .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mx.jpg);
+    }
+
+    #particulares-mataro-maresme .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq.jpg);
+    }
+
+    #particulares-mataro-maresme .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+
+    #particulares-mataro-maresme .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-md.jpg);
+    }
+
+    #particulares-mataro-maresme .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-gr.jpg);
+    }
+
+    #particulares-mataro-maresme .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mx.jpg);
+    }
+    #particulares-vilanova-sant-pere-de-ribes .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq.jpg);
+    }
+
+    #particulares-vilanova-sant-pere-de-ribes .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+
+    #particulares-vilanova-sant-pere-de-ribes .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-md.jpg);
+    }
+
+    #particulares-vilanova-sant-pere-de-ribes .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-gr.jpg);
+    }
+
+    #particulares-vilanova-sant-pere-de-ribes .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mx.jpg);
+    }
+    
+    #autonomos-mostoles-madrid .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pqp.jpg);
+    }
+    
+    #autonomos-mostoles-madrid .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+    
+    #autonomos-mostoles-madrid .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mdp.jpg);
+    }
+    
+    #autonomos-mostoles-madrid .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-grp.jpg);
+    }
+    
+    #autonomos-mostoles-madrid .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mxp.jpg);
+    }
+    
+    #autonomos-vicalvaro-madrid .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pqp.jpg);
+    }
+    
+    #autonomos-vicalvaro-madrid .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+    
+    #autonomos-vicalvaro-madrid .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mdp.jpg);
+    }
+    
+    #autonomos-vicalvaro-madrid .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-grp.jpg);
+    }
+    
+    #autonomos-vicalvaro-madrid .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mxp.jpg);
+    }
+    
+    #autonomos-cornella-hospitalet .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pqp.jpg);
+    }
+    
+    #autonomos-cornella-hospitalet .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+    
+    #autonomos-cornella-hospitalet .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mdp.jpg);
+    }
+    
+    #autonomos-cornella-hospitalet .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-grp.jpg);
+    }
+    
+    #autonomos-cornella-hospitalet .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mxp.jpg);
+    }
+    
+    #autonomos-gava-castelldefels .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pqp.jpg);
+    }
+    
+    #autonomos-gava-castelldefels .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+    
+    #autonomos-gava-castelldefels .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mdp.jpg);
+    }
+    
+    #autonomos-gava-castelldefels .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-grp.jpg);
+    }
+    
+    #autonomos-gava-castelldefels .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mxp.jpg);
+    }
+    
+    #autonomos-llagosta-mollet-valles .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pqp.jpg);
+    }
+    
+    #autonomos-llagosta-mollet-valles .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+    
+    #autonomos-llagosta-mollet-valles .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mdp.jpg);
+    }
+    
+    #autonomos-llagosta-mollet-valles .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-grp.jpg);
+    }
+    
+    #autonomos-llagosta-mollet-valles .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mxp.jpg);
+    }
+    
+    #autonomos-mataro-maresme .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pqp.jpg);
+    }
+    
+    #autonomos-mataro-maresme .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+    
+    #autonomos-mataro-maresme .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mdp.jpg);
+    }
+    
+    #autonomos-mataro-maresme .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-grp.jpg);
+    }
+    
+    #autonomos-mataro-maresme .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mxp.jpg);
+    }
+    #autonomos-vilanova-sant-pere-de-ribes .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pqp.jpg);
+    }
+    
+    #autonomos-vilanova-sant-pere-de-ribes .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+    
+    #autonomos-vilanova-sant-pere-de-ribes .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mdp.jpg);
+    }
+    
+    #autonomos-vilanova-sant-pere-de-ribes .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-grp.jpg);
+    }
+    
+    #autonomos-vilanova-sant-pere-de-ribes .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mxp.jpg);
+    }
+    
+    #empresas-mostoles-madrid .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pqp.jpg);
+    }
+    
+    #empresas-mostoles-madrid .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+    
+    #empresas-mostoles-madrid .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mdp.jpg);
+    }
+    
+    #empresas-mostoles-madrid .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-grp.jpg);
+    }
+    
+    #empresas-mostoles-madrid .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mxp.jpg);
+    }
+
+    #empresas-vicalvaro-madrid .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pqp.jpg);
+    }
+
+    #empresas-vicalvaro-madrid .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+
+    #empresas-vicalvaro-madrid .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mdp.jpg);
+    }
+
+    #empresas-vicalvaro-madrid .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-grp.jpg);
+    }
+
+    #empresas-vicalvaro-madrid .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mxp.jpg);
+    }
+
+    #empresas-cornella-hospitalet .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pqp.jpg);
+    }
+
+    #empresas-cornella-hospitalet .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+
+    #empresas-cornella-hospitalet .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mdp.jpg);
+    }
+
+    #empresas-cornella-hospitalet .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-grp.jpg);
+    }
+
+    #empresas-cornella-hospitalet .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mxp.jpg);
+    }
+
+    #empresas-gava-castelldefels .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pqp.jpg);
+    }
+
+    #empresas-gava-castelldefels .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+
+    #empresas-gava-castelldefels .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mdp.jpg);
+    }
+
+    #empresas-gava-castelldefels .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-grp.jpg);
+    }
+
+    #empresas-gava-castelldefels .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mxp.jpg);
+    }
+
+    #empresas-llagosta-mollet-valles .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pqp.jpg);
+    }
+
+    #empresas-llagosta-mollet-valles .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+
+    #empresas-llagosta-mollet-valles .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mdp.jpg);
+    }
+
+    #empresas-llagosta-mollet-valles .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-grp.jpg);
+    }
+
+    #empresas-llagosta-mollet-valles .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mxp.jpg);
+    }
+
+    #empresas-mataro-maresme .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pqp.jpg);
+    }
+
+    #empresas-mataro-maresme .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+
+    #empresas-mataro-maresme .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mdp.jpg);
+    }
+
+    #empresas-mataro-maresme .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-grp.jpg);
+    }
+
+    #empresas-mataro-maresme .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mxp.jpg);
+    }
+    #empresas-vilanova-sant-pere-de-ribes .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pqp.jpg);
+    }
+
+    #empresas-vilanova-sant-pere-de-ribes .xy-center-prices-app .size-peq .xsizes-acording-to-target-wrap.xy-p1-p1 {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-pq-1planta.png);
+    }
+
+    #empresas-vilanova-sant-pere-de-ribes .xy-center-prices-app .size-med .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mdp.jpg);
+    }
+
+    #empresas-vilanova-sant-pere-de-ribes .xy-center-prices-app .size-big .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-grp.jpg);
+    }
+
+    #empresas-vilanova-sant-pere-de-ribes .xy-center-prices-app .size-max .xsizes-acording-to-target-wrap {
+        background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xpic-mxp.jpg);
+    }
+    .xy-center-prices-app .xsizes-acording-to-target-wrap {
+        border-radius: 25px;
+        border-left: 1px solid;
+        border-top: 1px solid;
+        border-top-right-radius: inherit;
+        border-bottom: 1px solid;
+        border-bottom-right-radius: inherit;
+        height: 255px;
+        background-size: 380px;
+        background-repeat: no-repeat;
+        background-position-x: 255px;
+        background-position-y: 30px;
+        background-color: white;
+    }
+
+    .xy-center-prices-app .xsizes-acording-to-target-wrap {
+        width: 50%;
+    }
+
+    .xy-center-prices-app .xs-label1 {
+        /* padding-top: 15px;
+      height: 100px; */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .xy-name-of-center {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+
+    .xy-center-prices-app .xs-label1 ul.xy-double-plant li.xy-li-post-figure ul {
+        padding: inherit;
+        margin: inherit;
+        display: flex;
+        flex-direction: column-reverse;
+        padding-top: 20px;
+        padding-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    .xysection-gray-top-rounded-no-background.xy-old-price-display-by-size {
+        padding-bottom: 5px;
+        padding-top: 75px;
+    }
+
+    .xy-center-prices-app li {
+        list-style: none;
+    }
+
+    .xs-label1.xy-old-price-display-by-size {
+        padding: 20px;
+    }
+
+    .xy-old-price-display-by-size .xy-center-prices-app span.xstitle {
+        color: black;
+        font-weight: 400;
+        font-size: 1em;
+    }
+
+    .xy-old-price-display-by-size .xy-center-prices-app span.xsdesc1 {
+        font-size: 1em;
+    }
+
+    span.xy-name-of-center-name {
+        font-size: 1.5em;
+        font-weight: 900;
+        color: red;
+    }
+
+    .xy-center-prices-app span.xstitle {
+        color: red;
+        font-weight: 900;
+    }
+
+    .xy-center-prices-app span.xstitle {
+        font-size: 1.4em;
+    }
+
+    .xy-center-prices-app span.xsdesc1 {
+        font-size: 1.2em;
+    }
+
+    .xy-center-prices-app span.fileinc {
+        padding-left: 10px;
+    }
+
+    .xy-center-prices-app .xtrigger-que-cabe span {
+        font-size: 15px;
+        color: red;
+    }
+
+    .xy-center-prices-app .xsizes-acording-to-target-wrap-right {
+        border-radius: 25px;
+        border-right: 1px solid;
+        border-top: inherit;
+        border-top-right-radius: inherit;
+        border-top-left-radius: inherit;
+        border-bottom: 1px solid;
+        border-bottom-left-radius: inherit;
+        height: 256px;
+        width: 50%;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .xy-center-prices-app .subwrap-tabs {
+        width: 100%;
+        /* background-color: antiquewhite; */
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .xy-center-prices-app .xsizes-tab.left {
+        border: 1px solid;
+        border-bottom: inherit;
+        border-top: 4px solid;
+    }
+
+    .xy-center-prices-app .xsizes-tab.left.active span,
+    .xy-center-prices-app .xsizes-tab.right.active span {
+        font-weight: 900;
+    }
+
+    .xy-center-prices-app .xsizes-tab span {
+        font-size: 15px;
+        cursor: pointer;
+    }
+
+    .xy-center-prices-app .xsizes-tab.left.active,
+    .xy-center-prices-app .xsizes-tab.right.active {
+        background: white !important;
+        border-top: 4px solid;
+        border-bottom: 0;
+    }
+
+    .xy-center-prices-app .xsizes-tab.right,
+    .xy-center-prices-app .xsizes-tab.left {
+        height: 48px;
+        border-radius: 15px;
+        width: 100%;
+        position: relative;
+        top: -27px;
+        border-bottom-left-radius: inherit;
+        border-bottom-right-radius: inherit;
+        right: -1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(180deg, #fff2f2 0%, #ffffff 100%);
+        border: 0.5px solid #000000;
+        cursor: pointer;
+    }
+
+    div#breadcrumb-container1 {
+        width: 45%;
+    }
+
+    .xy-center-prices-app .xsizes-acording-to-target-wrap-right .subwrap-below-items {
+        display: flex;
+    }
+
+    .xy-center-prices-app .xsizes-acording-to-target-wrap-right .subwrap-below-items {
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 228px;
+    }
+
+    .xy-center-prices-app .subsubwrap li.xli1 {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 10px;
+    }
+
+    .xy-center-prices-app .xprice-wrapp {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .faqContTwo {
+        display: flex;
+    }
+
+    .faqContThree {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        /* margin-bottom: 30px; */
+        margin-right: 20px;
+        font-size: 0.9em;
+    }
+
+    .faqContThree h2 {
+        font-size: 0.9em;
+    }
+
+    .xy-center-prices-app li.xli1 .xprice span {
+        font-size: 2.6em;
+        font-weight: 900;
+    }
+
+    .xy-center-prices-app li.xli1 .xprice-crossed-out span {
+        font-size: 2.0em;
+        font-weight: 300;
+        text-decoration: line-through;
+    }
+
+    .xy-center-prices-app li.xli1 .xprice-mode-and-period {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top: -9px;
+        line-height: 12px;
+    }
+
+    .xy-center-prices-app .accordion .xyitem {
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        width: 295px;
+        position: absolute;
+        padding-left: 22px;
+    }
+
+    .xy-center-prices-app .accordion .box {
+        left: 30px;
+        top: 82px
+    }
+
+    .xy-center-prices-app .xprice span,
+    .xprice-mode-and-period span {
+        font-weight: 900;
+    }
+
+    .xy-center-prices-app li.xli2 {
+        position: relative;
+        top: -10px;
+    }
+
+    .xy-center-prices-app li.xli3 {
+        position: relative;
+        top: -10px;
+    }
+
+    .xy-center-prices-app .xpromo-1 {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: -8px;
+    }
+
+    .xy-center-prices-app #mensual .oferta_container_r {
+        background-image: url(../../xy1-images/rlab100px.webp);
+    }
+
+    .xy-center-prices-app #anual .oferta_container_r {
+        background-image: url(../../xy1-images/rlab100px.webp);
+    }
+
+    .xy-center-prices-app #mensual .oferta_container_r,
+    .xy-center-prices-app #mensual .oferta_container_r {
+        background-repeat: no-repeat;
+        height: 100px;
+        width: 100px;
+    }
+
+    .xy-center-prices-app #mensual .toSpinText_r,
+    .xy-center-prices-app #anual .toSpinText_r {
+        transform: rotate(30deg);
+        height: 100px;
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .xy-center-prices-app #mensual .toSpinText_r {
+        transform: rotate(30deg);
+    }
+
+    .xy-center-prices-app #anual .toSpinText_r {
+        transform: rotate(30deg);
+    }
+
+    .xy-center-prices-app .oferta_sup {
+        font-size: 12px;
+        line-height: 10px;
+    }
+
+    .xy-center-prices-app .oferta_inf {
+        font-size: 24px;
+        line-height: 25px;
+    }
+
+    .xy-center-prices-app .subMens {
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 7px;
+        padding: 0 0 5px;
+    }
+
+    .xy-center-prices-app .subsubwrap.leftqt ul {
+        padding: inherit;
+        margin: inherit;
+        position: relative;
+        left: 6%;
+    }
+
+    .xy-center-prices-app .subsubwrap.leftqt {
+        width: 50%;
+    }
+
+    .xy-center-prices-app .subsubwrap.rightqt {
+        display: flex;
+        flex-direction: column;
+        height: 135px;
+        /* background-color: aqua; */
+        justify-content: space-between;
+    }
+
+    .xy-center-prices-app .xcta-xsizes-acording-to-target {
+        display: flex;
+        justify-content: center;
+        /* padding-bottom: 10px; */
+    }
+
+    .xy-center-prices-app button.xcta-xsizes-acording-to-target {
+        box-sizing: border-box;
+        left: calc(50% - 198px / 2 + 351px);
+        top: 1444px;
+        background: #ff0000;
+        border: 3px solid #ffd0d0;
+        border-radius: 10px;
+        font-family: "Lato";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 38px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        padding: 18px 92px;
+    }
+
+    .xy-center-prices-app .xprice-warning-units {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .xy-center-prices-app .xprice-warning-units span.xtwarn {
+        font-weight: 900;
+        color: red;
+    }
+
+    .xy-center-prices-app .xprice-warning-units span.xtwarn {
+        font-size: 14px;
+    }
+
+    .xy-center-prices-app .xprice-warning-units span.xtw-subt {
+        font-weight: 300;
+    }
+
+    .xy-center-prices-app .xprice-warning-units span.xtw-subt {
+        font-size: 12px;
+        position: relative;
+        left: -5px;
+    }
+
+    .xy-center-prices-app-lev0 {
+        display: flex;
+        width: 100%;
+        height: 130px;
+    }
+
+    .xy-h2 {
+        width: 50%;
+        height: 60px;
+    }
+
+    .xtriggers.xsizes-according-to-target {
+        width: 50%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .xtriggers.xsizes-according-to-target li {
+        list-style: none;
+        width: 146px;
+        text-align: center;
+    }
+
+    .xtriggers.xsizes-according-to-target ul {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+    }
+
+    .container-uls-xy-3steps-v1>div {
+        width: 33.33%;
+        display: flex;
+        flex-direction: column;
+        /* flex-flow: column-reverse; */
+    }
+
+    .container-uls-xy-3steps-v1 {
+        display: flex;
+    }
+
+    .xy-footer-zona-ssmm-icons {
+        margin: auto;
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 20px;
+        position: relative;
+    }
+
+    .xy-footer-zona-ssmm-icons ul {
+        display: flex;
+    }
+
+    .xy-footer-zona-ssmm-icons li {
+        list-style: none;
+        padding: 0 10px;
+        height: 36px;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .xy-footer-zona-ssmm-icons svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .halfprop .xyventaja.lev2 {
+        padding-bottom: 10px;
+    }
+
+    .halfprop .xyventaja img {
+        width: 50px;
+        padding: inherit;
+    }
+
+    .x3xmodal-covercontentdown {
+        min-width: 580px;
+    }
+
+    .xsection .xy-section-PORQUE-ELEGIR-TRASTERING .lev2.halfprop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .carousel__slide {
+        background-position-y: -40px;
+        background-size: cover;
+    }
+
+    #xy-home-carousel .carousel {
+        padding-bottom: 60px;
+    }
+
+    .proportion-to-fit-on-mobile {
+        width: 100%;
+    }
+
+    .carousel3-wrapper {
+        align-items: flex-start;
+        display: flex;
+        width: 612px;
+        height: 160px;
+        border: 1px solid;
+        border-radius: 20px;
+    }
+
+    .carousel__slide {
+        height: 580px;
+    }
+
+    .carousel__slide2 {
+        height: 330px;
+    }
+
+    .carousel__slide3 {
+        height: 180px;
+        min-width: 612px;
+    }
+
+    .off-on-desktop {
+        display: none !important;
+    }
+
+    .xycontainer .xycontainer-0 {
+        padding: 20px 30px 0 30px;
+    }
+
+    .xycontainer .xycontainer-l {
+        padding: 0 30px;
+    }
+
+    .xygeneral-padding {
+        padding-top: 20px;
+    }
+
+
+    section.xywrapp1 {
+        display: flex;
+    }
+
+    .xycontainer-ll {
+        width: 50%;
+    }
+
+    .xycontainer-ll.xyleft p {
+        width: 80%;
+    }
+
+    .halfprop.xyslider2 {
+        display: flex;
+    }
+
+    #xy-map-v2x2,
+    #xy-map-v2x2v1,
+    #xy-map-v2x2v2,
+    #xy-map-v2x2v3,
+    #xy-map-v2x2v4,
+    #xy-map-v2x2v5,
+    #xy-map-v2x2v6,
+    #xy-map-v2x2v9,
+    #xy-map-v2x2vMostoles {
+        height: 180px;
+        border-radius: 20px;
+    }
+
+    .radbt__sect,
+    button#trasteros-autonomos-button,
+    button#almacenes-empresas-button,
+    button#trasteros-particulares-button,
+    .xcxcontent-div.empty button,
+    .xcxcontent-div select#fake-select,
+    .xcxcontent-div select#trasteros-particulares-select,
+    .xcxcontent-div select#trasteros-autonomos-select,
+    .xcxcontent-div select#almacenes-empresas-select {
+        width: 360px;
+    }
+
+    #xy-map-v2x2v1 .leaflet-map-pane {
+        transform: translate3d(90px, 70px, 0px) !important;
+    }
+
+    #xy-map-v2x2v2 .leaflet-map-pane {
+        transform: translate3d(90px, 70px, 0px) !important;
+    }
+
+    #xy-map-v2x2v3 .leaflet-map-pane {
+        transform: translate3d(90px, 70px, 0px) !important;
+    }
+
+    #xy-map-v2x2v4 .leaflet-map-pane {
+        transform: translate3d(90px, 70px, 0px) !important;
+    }
+
+    #xy-map-v2x2v5 .leaflet-map-pane {
+        transform: translate3d(90px, 70px, 0px) !important;
+    }
+
+    #xy-map-v2x2v6 .leaflet-map-pane {
+        transform: translate3d(90px, 70px, 0px) !important;
+    }
+
+    #xy-map-v2x2v9 .leaflet-map-pane {
+        transform: translate3d(90px, 70px, 0px) !important;
+    }
+
+    #xy-map-v2x2vMostoles .leaflet-map-pane {
+        transform: translate3d(90px, 70px, 0px) !important;
+    }
+
+    section.xy-map-v2x2-section-info-centre,
+    .wrapping-buttons-address-timetables {
+        min-width: 400px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* div#anchor-prices {
+        position: relative;
+        top: -120px;
+    } */
+
+    .xy3ventajas .xp {
+        position: relative;
+        top: -223px;
+        left: 20px;
+    }
+
+    .xy3ventajas .xp p.pforce {
+        color: rgb(255, 255, 255);
+        text-shadow: 0px 0px 7px rgba(0, 0, 0, 9.9);
+        font-weight: 900;
+        padding: inherit;
+        margin: inherit;
+    }
+
+    @media screen and (max-width: 1320px) {
+        .carousel__slidesq1x1 {
+            max-width: 500px;
+            height: 292px;
+        }
+
+        .hyper-wrapp {
+            height: 294px;
+        }
+
+        .column.logo.xymain {
+            margin-left: 30px;
+        }
+
+        .column.logo.contact-trigger {
+            margin-right: 30px;
+        }
+
+        .wrapp-xy__footer.xy__footer,
+        .subfooter-nav-columns {
+            margin: 0 30px;
+        }
+        p.xy-quote {
+            font-size: 1.2em;
+            font-style: italic;
+                color: #000000;
+                text-align: center;
+                margin: 0 auto;
+            width: 80%;
+        }
+
+    }
+
+
+    /* div#xmegamenu-particulares {
+        display: flex!important;
+    } */
+
+    /* .footer-bottom-level2 {
+        margin: auto;
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px;
+        position: relative;
+        border-top: 0.8px solid rgba(255, 255, 255, 0.7);
+    } */
+
+    /* media queries from 600 UNTIL here code AB3M-Q */
+    /* no code below this line ***********************/
+}

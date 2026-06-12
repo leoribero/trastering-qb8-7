@@ -1,0 +1,2498 @@
+/* Controles de ordenación */
+.sorting-controls {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.sort-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--card-background);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.sort-group label {
+    font-weight: 900;
+
+}
+
+.sort-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.sort-button:hover {
+    background-color: #e72525;
+}
+
+.sort-button.active {
+    /* background-color: var(--secondary-color); */
+}
+
+
+/* eventual regular mobile and desk styles */
+
+/* Controles de filtrado */
+.wrapping-h2-filter-sort-zone {
+    display: flex;
+}
+
+@media (max-width: 991px) {
+
+    /* Controles de filtrado */
+    .wrapping-h2-filter-sort-zone {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 992px) {
+    .wrapping-h2-filter-sort-zone {
+        /* margin-bottom: 70px; */
+        height: 120px;
+    }
+}
+
+/* // eventual desk and mobile styles */
+
+.filter-controls .control-accordion.para_filtrar {
+    display: none;
+}
+
+.filter-controls.doble_planta_center .control-accordion.para_filtrar {
+    display: flex;
+}
+
+.filter-controls {
+    display: flex;
+    width: 50%;
+    /* justify-content: center; */
+    /* gap: 1rem; */
+    /* margin-bottom: 2rem; */
+    /* flex-wrap: wrap; */
+}
+
+/* eventual regular mobile and desk styles */
+/* Acordeones de control (Ordenar y Filtrar) */
+.control-accordion {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    max-width: 250px;
+    position: relative;
+    z-index: 10;
+}
+
+
+@media (max-width: 991px) {
+
+    /* Acordeones de control (Ordenar y Filtrar) */
+    .control-accordion {
+        width: 100%;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+    /* Acordeones de control (Ordenar y Filtrar) */
+    .control-accordion {
+        width: 50%;
+        height: 50px;
+    }
+}
+
+/* // eventual desk and mobile styles */
+
+.control-accordion .accordion-trigger {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    background: none;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    padding: 1rem;
+    gap: 1rem;
+    font-size: 1em;
+}
+
+.control-accordion .trigger-icon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Ordenar */
+.ordenar-trigger .trigger-icon {
+    background-image: url('../../xy1-images/ordenar.png');
+}
+
+.control-accordion.active .ordenar-trigger .trigger-icon {
+    background-image: url('../../xy1-images/ordenar-d.png');
+}
+
+/* Filtrar */
+.filtrar-trigger .trigger-icon {
+    background-image: url('../../xy1-images/filter.png');
+}
+
+.control-accordion.active .filtrar-trigger .trigger-icon {
+    background-image: url('../../xy1-images/filter-d.png');
+}
+
+
+
+.control-accordion .accordion-content {
+    display: none;
+    background-color: white;
+    border: 1px solid #eee;
+    border-radius: 0 0 8px 8px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 230px;
+    box-shadow: var(--shadow);
+    padding: 10px;
+    font-size: 0.9em;
+    border-radius: 25px;
+    border: 1.5px solid red;
+    background-color: white;
+}
+
+.control-accordion.active .accordion-content {
+    display: block;
+}
+
+/* Acordeón de producto (¿Qué cabe en este tamaño?) */
+
+/* eventual regular mobile and desk styles */
+
+.product-actions .accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: 1em;
+    background: none;
+    border: none;
+}
+
+@media (max-width: 991px) {
+    .para_filtrar .accordion-content {
+        position: absolute;
+        top: 0;
+        left: 10%;
+        transform: translate(-50%, 32%);
+    }
+    .para_ordenar .accordion-content {
+        position: absolute;
+        top: 0;
+        left: 10%;
+        transform: translate( 0%, 25%);
+    }
+
+    .product-actions .accordion-header {
+        /* width: 200px; */
+    }
+
+    .product-actions {
+        position: relative;
+        top: 160px;
+        width: 90%;
+    }
+
+    .product-actions .accordion {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .product-actions .accordion-header {
+        width: 240px;
+    }
+
+    .product-actions {
+        position: relative;
+        top: 110px;
+        left: 15px;
+    }
+}
+
+/* // eventual desk and mobile styles */
+.product-actions .accordion {
+    width: 295px;
+    overflow: visible;
+}
+
+
+
+/* .product-actions .accordion-header:hover {
+    background-color: #f8f9fa;
+} */
+
+/* .product-actions .accordion-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+} */
+
+/* .product-actions .accordion.active .accordion-icon {
+    transform: rotate(45deg);
+} */
+
+.product-actions .accordion-content {
+    display: none;
+    padding: 1rem;
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 0 0 5px 5px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    box-shadow: 7px 33px 42px -1px rgba(0, 0, 0, 0.46);
+    max-width: 315px;
+    border-radius: 20px;
+    border: 1px solid #000000;
+}
+
+.product-actions .accordion.active .accordion-content {
+    display: block;
+}
+
+.product-actions .accordion-body {
+    line-height: 1.6;
+
+}
+
+/* Radio groups y botones de acción */
+.radio-group {
+    /* padding: 1rem; */
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background-color: white;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    /* gap: 0.5rem; */
+    cursor: pointer;
+    padding: 5px 0;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.radio-option:hover {
+    /* background-color: #f8f9fa; */
+    border-color: #ff0000;
+}
+
+.radio-option input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    outline: none;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.radio-option input[type="radio"]:checked::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: #ff0000;
+    border-radius: 50%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.radio-label {
+    /* font-size: 1rem; */
+
+    cursor: pointer;
+}
+
+.action-button {
+    padding: 10px 48px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.action-button:hover {
+    background-color: #27ae60;
+}
+
+/* Grid de productos */
+.cs0r_products-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.cs0r_products-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2rem;
+}
+
+/* Tarjeta de producto */
+.cs0r_product-card {
+    /* background-color: var(--card-background); */
+    /* border-radius: 10px; */
+    /* padding: 1.5rem; */
+    /* box-shadow: var(--shadow); */
+    /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
+    display: flex;
+    flex-direction: column;
+    /* gap: 1rem; */
+    width: 100%;
+    max-width: 1220px;
+    margin: auto;
+}
+
+
+
+/* eventual regular mobile and desk styles */
+.card-presentation {
+    border-radius: 25px;
+    background-color: white;
+}
+
+.card-agreement {
+    border-radius: 25px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.product-header {
+    padding: 20px 0 0 15px;
+    line-height: 1.2;
+}
+
+@media (max-width: 991px) {
+    .card-presentation {
+        border-left: 1px solid;
+        border-top: 1px solid;
+        /* border-top-right-radius: inherit; */
+        /* border-bottom: 1px solid; */
+        border-right: 1px solid;
+        border-bottom-right-radius: inherit;
+        border-bottom-left-radius: inherit;
+        height: 280px;
+    }
+
+    .card-agreement {
+        border-right: 1px solid;
+        border-top: inherit;
+        border-top-right-radius: inherit;
+        border-top-left-radius: inherit;
+        border-bottom: 1px solid;
+        border-left: 1px solid;
+        /* border-bottom-left-radius: inherit; */
+    }
+
+    .product-header {
+        /* padding: 20px 0 0 15px; */
+        line-height: 1.2;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-presentation {
+        border-left: 1px solid;
+        border-top: 1px solid;
+        border-top-right-radius: inherit;
+        border-bottom: 1px solid;
+        border-bottom-right-radius: inherit;
+    }
+
+    .card-agreement {
+        border-right: 1px solid;
+        border-top: inherit;
+        border-top-right-radius: inherit;
+        border-top-left-radius: inherit;
+        border-bottom: 1px solid;
+        border-bottom-left-radius: inherit;
+    }
+
+    .header-row {
+        display: flex;
+        align-items: center;
+        /* margin-bottom: 0.5rem; */
+    }
+
+    .header-row:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* // eventual desk and mobile styles */
+/* .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+} */
+
+/* Zonas de la tarjeta */
+.card-presentation,
+.card-agreement {
+    width: 100%;
+}
+
+.header-row {
+    display: flex;
+    align-items: center;
+    /* margin-bottom: 0.5rem; */
+}
+
+.header-row:last-child {
+    margin-bottom: 0;
+}
+
+.card-presentation-title {
+    font-size: 1.4em;
+    font-weight: 900;
+    color: red;
+}
+
+.card-presentation-sidetext-title {
+    font-size: 1.2em;
+    margin-left: 0.5rem;
+}
+
+.card-presentation-level-description {
+    font-size: 1rem;
+}
+
+.card-presentation-schedule {
+    font-size: 1rem;
+}
+
+/* eventual regular mobile and desk styles */
+
+.plan-annual-container {
+    display: flex;
+    width: 100%;
+}
+
+@media (max-width: 991px) {
+    .plan-annual-container {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 992px) {}
+
+/* // eventual desk and mobile styles */
+/* Precios */
+.product-pricing {
+    text-align: center;
+    padding: 1rem 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.price-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.plan.monthly .promo-container {
+    background-image: url('../../xy1-images/rlab100px.webp');
+    background-size: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plan.annual .promo-container {
+    background-image: url('../../xy1-images/rlab100px.webp');
+    background-size: 100px;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plan.monthly .toSpinText_r {
+    transform: rotate(30deg);
+    /* height: 58px; */
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 0.7;
+    position: relative;
+    left: 5px;
+}
+
+.plan.annual .toSpinText_r {
+    transform: rotate(30deg);
+    /* height: 58px; */
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 0.7;
+    position: relative;
+    left: 5px;
+}
+
+.subMens span {
+    font-size: 0.6em;
+}
+
+.oferta_sup span {
+    font-size: 0.68em;
+    position: relative;
+    top: -6px;
+}
+
+.oferta_inf span.discount-badge {
+    font-size: 1.45em;
+    font-weight: 900;
+}
+
+/* .discount-badge {
+    background-color: var(--discount-color);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+} */
+.original-price-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.3;
+}
+
+.final-price {
+    font-size: 2rem;
+    font-weight: 900;
+
+}
+
+.price-frequency {}
+
+/* Detalles del producto */
+.product-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+}
+
+.savings,
+.availability {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.savings-label,
+.availability-label {
+    font-size: 0.9rem;
+
+}
+
+.savings-value {
+    font-weight: 900;
+    font-size: 1.5em;
+    line-height: 1.2;
+
+}
+
+.plan.monthly .availability-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.plan.monthly .availability-1 .xtw-subt {
+    font-size: 0.8em;
+    margin-bottom: 10px;
+}
+
+.availability {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.availability-label {
+    font-size: 0.9em;
+    font-weight: 900;
+    color: red;
+}
+
+.availability-value {
+
+    font-weight: 900;
+}
+
+/* Botón de selección */
+.product-actions {
+    margin-top: auto;
+    position: relative;
+    /* z-index: 1; */
+    display: flex;
+    flex-direction: column;
+    /* gap: 1rem; */
+}
+
+.select-button {
+    width: 100%;
+    /* padding: 1rem; */
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.select-button:hover {
+    background-color: #2980b9;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 3rem;
+
+}
+
+/* Responsive */
+@media (min-width: 992px) {
+    .cs0r_product-card {
+        flex-direction: row;
+        padding-bottom: 30px;
+        /* gap: 2rem; */
+    }
+
+    .cs0r_card-presentation,
+    .cs0r_card-agreement,
+    .subscription-plans {
+        /* width: 50%; */
+        height: 256px !important;
+    }
+
+    .plan-monthly-container {
+        display: flex;
+        width: 100%;
+        /* background-color: aqua; */
+    }
+
+    .plan.monthly .plan-header,
+    .plan.monthly .plan-cta,
+    .plan.annual .plan-header,
+    .plan.annual .plan-cta {
+        width: 50%;
+    }
+
+    .plan.annual .plan-header {
+        flex-direction: column;
+    }
+
+    .plan.monthly .plan-header {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 991px) {
+    .cs0r_products-grid {
+        padding: 0;
+    }
+
+    .cs0r_products-container {
+        align-items: center;
+    }
+
+    .cs0r_product-card {
+        max-width: 400px;
+    }
+
+    .plan.monthly .plan-header {
+        flex-direction: row;
+    }
+}
+
+/* Planes de suscripción */
+.cs0r_card-agreement {
+    display: flex;
+    height: 100%;
+    /* background-color: aqua; */
+}
+
+.plan.monthly .plan-header,
+.plan.monthly .plan-cta,
+.plan.annual .plan-header,
+.plan.annual .plan-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.plan.monthly .plan-header {
+    /* background-color: antiquewhite; */
+}
+
+.plan.monthly .plan-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.plan.monthly,
+.plan.annual {
+    /* display: flex; */
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* width: 50%; */
+    /* background-color: #e74c3c; */
+}
+
+.plan.annual {
+    /* width: 50%; */
+    /* background-color: #bc8634; */
+}
+
+.subscription-plans {
+    /* margin-top: 1rem; */
+    width: 100%;
+}
+
+.plan-tabs {
+    display: flex;
+    /* gap: 8px; */
+    /* overflow: hidden; */
+}
+
+.tab-button {
+    flex: 1;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+
+    transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+    background-color: #e9ecef;
+}
+
+.tab-button.active {
+    background-color: white;
+    color: var(--primary-color);
+    font-weight: 900;
+    box-shadow: 0 -2px 0 var(--primary-color) inset;
+}
+
+.plan-content {
+    /* background-color: white;
+    border: 1px solid #eee;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    padding: 1rem; */
+}
+
+.plan {
+    display: none;
+}
+
+.plan.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plan-header h3 {
+    /*  */
+    margin-bottom: 0.5rem;
+    /* font-size: 1.1rem; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.wrapping-block-whole-price {
+    display: flex;
+}
+
+.plan-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.plan-price .price-value,
+.plan-price .price-value-no-vat {
+    font-size: 2.6em;
+    font-weight: 900;
+    /*  */
+}
+
+.price-value-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.plan-price .price-frequency {
+    font-weight: 900;
+    font-size: 1em;
+    line-height: 0.8em;
+}
+
+.promo-duration {
+    /* font-size: 0.9rem; */
+    /* color: var(--secondary-color); */
+    font-weight: 900;
+    /* margin-bottom: 1rem; */
+}
+
+/* eventual regular mobile and desk styles */
+
+
+@media (max-width: 991px) {
+    .plan .select-button {
+        max-width: 200px;
+        width: 155px;
+        padding: 4px 0;
+    }
+
+    .plan.monthly .plan-cta,
+    .plan.annual .annual-cta-block {
+        flex-direction: column-reverse;
+        /* margin-bottom: 15px; */
+        height: 100px;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        margin-top: 15px;
+        /* background-color: #89b3de; */
+    }
+}
+
+@media (min-width: 992px) {
+    .plan .select-button {
+        width: 83%;
+        height: 80px;
+    }
+}
+
+/* // eventual desk and mobile styles */
+.plan .select-button {
+    box-sizing: border-box;
+    background: #ff0000;
+    border: 3px solid #ffd0d0;
+    border-radius: 10px;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2em;
+    line-height: 1.3em;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+
+}
+
+.plan .select-button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tab-button {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
+.modal-trigger {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 0.5em;
+    cursor: pointer;
+    padding: 0 5px;
+    margin-left: 5px;
+    border-radius: 50%;
+    width: 11px;
+    height: 11px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background-color: red;
+    font-weight: 900;
+}
+
+.modal-trigger:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: 900;
+
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+.modal-body {
+    margin-top: 20px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.modal-body ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.modal-body li {
+    margin-bottom: 10px;
+}
+
+/* Visibilidad de li según tipo de producto (mini vs no mini) */
+.modal .li-modal-off_on_minis {
+    display: block;
+}
+.modal .li-modal_on_only_on_minis {
+    display: none;
+}
+.modal.modal--mini-product .li-modal-off_on_minis {
+    display: none;
+}
+.modal.modal--mini-product .li-modal_on_only_on_minis {
+    display: block;
+}
+
+/* Ajuste para el título del plan */
+.plan-header h3 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Eliminar estilos antiguos que ya no se usan */
+.product-title,
+.product-size {
+    display: none;
+}
+
+/* eventual regular mobile and desk styles */
+
+
+
+@media (max-width: 991px) {
+    .product-image {
+        background-size: 270px;
+        background-repeat: no-repeat;
+        background-position-x: 37px;
+        background-position-y: 67px;
+    }
+}
+
+@media (min-width: 992px) {
+    .product-image {
+        background-size: 310px;
+        background-repeat: no-repeat;
+        background-position-x: 100%;
+        background-position-y: 40%;
+    }
+}
+
+/* // eventual desk and mobile styles */
+
+.accordion-icon svg {
+    transition: transform 0.3s;
+}
+
+.accordion.active .accordion-icon svg {
+    transform: rotate(180deg);
+}
+
+/* eventual regular mobile and desk styles */
+
+.wrap-tab-modal {
+    width: 50%;
+    border-radius: 15px;
+    position: relative;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #fff2f2 0%, #ffffff 100%);
+    border-top: 0.5px solid #000000;
+    cursor: pointer;
+    border-bottom: 0.5px solid #000000;
+}
+
+@media (max-width: 991px) {
+    .wrap-tab-modal {
+        /* height: 48px; */
+        /* top: -46px; */
+        border-left: 0.5px solid #000000;
+        border-bottom: 0.5px solid #000000;
+        border-right: 0.5px solid #000000;
+    }
+
+    .wrap-tab-modal.active {
+        border-left: inherit;
+        border-bottom: inherit;
+        border-right: inherit;
+    }
+}
+
+@media (min-width: 992px) {
+    .wrap-tab-modal {
+        height: 48px;
+        top: -46px;
+        right: -1px;
+        border-left: 0.5px solid #000000;
+        border-right: 0.5px solid #000000;
+    }
+    .wrap-tab-modal.active {
+        /* border-left: inherit; */
+        border-bottom: inherit;
+        /* border-right: inherit; */
+    }
+}
+
+/* // eventual desk and mobile styles */
+
+
+
+.wrap-tab-modal.active {
+    background: linear-gradient(180deg, #fff2f2 0%, #ffffff 100%);
+    background: white !important;
+    border-top: 4px solid;
+    /* border-bottom: 0; */
+}
+
+.wrap-tab-modal .tab-button {
+    border-radius: 5px 0 0 5px;
+}
+
+.wrap-tab-modal .modal-trigger {
+    background: #e74c3c;
+    color: #fff;
+    width: 18px;
+    height: 18px;
+    font-size: 0.6em;
+    margin-left: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    transition: background 0.2s;
+    display: none;
+    margin-left: 10px
+}
+
+.wrap-tab-modal.active .modal-trigger {
+    display: flex;
+}
+
+.wrap-tab-modal .modal-trigger:hover {
+    background: #cc0000;
+}
+
+.plan-content.no-current-promo .plan.monthly .discount-badge,
+.plan-content.no-current-promo .plan.monthly .original-price,
+.plan-content.no-current-promo .plan.monthly .promo-container {
+    display: none !important;
+}
+
+
+/* eventual regular mobile and desk styles */
+
+.plan.annual .plan-header {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+@media (max-width: 991px) {
+    .plan.annual .plan-header {
+        width: 100%;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    span.promo-duration-annual {
+    position: relative;
+    top: -1px;
+    }
+}
+
+@media (min-width: 992px) {
+    .plan.annual .plan-header {
+        /* flex-direction: column; */
+    }
+    span.promo-duration-annual {
+    position: relative;
+    top: -1px;
+    }
+}
+
+/* // eventual desk and mobile styles */
+
+.annual-price-block {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    line-height: 1;
+}
+
+.annual-price-block .original-price {
+    font-size: 2rem;
+    color: #222;
+    text-decoration: line-through;
+    /* margin-bottom: 0.5rem; */
+}
+
+.annual-price-block .final-price-row {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #111;
+    /* margin-bottom: 0.5rem; */
+}
+
+.annual-price-block .price-frequency {
+    font-size: 1rem;
+    font-weight: 900;
+    /* margin-left: 0.2em; */
+}
+
+.annual-price-block .iva-incluido {
+    font-size: 1rem;
+    color: #222;
+    /* margin-bottom: 1rem; */
+}
+
+.savings-badge {
+    background: #ffeb3b;
+    color: #222;
+    font-weight: 900;
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    display: inline-block;
+    box-shadow: 1px 1px 4px #eee;
+}
+
+.annual-cta-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+/* .annual-cta-block .select-button {
+  background: #ff0000;
+  color: #fff;
+  font-size: 2rem;
+  padding: 1rem 2.5rem;
+  border-radius: 10px;
+  border: none;
+  font-weight: 900;
+  box-shadow: 0 2px 8px #eee;
+  cursor: pointer;
+  transition: background 0.2s;
+} */
+
+.annual-cta-block .select-button:hover {
+    background: #cc0000;
+}
+
+.annual-offer-message {
+    color: #e60000;
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-align: center;
+}
+
+
+
+/* Estilos para los precios originales */
+.original-price,
+.original-price-no-vat {
+    /* font-size: 1.2rem;
+  
+  text-decoration: line-through; */
+}
+
+.annual-price-block .original-price,
+.annual-price-block .original-price-no-vat {
+    font-size: 2rem;
+    color: #222;
+    text-decoration: line-through;
+}
+
+.plan.monthly .plan-content.no-current-promo .original-price,
+.plan.monthly .plan-content.no-current-promo .original-price-no-vat {
+    display: none !important;
+}
+
+/* BLOQUE mataro-maresme */
+/* Control de visibilidad de precios según tipo de usuario */
+#empresas-mataro-maresme .price-value {
+    display: none !important;
+}
+
+#autonomos-mataro-maresme .price-value-no-vat,
+#particulares-mataro-maresme .price-value-no-vat {
+    display: none !important;
+}
+
+/* Ajuste para el plan anual */
+.annual-price-block .price-value,
+.annual-price-block .price-value-no-vat {
+    font-size: 2.5rem;
+    font-weight: 900;
+
+}
+
+.annual-price-block .price-value-no-vat {
+    display: none;
+}
+
+#empresas-mataro-maresme .annual-price-block .price-value {
+    display: none;
+}
+
+#empresas-mataro-maresme .annual-price-block .price-value-no-vat {
+    display: inline;
+}
+
+/* Control de visibilidad de precios originales según tipo de usuario */
+#empresas-mataro-maresme .original-price {
+    display: none !important;
+}
+
+#autonomos-mataro-maresme .original-price-no-vat,
+#particulares-mataro-maresme .original-price-no-vat {
+    display: none !important;
+}
+
+
+
+/* Clases específicas para cada tamaño - Versión Empresas */
+#empresas-mataro-maresme .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini2.jpg');
+}
+
+#empresas-mataro-maresme .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno.jpg');
+}
+
+#empresas-mataro-maresme .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano.jpg');
+}
+
+#empresas-mataro-maresme .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande.jpg');
+}
+
+#empresas-mataro-maresme .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi.jpg');
+}
+
+#empresas-mataro-maresme .price-value {
+    display: none !important;
+}
+
+/* Clases específicas para cada tamaño - Versión Autonomos */
+#autonomos-mataro-maresme .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini2.jpg');
+}
+
+#autonomos-mataro-maresme .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno.jpg');
+}
+
+#autonomos-mataro-maresme .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano.jpg');
+}
+
+#autonomos-mataro-maresme .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande.jpg');
+}
+
+#autonomos-mataro-maresme .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi.jpg');
+}
+
+#autonomos-mataro-maresme .price-value-no-vat {
+    display: none !important;
+}
+
+/* Clases específicas para cada tamaño - Versión Particulares */
+#particulares-mataro-maresme .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini-particular.jpg');
+}
+
+#particulares-mataro-maresme .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno-particular.jpg');
+}
+
+#particulares-mataro-maresme .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano-particular.jpg');
+}
+
+#particulares-mataro-maresme .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande-particular.jpg');
+}
+
+#particulares-mataro-maresme .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi-particular.jpg');
+}
+/* Clases específicas para cada tamaño - Versión Empresas */
+#empresas-mataro-maresme .product-image.mini_planta_01 {
+    background-image: url('../../xy1-images/sizes-level01/demo-mini3.jpg');
+}
+
+#empresas-mataro-maresme .product-image.pequeno_planta_01 {
+    background-image: url('../../xy1-images/sizes-level01/demo-pequeno.jpg');
+}
+
+#empresas-mataro-maresme .product-image.mediano_planta_01 {
+    background-image: url('../../xy1-images/sizes-level01/demo-mediano.jpg');
+}
+
+#empresas-mataro-maresme .product-image.grande_planta_01 {
+    background-image: url('../../xy1-images/sizes-level01/demo-grande.jpg');
+}
+
+#empresas-mataro-maresme .product-image.maxi_planta_01 {
+    background-image: url('../../xy1-images/sizes-level01/demo-maxi.jpg');
+}
+
+#empresas-mataro-maresme .price-value {
+    display: none !important;
+}
+
+/* Clases específicas para cada tamaño - Versión Autonomos */
+#autonomos-mataro-maresme .product-image.mini_planta_01 {
+    background-image: url('../../xy1-images/sizes-level01/demo-mini3.jpg');
+}
+
+#autonomos-mataro-maresme .product-image.pequeno_planta_01 {
+    background-image: url('../../xy1-images/sizes-level01/demo-pequeno.jpg');
+}
+
+#autonomos-mataro-maresme .product-image.mediano_planta_01 {
+    background-image: url('../../xy1-images/sizes-level01/demo-mediano.jpg');
+}
+
+#autonomos-mataro-maresme .product-image.grande_planta_01 {
+    background-image: url('../../xy1-images/sizes-level01/demo-grande.jpg');
+}
+
+#autonomos-mataro-maresme .product-image.maxi_planta_01 {
+    background-image: url('../../xy1-images/sizes-level01/demo-maxi.jpg');
+}
+
+#autonomos-mataro-maresme .price-value-no-vat {
+    display: none !important;
+}
+
+/* Clases específicas para cada tamaño - Versión Particulares */
+#particulares-mataro-maresme .product-image.mini_planta_01 {
+    background-image: url('../../xy1-images/sizes-level01/demo-mini-particular.jpg');
+}
+
+#particulares-mataro-maresme .product-image.pequeno_planta_01 {
+    background-image: url('../../xy1-images/sizes-level01/demo-pequeno-particular.jpg');
+}
+
+#particulares-mataro-maresme .product-image.mediano_planta_01 {
+    background-image: url('../../xy1-images/sizes-level01/demo-mediano-particular.jpg');
+}
+
+#particulares-mataro-maresme .product-image.grande_planta_01 {
+    background-image: url('../../xy1-images/sizes-level01/demo-grande-particular.jpg');
+}
+
+#particulares-mataro-maresme .product-image.maxi_planta_01 {
+    background-image: url('../../xy1-images/sizes-level01/demo-maxi-particular.jpg');
+}
+
+/* Control de visibilidad de contenidos según tipo de página */
+#particulares-mataro-maresme .capacity-info-autonomos,
+#particulares-mataro-maresme .capacity-info-empresas {
+    display: none;
+}
+
+#autonomos-mataro-maresme .capacity-info-particulares,
+#autonomos-mataro-maresme .capacity-info-empresas {
+    display: none;
+}
+
+#empresas-mataro-maresme .capacity-info-particulares,
+#empresas-mataro-maresme .capacity-info-autonomos {
+    display: none;
+}
+
+/* Estilos para el contenido del acordeón */
+.capacity-info-particulares h3,
+.capacity-info-autonomos h3,
+.capacity-info-empresas h3 {
+    font-size: 1.2rem;
+
+    margin-bottom: 1rem;
+}
+
+.capacity-info-particulares p,
+.capacity-info-autonomos p,
+.capacity-info-empresas p {
+    line-height: 1.6;
+
+}
+
+#empresas-mataro-maresme .savings-value {
+    display: none !important;
+}
+
+#autonomos-mataro-maresme .savings-value-no-vat,
+#particulares-mataro-maresme .savings-value-no-vat {
+    display: none !important;
+}
+
+/* BLOQUE // mataro-maresme */
+
+
+/* BLOQUE cornella-hospitalet */
+/* Control de visibilidad de precios según tipo de usuario */
+#empresas-cornella-hospitalet .price-value {
+    display: none !important;
+}
+
+#autonomos-cornella-hospitalet .price-value-no-vat,
+#particulares-cornella-hospitalet .price-value-no-vat {
+    display: none !important;
+}
+
+/* Ajuste para el plan anual */
+.annual-price-block .price-value,
+.annual-price-block .price-value-no-vat {
+    font-size: 2.5rem;
+    font-weight: 900;
+
+}
+
+.annual-price-block .price-value-no-vat {
+    display: none;
+}
+
+#empresas-cornella-hospitalet .annual-price-block .price-value {
+    display: none;
+}
+
+#empresas-cornella-hospitalet .annual-price-block .price-value-no-vat {
+    display: inline;
+}
+
+/* Control de visibilidad de precios originales según tipo de usuario */
+#empresas-cornella-hospitalet .original-price {
+    display: none !important;
+}
+
+#autonomos-cornella-hospitalet .original-price-no-vat,
+#particulares-cornella-hospitalet .original-price-no-vat {
+    display: none !important;
+}
+
+
+
+/* Clases específicas para cada tamaño - Versión Empresas */
+#empresas-cornella-hospitalet .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini2.jpg');
+}
+
+#empresas-cornella-hospitalet .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno.jpg');
+}
+
+#empresas-cornella-hospitalet .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano.jpg');
+}
+
+#empresas-cornella-hospitalet .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande.jpg');
+}
+
+#empresas-cornella-hospitalet .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi.jpg');
+}
+
+#empresas-cornella-hospitalet .price-value {
+    display: none !important;
+}
+
+/* Clases específicas para cada tamaño - Versión Autonomos */
+#autonomos-cornella-hospitalet .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini2.jpg');
+}
+
+#autonomos-cornella-hospitalet .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno.jpg');
+}
+
+#autonomos-cornella-hospitalet .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano.jpg');
+}
+
+#autonomos-cornella-hospitalet .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande.jpg');
+}
+
+#autonomos-cornella-hospitalet .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi.jpg');
+}
+
+#autonomos-cornella-hospitalet .price-value-no-vat {
+    display: none !important;
+}
+
+/* Clases específicas para cada tamaño - Versión Particulares */
+#particulares-cornella-hospitalet .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini-particular.jpg');
+}
+
+#particulares-cornella-hospitalet .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno-particular.jpg');
+}
+
+#particulares-cornella-hospitalet .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano-particular.jpg');
+}
+
+#particulares-cornella-hospitalet .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande-particular.jpg');
+}
+
+#particulares-cornella-hospitalet .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi-particular.jpg');
+}
+
+/* Control de visibilidad de contenidos según tipo de página */
+#particulares-cornella-hospitalet .capacity-info-autonomos,
+#particulares-cornella-hospitalet .capacity-info-empresas {
+    display: none;
+}
+
+#autonomos-cornella-hospitalet .capacity-info-particulares,
+#autonomos-cornella-hospitalet .capacity-info-empresas {
+    display: none;
+}
+
+#empresas-cornella-hospitalet .capacity-info-particulares,
+#empresas-cornella-hospitalet .capacity-info-autonomos {
+    display: none;
+}
+
+/* Estilos para el contenido del acordeón */
+.capacity-info-particulares h3,
+.capacity-info-autonomos h3,
+.capacity-info-empresas h3 {
+    font-size: 1.2rem;
+
+    margin-bottom: 1rem;
+}
+
+.capacity-info-particulares p,
+.capacity-info-autonomos p,
+.capacity-info-empresas p {
+    line-height: 1.6;
+
+}
+
+#empresas-cornella-hospitalet .savings-value {
+    display: none !important;
+}
+
+#autonomos-cornella-hospitalet .savings-value-no-vat,
+#particulares-cornella-hospitalet .savings-value-no-vat {
+    display: none !important;
+}
+
+/* BLOQUE // cornella-hospitalet */
+
+
+/* BLOQUE gava-castelldefels */
+/* Control de visibilidad de precios según tipo de usuario */
+#empresas-gava-castelldefels .price-value {
+    display: none !important;
+}
+
+#autonomos-gava-castelldefels .price-value-no-vat,
+#particulares-gava-castelldefels .price-value-no-vat {
+    display: none !important;
+}
+
+/* Ajuste para el plan anual */
+.annual-price-block .price-value,
+.annual-price-block .price-value-no-vat {
+    font-size: 2.5rem;
+    font-weight: 900;
+
+}
+
+.annual-price-block .price-value-no-vat {
+    display: none;
+}
+
+#empresas-gava-castelldefels .annual-price-block .price-value {
+    display: none;
+}
+
+#empresas-gava-castelldefels .annual-price-block .price-value-no-vat {
+    display: inline;
+}
+
+/* Control de visibilidad de precios originales según tipo de usuario */
+#empresas-gava-castelldefels .original-price {
+    display: none !important;
+}
+
+#autonomos-gava-castelldefels .original-price-no-vat,
+#particulares-gava-castelldefels .original-price-no-vat {
+    display: none !important;
+}
+
+
+
+/* Clases específicas para cada tamaño - Versión Empresas */
+#empresas-gava-castelldefels .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini2.jpg');
+}
+
+#empresas-gava-castelldefels .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno.jpg');
+}
+
+#empresas-gava-castelldefels .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano.jpg');
+}
+
+#empresas-gava-castelldefels .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande.jpg');
+}
+
+#empresas-gava-castelldefels .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi.jpg');
+}
+
+#empresas-gava-castelldefels .price-value {
+    display: none !important;
+}
+
+/* Clases específicas para cada tamaño - Versión Autonomos */
+#autonomos-gava-castelldefels .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini2.jpg');
+}
+
+#autonomos-gava-castelldefels .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno.jpg');
+}
+
+#autonomos-gava-castelldefels .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano.jpg');
+}
+
+#autonomos-gava-castelldefels .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande.jpg');
+}
+
+#autonomos-gava-castelldefels .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi.jpg');
+}
+
+#autonomos-gava-castelldefels .price-value-no-vat {
+    display: none !important;
+}
+
+/* Clases específicas para cada tamaño - Versión Particulares */
+#particulares-gava-castelldefels .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini-particular.jpg');
+}
+
+#particulares-gava-castelldefels .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno-particular.jpg');
+}
+
+#particulares-gava-castelldefels .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano-particular.jpg');
+}
+
+#particulares-gava-castelldefels .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande-particular.jpg');
+}
+
+#particulares-gava-castelldefels .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi-particular.jpg');
+}
+
+/* Control de visibilidad de contenidos según tipo de página */
+#particulares-gava-castelldefels .capacity-info-autonomos,
+#particulares-gava-castelldefels .capacity-info-empresas {
+    display: none;
+}
+
+#autonomos-gava-castelldefels .capacity-info-particulares,
+#autonomos-gava-castelldefels .capacity-info-empresas {
+    display: none;
+}
+
+#empresas-gava-castelldefels .capacity-info-particulares,
+#empresas-gava-castelldefels .capacity-info-autonomos {
+    display: none;
+}
+
+/* Estilos para el contenido del acordeón */
+.capacity-info-particulares h3,
+.capacity-info-autonomos h3,
+.capacity-info-empresas h3 {
+    font-size: 1.2rem;
+
+    margin-bottom: 1rem;
+}
+
+.capacity-info-particulares p,
+.capacity-info-autonomos p,
+.capacity-info-empresas p {
+    line-height: 1.6;
+
+}
+
+#empresas-gava-castelldefels .savings-value {
+    display: none !important;
+}
+
+#autonomos-gava-castelldefels .savings-value-no-vat,
+#particulares-gava-castelldefels .savings-value-no-vat {
+    display: none !important;
+}
+
+/* BLOQUE // gava-castelldefels */
+
+
+/* BLOQUE llagosta-mollet-valles */
+/* Control de visibilidad de precios según tipo de usuario */
+#empresas-llagosta-mollet-valles .price-value {
+    display: none !important;
+}
+
+#autonomos-llagosta-mollet-valles .price-value-no-vat,
+#particulares-llagosta-mollet-valles .price-value-no-vat {
+    display: none !important;
+}
+
+/* Ajuste para el plan anual */
+.annual-price-block .price-value,
+.annual-price-block .price-value-no-vat {
+    font-size: 2.5rem;
+    font-weight: 900;
+
+}
+
+.annual-price-block .price-value-no-vat {
+    display: none;
+}
+
+#empresas-llagosta-mollet-valles .annual-price-block .price-value {
+    display: none;
+}
+
+#empresas-llagosta-mollet-valles .annual-price-block .price-value-no-vat {
+    display: inline;
+}
+
+/* Control de visibilidad de precios originales según tipo de usuario */
+#empresas-llagosta-mollet-valles .original-price {
+    display: none !important;
+}
+
+#autonomos-llagosta-mollet-valles .original-price-no-vat,
+#particulares-llagosta-mollet-valles .original-price-no-vat {
+    display: none !important;
+}
+
+
+
+/* Clases específicas para cada tamaño - Versión Empresas */
+#empresas-llagosta-mollet-valles .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini2.jpg');
+}
+
+#empresas-llagosta-mollet-valles .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno.jpg');
+}
+
+#empresas-llagosta-mollet-valles .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano.jpg');
+}
+
+#empresas-llagosta-mollet-valles .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande.jpg');
+}
+
+#empresas-llagosta-mollet-valles .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi.jpg');
+}
+
+#empresas-llagosta-mollet-valles .price-value {
+    display: none !important;
+}
+
+/* Clases específicas para cada tamaño - Versión Autonomos */
+#autonomos-llagosta-mollet-valles .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini2.jpg');
+}
+
+#autonomos-llagosta-mollet-valles .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno.jpg');
+}
+
+#autonomos-llagosta-mollet-valles .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano.jpg');
+}
+
+#autonomos-llagosta-mollet-valles .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande.jpg');
+}
+
+#autonomos-llagosta-mollet-valles .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi.jpg');
+}
+
+#autonomos-llagosta-mollet-valles .price-value-no-vat {
+    display: none !important;
+}
+
+/* Clases específicas para cada tamaño - Versión Particulares */
+#particulares-llagosta-mollet-valles .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini-particular.jpg');
+}
+
+#particulares-llagosta-mollet-valles .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno-particular.jpg');
+}
+
+#particulares-llagosta-mollet-valles .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano-particular.jpg');
+}
+
+#particulares-llagosta-mollet-valles .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande-particular.jpg');
+}
+
+#particulares-llagosta-mollet-valles .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi-particular.jpg');
+}
+
+/* Control de visibilidad de contenidos según tipo de página */
+#particulares-llagosta-mollet-valles .capacity-info-autonomos,
+#particulares-llagosta-mollet-valles .capacity-info-empresas {
+    display: none;
+}
+
+#autonomos-llagosta-mollet-valles .capacity-info-particulares,
+#autonomos-llagosta-mollet-valles .capacity-info-empresas {
+    display: none;
+}
+
+#empresas-llagosta-mollet-valles .capacity-info-particulares,
+#empresas-llagosta-mollet-valles .capacity-info-autonomos {
+    display: none;
+}
+
+/* Estilos para el contenido del acordeón */
+.capacity-info-particulares h3,
+.capacity-info-autonomos h3,
+.capacity-info-empresas h3 {
+    font-size: 1.2rem;
+
+    margin-bottom: 1rem;
+}
+
+.capacity-info-particulares p,
+.capacity-info-autonomos p,
+.capacity-info-empresas p {
+    line-height: 1.6;
+
+}
+
+#empresas-llagosta-mollet-valles .savings-value {
+    display: none !important;
+}
+
+#autonomos-llagosta-mollet-valles .savings-value-no-vat,
+#particulares-llagosta-mollet-valles .savings-value-no-vat {
+    display: none !important;
+}
+
+/* BLOQUE // llagosta-mollet-valles */
+
+
+/* BLOQUE vilanova-sant-pere-de-ribes */
+/* Control de visibilidad de precios según tipo de usuario */
+#empresas-vilanova-sant-pere-de-ribes .price-value {
+    display: none !important;
+}
+
+#autonomos-vilanova-sant-pere-de-ribes .price-value-no-vat,
+#particulares-vilanova-sant-pere-de-ribes .price-value-no-vat {
+    display: none !important;
+}
+
+/* Ajuste para el plan anual */
+.annual-price-block .price-value,
+.annual-price-block .price-value-no-vat {
+    font-size: 2.5rem;
+    font-weight: 900;
+
+}
+
+.annual-price-block .price-value-no-vat {
+    display: none;
+}
+
+#empresas-vilanova-sant-pere-de-ribes .annual-price-block .price-value {
+    display: none;
+}
+
+#empresas-vilanova-sant-pere-de-ribes .annual-price-block .price-value-no-vat {
+    display: inline;
+}
+
+/* Control de visibilidad de precios originales según tipo de usuario */
+#empresas-vilanova-sant-pere-de-ribes .original-price {
+    display: none !important;
+}
+
+#autonomos-vilanova-sant-pere-de-ribes .original-price-no-vat,
+#particulares-vilanova-sant-pere-de-ribes .original-price-no-vat {
+    display: none !important;
+}
+
+
+
+/* Clases específicas para cada tamaño - Versión Empresas */
+#empresas-vilanova-sant-pere-de-ribes .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini2.jpg');
+}
+
+#empresas-vilanova-sant-pere-de-ribes .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno.jpg');
+}
+
+#empresas-vilanova-sant-pere-de-ribes .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano.jpg');
+}
+
+#empresas-vilanova-sant-pere-de-ribes .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande.jpg');
+}
+
+#empresas-vilanova-sant-pere-de-ribes .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi.jpg');
+}
+
+#empresas-vilanova-sant-pere-de-ribes .price-value {
+    display: none !important;
+}
+
+/* Clases específicas para cada tamaño - Versión Autonomos */
+#autonomos-vilanova-sant-pere-de-ribes .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini2.jpg');
+}
+
+#autonomos-vilanova-sant-pere-de-ribes .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno.jpg');
+}
+
+#autonomos-vilanova-sant-pere-de-ribes .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano.jpg');
+}
+
+#autonomos-vilanova-sant-pere-de-ribes .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande.jpg');
+}
+
+#autonomos-vilanova-sant-pere-de-ribes .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi.jpg');
+}
+
+#autonomos-vilanova-sant-pere-de-ribes .price-value-no-vat {
+    display: none !important;
+}
+
+/* Clases específicas para cada tamaño - Versión Particulares */
+#particulares-vilanova-sant-pere-de-ribes .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini-particular.jpg');
+}
+
+#particulares-vilanova-sant-pere-de-ribes .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno-particular.jpg');
+}
+
+#particulares-vilanova-sant-pere-de-ribes .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano-particular.jpg');
+}
+
+#particulares-vilanova-sant-pere-de-ribes .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande-particular.jpg');
+}
+
+#particulares-vilanova-sant-pere-de-ribes .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi-particular.jpg');
+}
+
+/* Control de visibilidad de contenidos según tipo de página */
+#particulares-vilanova-sant-pere-de-ribes .capacity-info-autonomos,
+#particulares-vilanova-sant-pere-de-ribes .capacity-info-empresas {
+    display: none;
+}
+
+#autonomos-vilanova-sant-pere-de-ribes .capacity-info-particulares,
+#autonomos-vilanova-sant-pere-de-ribes .capacity-info-empresas {
+    display: none;
+}
+
+#empresas-vilanova-sant-pere-de-ribes .capacity-info-particulares,
+#empresas-vilanova-sant-pere-de-ribes .capacity-info-autonomos {
+    display: none;
+}
+
+/* Estilos para el contenido del acordeón */
+.capacity-info-particulares h3,
+.capacity-info-autonomos h3,
+.capacity-info-empresas h3 {
+    font-size: 1.2rem;
+
+    margin-bottom: 1rem;
+}
+
+.capacity-info-particulares p,
+.capacity-info-autonomos p,
+.capacity-info-empresas p {
+    line-height: 1.6;
+
+}
+
+#empresas-vilanova-sant-pere-de-ribes .savings-value {
+    display: none !important;
+}
+
+#autonomos-vilanova-sant-pere-de-ribes .savings-value-no-vat,
+#particulares-vilanova-sant-pere-de-ribes .savings-value-no-vat {
+    display: none !important;
+}
+
+/* BLOQUE // vilanova-sant-pere-de-ribes */
+
+
+/* BLOQUE vicalvaro-madrid */
+/* Control de visibilidad de precios según tipo de usuario */
+#empresas-vicalvaro-madrid .price-value {
+    display: none !important;
+}
+
+#autonomos-vicalvaro-madrid .price-value-no-vat,
+#particulares-vicalvaro-madrid .price-value-no-vat {
+    display: none !important;
+}
+
+/* Ajuste para el plan anual */
+.annual-price-block .price-value,
+.annual-price-block .price-value-no-vat {
+    font-size: 2.5rem;
+    font-weight: 900;
+
+}
+
+.annual-price-block .price-value-no-vat {
+    display: none;
+}
+
+#empresas-vicalvaro-madrid .annual-price-block .price-value {
+    display: none;
+}
+
+#empresas-vicalvaro-madrid .annual-price-block .price-value-no-vat {
+    display: inline;
+}
+
+/* Control de visibilidad de precios originales según tipo de usuario */
+#empresas-vicalvaro-madrid .original-price {
+    display: none !important;
+}
+
+#autonomos-vicalvaro-madrid .original-price-no-vat,
+#particulares-vicalvaro-madrid .original-price-no-vat {
+    display: none !important;
+}
+
+
+
+/* Clases específicas para cada tamaño - Versión Empresas */
+#empresas-vicalvaro-madrid .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini2.jpg');
+}
+
+#empresas-vicalvaro-madrid .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno.jpg');
+}
+
+#empresas-vicalvaro-madrid .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano.jpg');
+}
+
+#empresas-vicalvaro-madrid .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande.jpg');
+}
+
+#empresas-vicalvaro-madrid .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi.jpg');
+}
+
+#empresas-vicalvaro-madrid .price-value {
+    display: none !important;
+}
+
+/* Clases específicas para cada tamaño - Versión Autonomos */
+#autonomos-vicalvaro-madrid .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini2.jpg');
+}
+
+#autonomos-vicalvaro-madrid .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno.jpg');
+}
+
+#autonomos-vicalvaro-madrid .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano.jpg');
+}
+
+#autonomos-vicalvaro-madrid .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande.jpg');
+}
+
+#autonomos-vicalvaro-madrid .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi.jpg');
+}
+
+#autonomos-vicalvaro-madrid .price-value-no-vat {
+    display: none !important;
+}
+
+/* Clases específicas para cada tamaño - Versión Particulares */
+#particulares-vicalvaro-madrid .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini-particular.jpg');
+}
+
+#particulares-vicalvaro-madrid .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno-particular.jpg');
+}
+
+#particulares-vicalvaro-madrid .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano-particular.jpg');
+}
+
+#particulares-vicalvaro-madrid .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande-particular.jpg');
+}
+
+#particulares-vicalvaro-madrid .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi-particular.jpg');
+}
+
+/* Control de visibilidad de contenidos según tipo de página */
+#particulares-vicalvaro-madrid .capacity-info-autonomos,
+#particulares-vicalvaro-madrid .capacity-info-empresas {
+    display: none;
+}
+
+#autonomos-vicalvaro-madrid .capacity-info-particulares,
+#autonomos-vicalvaro-madrid .capacity-info-empresas {
+    display: none;
+}
+
+#empresas-vicalvaro-madrid .capacity-info-particulares,
+#empresas-vicalvaro-madrid .capacity-info-autonomos {
+    display: none;
+}
+
+/* Estilos para el contenido del acordeón */
+.capacity-info-particulares h3,
+.capacity-info-autonomos h3,
+.capacity-info-empresas h3 {
+    font-size: 1.1em;
+    color: red;
+    font-weight: 900
+        /*  */
+        /* margin-bottom: 1rem; */
+}
+
+.capacity-info-particulares p,
+.capacity-info-autonomos p,
+.capacity-info-empresas p {
+    line-height: 1.6;
+
+}
+
+#empresas-vicalvaro-madrid .savings-value {
+    display: none !important;
+}
+
+#autonomos-vicalvaro-madrid .savings-value-no-vat,
+#particulares-vicalvaro-madrid .savings-value-no-vat {
+    display: none !important;
+}
+
+/* BLOQUE // vicalvaro-madrid */
+
+
+/* BLOQUE mostoles-madrid */
+/* Control de visibilidad de precios según tipo de usuario */
+#empresas-mostoles-madrid .price-value {
+    display: none !important;
+}
+
+#autonomos-mostoles-madrid .price-value-no-vat,
+#particulares-mostoles-madrid .price-value-no-vat {
+    display: none !important;
+}
+
+#empresas-mostoles-madrid .annual-price-block .price-value {
+    display: none;
+}
+
+#empresas-mostoles-madrid .annual-price-block .price-value-no-vat {
+    display: inline;
+}
+
+/* Control de visibilidad de precios originales según tipo de usuario */
+#empresas-mostoles-madrid .original-price {
+    display: none !important;
+}
+
+#autonomos-mostoles-madrid .original-price-no-vat,
+#particulares-mostoles-madrid .original-price-no-vat {
+    display: none !important;
+}
+
+
+
+/* Clases específicas para cada tamaño - Versión Empresas */
+#empresas-mostoles-madrid .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini2.jpg');
+}
+
+#empresas-mostoles-madrid .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno.jpg');
+}
+
+#empresas-mostoles-madrid .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano.jpg');
+}
+
+#empresas-mostoles-madrid .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande.jpg');
+}
+
+#empresas-mostoles-madrid .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi.jpg');
+}
+
+#empresas-mostoles-madrid .price-value {
+    display: none !important;
+}
+
+/* Clases específicas para cada tamaño - Versión Autonomos */
+#autonomos-mostoles-madrid .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini2.jpg');
+}
+
+#autonomos-mostoles-madrid .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno.jpg');
+}
+
+#autonomos-mostoles-madrid .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano.jpg');
+}
+
+#autonomos-mostoles-madrid .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande.jpg');
+}
+
+#autonomos-mostoles-madrid .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi.jpg');
+}
+
+#autonomos-mostoles-madrid .price-value-no-vat {
+    display: none !important;
+}
+
+/* Clases específicas para cada tamaño - Versión Particulares */
+#particulares-mostoles-madrid .product-image.mini_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mini-particular.jpg');
+}
+
+#particulares-mostoles-madrid .product-image.pequeno_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-pequeno-particular.jpg');
+}
+
+#particulares-mostoles-madrid .product-image.mediano_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-mediano-particular.jpg');
+}
+
+#particulares-mostoles-madrid .product-image.grande_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-grande-particular.jpg');
+}
+
+#particulares-mostoles-madrid .product-image.maxi_planta_00 {
+    background-image: url('../../xy1-images/sizes-level00/demo-maxi-particular.jpg');
+}
+
+/* Control de visibilidad de contenidos según tipo de página */
+#particulares-mostoles-madrid .capacity-info-autonomos,
+#particulares-mostoles-madrid .capacity-info-empresas {
+    display: none;
+}
+
+#autonomos-mostoles-madrid .capacity-info-particulares,
+#autonomos-mostoles-madrid .capacity-info-empresas {
+    display: none;
+}
+
+#empresas-mostoles-madrid .capacity-info-particulares,
+#empresas-mostoles-madrid .capacity-info-autonomos {
+    display: none;
+}
+
+
+#empresas-mostoles-madrid .savings-value {
+    display: none !important;
+}
+
+#autonomos-mostoles-madrid .savings-value-no-vat,
+#particulares-mostoles-madrid .savings-value-no-vat {
+    display: none !important;
+}
+
+/* BLOQUE // mostoles-madrid */

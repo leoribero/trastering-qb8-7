@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- - Nota del 251028  este es tal cual lo que estaba en xy1-s-header.tpl -->
+
+    <!-- Google Tag Manager -->
+    <script type="f9ec5ce7d6a636dfd023f300-text/javascript">
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(), event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-NZX5LX');
+    </script>
+    <!-- End Google Tag Manager -->
+  
+  <!-- - Nota del 251028  aquí, en xy1-s-header.tpl estaba tal cual lo que ahora esta en xy1c_google_tag_manager_v01.tpl desde la linea 1 hasta la 20. No esta y nunca estuvo presente en xy1-s-header.tpl. Para entenderlo mejor ver las notas en xy1c_google_tag_manager_v01.tpl -->
+
+
+
+  <!-- para mostrar el nombre del template que se está ejecutando --->
+  <script type="f9ec5ce7d6a636dfd023f300-text/javascript">console.log("templateBasename:", "xy1c_google_tag_manager_v01.tpl");</script>
+<!-- //// fin de para mostrar el nombre del template que se está ejecutando --->
+  <meta name="google-site-verification" content="JUYwfHp94kurr86jQktsx2gbATaYDbEMzpACD-h7EcI" />
+<!-- para mostrar el nombre del template que se está ejecutando --->
+<script type="f9ec5ce7d6a636dfd023f300-text/javascript">console.log("templateBasename:", "modulo_codigo_verificacion_GSC.tpl");</script>
+<!-- //// fin de para mostrar el nombre del template que se está ejecutando --->
+  
+    
+  <style>
+    /* .xycontainer {
+      border-radius: 20px 20px 0 0;
+    } */
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="../../template/leo-trastering-dev/template7a4/css/styles.css" />
+  <link rel="stylesheet" href="../../template/leo-trastering-dev/template7a4/css/cs0r_styles.css" />
+  
+      <title>
+              Razones clave para que tu empresa alquile un mini almacén
+          </title>
+    <meta name="Description" content="Te contamos qué es un mini almacén, las ventajas que le da a tu empresa y dónde encontrar almacenes cerca de ti." />
+    <meta name="Keywords" content="" />
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport" content="initial-scale=1">
+  
+      <link rel="shortcut icon" href="../../favicon_new.ico">
+  <!-- dns-prefetch es una directiva que permite informar al navegador que debe resolver 
+          el DNS de un dominio específico de forma anticipada. Esto mejora el rendimiento ya que:
+          1. Reduce el tiempo de espera para resolver el DNS cuando se necesite cargar recursos de ese dominio
+          2. Es especialmente útil para dominios de terceros que se usarán más adelante en la página
+          3. En este caso, se usa para Google Tag Manager que sabemos que necesitaremos cargar -->
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="dns-prefetch" href="https://www.facebook.com">
+  <link rel="dns-prefetch" href="https://static.hotjar.com">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+  <link rel="dns-prefetch" href="https://designgt.net-invaders.info">
+  
+      
+    <!-- SI VES ESTO ES EN RESERVA ES QUE NO ESTA FUNCIONANDO -->
+    
+      <link rel="canonical" href="index.html" />
+    </head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NZX5LX" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <!-- header from header ( rooot - load-components.js ) -->
+  <header class="top-header">
+    <div class="column logo xymain">
+      <a href="/">
+        <img src="../../template/leo-trastering-dev/xy1-images/logoN.webp" alt="Logo" />
+      </a>
+    </div>
+    <div class="column text" id="trigger-particulares">
+      <div class="xahrefsfake-containers">
+        <p class="xahrefs">
+          <span class="display-none-when-less-940px">Trasteros para particulares:</span><span
+            class="display-none-when-bigger-939px">Particulares</span>
+        </p>
+        <p class="subtext">precios y reservas</p>
+      </div>
+    </div>
+    <div class="column text" id="trigger-autonomos">
+      <div class="xahrefsfake-containers">
+        <p class="xahrefs">
+          <span class="display-none-when-less-940px">Trasteros para autónomos:</span><span
+            class="display-none-when-bigger-939px">Autónomos</span>
+        </p>
+        <p class="subtext">precios y reservas</p>
+      </div>
+    </div>
+    <div class="column text" id="trigger-empresas">
+      <div class="xahrefsfake-containers">
+        <p class="xahrefs">
+          <span class="display-none-when-less-940px">Almacenes para empresas:</span><span
+            class="display-none-when-bigger-939px">Empresas</span>
+        </p>
+        <p class="subtext">precios y reservas</p>
+      </div>
+    </div>
+    <div class="column logo contact-trigger" id="trigger-contacto">
+      <img src="../../template/leo-trastering-dev/xy1-images/contact-hub-trigger.webp" alt="Logo" />
+    </div>
+    <div class="column hamburger-menu" id="hamburger-menu">
+      <span>&#9776;</span>
+    </div>
+  </header>
+  <!--------------------------------------- injerto breadcrumbs--------------------------------------->
+    
+  <aside id="xmodulo-breadcrumbs_tpl">
+    <nav class="containerBc">
+      <div class="xsubnav">
+        <div id="breadcrumb-container1"></div> <!-- Puedes cambiar el ID -->
+
+        <ol class="breadcrumbs singleL xy-display-none">
+          <li class="migadepan nonActive">
+            <a class="firstA" href="/">home</a>
+          </li>
+          <li class="migadepan active">xhome</li>
+        </ol>
+        <ol class="menusubitems off-on-mobile">
+          <li><a href="/quienes-somos/">Sobre Nosotros</a></li>
+          <li><a href="/trabaja-con-nosotros/">Empleo</a></li>
+          <li><a href="/faqs/">Preguntas frecuentes</a></li>
+          <!-- <li><a href="/blog-trastering">Blog</a></li> -->
+          <li><a href="/blog-trastering/">Blog</a></li>
+        </ol>
+      </div>
+      <div class="making-clip-path-test">
+        <div class="tteesst one"></div>
+        <div class="tteesst three"></div>
+      </div>
+    </nav>
+  </aside>
+  <div id="mobile-menu" class="mobile-menu">
+    <div class="z0yaccordion">
+      <div class="xyitem">
+        <div class="z0ytitle vermas">
+          <span class="xytitlemobile">Trasteros para particulares:</span><span class="xysubmobile"> precios y
+            reservas</span>
+        </div>
+        <div class="box">
+          <div class="z0yitem">
+            <div class="z0ytem-header"><a href="/alquiler-trasteros-particulares/madrid/">COMUNIDAD DE MADRID:</a></div>
+            <ul>
+              <li class="space"><a href="/alquiler-trasteros-particulares/madrid/mostoles-alcorcon/">Móstoles -
+                  Alcorcón</a></li>
+              <li class="space"><a href="/alquiler-trasteros-particulares/madrid/vicalvaro-madrid/">Vicalvaro -
+                  Madrid</a></li>
+              <li class="space"><a href="/alquiler-trasteros-particulares/madrid/fuenlabrada-getafe/">Fuenlabrada -
+                  Getafe</a></li>
+            </ul>
+          </div>
+          <div class="z0yitem">
+            <div class="z0ytem-header"><a href="/alquiler-trasteros-particulares/barcelona/">PROVINCIA DE BARCELONA:</a>
+            </div>
+            <ul>
+              <li class="space">
+                <a href="/alquiler-trasteros-particulares/barcelona/cornella-hospitalet/">Cornellà - Hospitalet</a>
+              </li>
+              <li class="space"><a href="/alquiler-trasteros-particulares/barcelona/gava-castelldefels/">Gavà -
+                  Castelldefels</a></li>
+              <li class="space">
+                <a href="/alquiler-trasteros-particulares/barcelona/llagosta-mollet-valles/">Llagosta - Mollet del
+                  Vallès</a>
+              </li>
+              <li class="space"><a href="/alquiler-trasteros-particulares/barcelona/mataro-maresme/">Mataró -
+                  Maresme</a>
+              </li>
+              <li class="space">
+                <a href="/alquiler-trasteros-particulares/barcelona/vilanova-sant-pere-de-ribes/">Vilanova - Sant Pere
+                  de
+                  Ribes</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="xyitem">
+        <div class="z0ytitle vermas">
+          <span class="xytitlemobile">Trasteros para autónomos:</span><span class="xysubmobile"> precios y
+            reservas</span>
+        </div>
+        <div class="box">
+          <div class="z0yitem">
+            <div class="z0ytem-header"><a href="/alquiler-trasteros-autonomos/madrid/">COMUNIDAD DE MADRID:</a></div>
+            <ul>
+              <li class="space"><a href="/alquiler-trasteros-autonomos/madrid/mostoles-alcorcon/">Móstoles -
+                  Alcorcón</a>
+              </li>
+              <li class="space"><a href="/alquiler-trasteros-autonomos/madrid/vicalvaro-madrid/">Vicalvaro - Madrid</a>
+              </li>
+              <li class="space"><a href="/alquiler-trasteros-autonomos/madrid/fuenlabrada-getafe/">Fuenlabrada -
+                  Getafe</a>
+              </li>
+            </ul>
+          </div>
+          <div class="z0yitem">
+            <div class="z0ytem-header"><a href="/alquiler-trasteros-autonomos/barcelona/">PROVINCIA DE BARCELONA:</a>
+            </div>
+            <ul>
+              <li class="space"><a href="/alquiler-trasteros-autonomos/barcelona/cornella-hospitalet/">Cornellà -
+                  Hospitalet</a></li>
+              <li class="space"><a href="/alquiler-trasteros-autonomos/barcelona/gava-castelldefels/">Gavà -
+                  Castelldefels</a></li>
+              <li class="space">
+                <a href="/alquiler-trasteros-autonomos/barcelona/llagosta-mollet-valles/">Llagosta - Mollet del
+                  Vallès</a>
+              </li>
+              <li class="space"><a href="/alquiler-trasteros-autonomos/barcelona/mataro-maresme/">Mataró - Maresme</a>
+              </li>
+              <li class="space">
+                <a href="/alquiler-trasteros-autonomos/barcelona/vilanova-sant-pere-de-ribes/">Vilanova - Sant Pere de
+                  Ribes</a>
+              </li>
+
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="xyitem">
+        <div class="z0ytitle vermas">
+          <span class="xytitlemobile">Almacenes para empresas:</span><span class="xysubmobile"> precios y
+            reservas</span>
+        </div>
+        <div class="box">
+          <div class="z0yitem">
+            <div class="z0ytem-header"><a href="/alquiler-almacenes-empresas/madrid/">COMUNIDAD DE MADRID:</a></div>
+            <ul>
+              <li class="space"><a href="/alquiler-almacenes-empresas/madrid/mostoles-alcorcon/">Móstoles - Alcorcón</a>
+              </li>
+              <li class="space"><a href="/alquiler-almacenes-empresas/madrid/vicalvaro-madrid/">Vicalvaro - Madrid</a>
+              </li>
+              <li class="space"><a href="/alquiler-almacenes-empresas/madrid/fuenlabrada-getafe/">Fuenlabrada -
+                  Getafe</a>
+              </li>
+            </ul>
+          </div>
+          <div class="z0yitem">
+            <div class="z0ytem-header"><a href="/alquiler-almacenes-empresas/barcelona/">PROVINCIA DE BARCELONA:</a>
+            </div>
+            <ul>
+              <li class="space"><a href="/alquiler-almacenes-empresas/barcelona/cornella-hospitalet/">Cornellà -
+                  Hospitalet</a></li>
+              <li class="space"><a href="/alquiler-almacenes-empresas/barcelona/gava-castelldefels/">Gavà -
+                  Castelldefels</a></li>
+              <li class="space">
+                <a href="/alquiler-almacenes-empresas/barcelona/llagosta-mollet-valles/">Llagosta - Mollet del
+                  Vallès</a>
+              </li>
+              <li class="space"><a href="/alquiler-almacenes-empresas/barcelona/mataro-maresme/">Mataró - Maresme</a>
+              </li>
+              <li class="space">
+                <a href="/alquiler-almacenes-empresas/barcelona/vilanova-sant-pere-de-ribes/">Vilanova - Sant Pere de
+                  Ribes</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="xy-links-added-to-mobile-menu xy-display-flex-column">
+        <a href="/quienes-somos/">Sobre nosotros</a>
+        <a href="/trabaja-con-nosotros/">Empleo</a>
+        <a href="/faqs/">Preguntas Frecuentes</a>
+        <!-- <a href="/blog-trastering">Blog</a> -->
+        <a href="/blog-trastering/">Blog</a>
+      </div>
+    </div>
+  </div>
+  <div id="xmegamenu-mobile-contacto" class="megamenu mobile-contact-menu">
+    <div class="megamenu-column xycolumnmobile2">
+      <div class="megamenu-columnattachment xyleft">
+        <div class="megamenu-rowattachment-whatsapp xyleft">
+          <a href="https://api.whatsapp.com/send?phone=34627718264" class="noneforthemoment"><span>Madrid</span><img
+              style="max-height: 32px"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAMAAAAKE/YAAAACRlBMVEVHcEwc3Esc3Esc3Esc3Esc3Esc3Esc3Esc3Esc3Esc3Esc3Esc3Esc3Esc3Esc3Esc3Esc3Esc3Esc3Ev///8c3Ev+//4d3Ez7/vzx/fT9//6B7Jse3Ez6/vvv/fL8//3z/fYf3E0g3U/s/PDg+ubR+Nqq8rs+4WYh3U9865dD4mpn6IaY761B4mku31n1/fd46pSg8LO+9csg3U72/vhA4Wf3/vm69Mkl3VJk54TA9c3w/fNY5Xoq3lYm3lP7/vuU76rI9tPD9tBt6Isz4F1i54Mi3VBQ5HTr/O8v31ru/PKj8bae8LKz88PT+NzK99Zx6Y659Mf4/vk34GA24F9u6Y3M99d16pI14F9N5HIj3VE94WXW+d9J43DG9tK69MhF4ms84WSt8r7y/fT5/vpr6Iud8LE/4Wer8r3S+Nuw88Hp/O3B9c454WLm++uD7J2V76tm54a89cqb8LDN99eP7qbt/PHY+eCX76y088RA4min8rrU+N0s3lhR5HVH421665ah8LSS7qj0/fdh54LP+Nna+eGH7aAr3ldp6Ijo++1U5Xc64WOi8bVc5n639Ma19MRV5Xjq/O6A65pz6pAw31tE4msy311e5n+v87/c+uOQ7qd965k44GI44GFI427C9s/b+eLj++iT7qqs8r3Q+NqF7J7X+d/n++zH9tNw6Y156pVS5Hbk++qu87+a76+J7aFZ5nxL43GC7JyG7J+J7aLe+uV26pLj++kt31hb5n2l8bgo3lS79clf5oGS7qmO7qVd5n88BGvwAAAAFHRSTlMA5Inb+gOsBlvgVVRRipSr2Kby8/ovCJIAAApGSURBVHja7V33W1RHF94kNjQ9d1iWpe1SFpYmi4hUWelSpYiARDAUQQVBESII2FBsKLbYooktscWYni9fku8/+1hR78y9c8vcmVm4z7Pvj9w7My+zM2fOOXPOuRbzYuXqT4KWgSWOzz7+ZPVKkfP77wGT4L33X1Ne/i4wEd5d/oq0qTjPs/ZxXgNMhjXze/AdYDK8s9KyCpgOqywfAdNhhSUImA5BliV/psixzAJMiABpfyFA2l8IkPYXAqT9hQBpfyFAGgCnO8vePeudnsuJEoSonLlp72y3PcvtBEzBjnSYe+2u8XABi/DxXWvdYYAVGJHe1nTBJmjAdqFpG2ACFqQbfjoh6MSJn+oBPahJt9R6gwUCBHtrW8Dikm5IyhGIkTPasIikk3duFAxh487kRSLteh4qGEboddcikE45EiJQIeRIip9Jp9ttAjVs9nR/kp6MFZggdtJvpJ33VFdG8OmtmXH7981jf1zm1tPBqmvkH6d/SLuUpzli6GZiRgn6eklG4s2hCMUmD1z+IN2Yih99nSch2arUyJqc4FmHb5fayJ20Mw07cuTdxnytpvmNdyOxjdOcfEmn1OBGHXlYpK950cMRXPuaFJ6kW2Mw+y47l6SL3GzMzoxp5Ue6ebN8PE8b6Yps82B2cDMv0rnHZINVlwIDKK2Wb8dcPqTPr5eOdPBymEEr53K0tK/1f/IgfUYmsp6XA8Mo3ykTmWfYk26OkgyyOQtQofigpMOoZtakO6S/5+dFgBJFn0u6jO5gS7o8RiLnktIBNdKTgiWSr5wl6XjJmdLZBZigq1NyysQzJF0pkapPASM8jZCc6OxIP0Z7nksGzJC8G+37MSvSLlSv628FDNHajx4yLjak4x8g3e7uAEzRgc51bDwT0kdRueQGjHEVlaZHWZCeRGyr8IuAOS6GIxbYJD1pRy8inwsBBxQi8rrXQU36FvLbJQEuSEIGuURLOsWGnN0OwAUO5ES3lVOSPofoSNT6hhKuIebFOTrSLmQXZgFuKEb2oouK9HW4rzjAEXHwSH00pJNDYQl9GG+FzGydf7iWlvThMtinmkxBehf879diX3lZvaDB36ZlXQuPtcs46fpw+HzF2YPWF28W/SYrJWlrLOx1rzdCWi4+J3Ci6o2lx2KBlCIHglHSLbCy68FNzmvOjBaIB1bZWwyS7oLPb5xP5tLCM1YLpA0+zQsNkv4e6iMbd+P5yqnAcIFkQ519b4z01/A//iPmhftSH8BeStI/wj/tbUOkf4a6eIRzAfiEONsFsh3q7KQh0rAIuoV5bvc9YLtAEmAN1QjpIqiDulOYF3yKNuMFcgp2F24zQLoJan8B8/yK7wHrBfIl1FeTKmnt9omY54Pzf2e+QBLhmSInHQZp/+s3aNi7Io7RLZAN0PqwhRGTvgoxGVL4JTgskCGoq6vEpNeqyA5RuMhxmo70LT1LzaJHK8Vqt/140hV0i/oQ1NV9YtLjkPKCnbwv8HfMbkoFFVLSpklJOzeKjTOxb7zVtdn6GDKhG9USRdLa+3AY+waW801Ai2Got3ZC0sUSKS0HLhLI41tI7CR1lhppDcXiEPaNHMwpziB+LQPqz05IuhIyjeO1bH5xEHrEQ7pjJSHpC5ATXSG6rU52wx0PGKAfOsgJSUPOtQMKr4xKSQ8CFjgAWS+EpKfFpjsUXsmTXi1OABbYIXb4DSHpOR3esCbWMlq6V8pUSGucd92KDtpxidrBxBEMiYAvCElDN+EFyu4ViZVYDBigANJzCUkLekiDCpT0XcAA96AOCUlH6iKdV4ZqS3cAPWDSxtf0fi0nlIj/AnpQLI85nRryFpR1KaAGxUZ8Jja9rjbEFTTUZDt9RAWFyHskNp3V1spEDACweIdLDXSME1zLCKkZYPGOcUhheqZxWfIMXSAbKEn/blxhSoOsHg3lbQINTK5SMQR02AjOEOOq6QBEo0djnJPosu5WfPHfrdqC3EVhBAwS3HlaJXLvSJiiKyW0IoWjuQVbPf9qzU7eryjrzL+w0Yiv7HfbVDo3w9axHuKg/ZtKnCA3MCvqVP+brXqRlwsB9npF64idjZSYuL/J9lyV+LSvXnmpbYbFNCnpMcQc10RjsNQRKfGlzSC+1V9auLjF4JuEBKCNk7LEinPXlI97Iea49rBPiElPkipvBfLUhrSzKo5hj0vL1dtOTNqh7FTXtM7FreRJXGjahUsHTcpn7VQHs8TRKcPYTJItU+2HL+O9lbsbGV9fIF71L4EuTEUKZPiV9UVRAyQP6vJ0RuBHkJH+QXpKwVdyDbSXn1N6YzCriUg3q8iOao3LT20hNmLV6z8sIFgi31pVrplf0F/o/09/rMl23aQHpOcqbNmfNRY64YXDCAmi5i/ZdCZR5qmETngNxns0ostPP1K6w7Upy+MM7rAIUmmBZywTkGDvmDbtGyUq4UA5LdwCr1RQX5mqzjn8JZfAK1APW38HSC+B8n6W5tSpBjVbH8DaVr3xYMLnaDAhKcJy+zqV8saneAUTAje8Ncr+MBKNaT+BrSxQLDNskLBNN02AbJX2v6+9KR/KjklPA8cAWZCBnG/HgUHcTvDUiat5z3n5G8cR+6GHYdB39BWK8JPcozU5QtSNqoS9mkHfFZSR6n8gvf0H8IFjE9PwevAE7u4y4INRtokMyBVWeB7gAjRlpDqdmjRoC4WuQbngKZqcc4c+OQecFftjlIUogRu9+f2HRRrUC9FGzQccIEk462WScPZI9DwDDpCm9vWwSO1L5pvmIk2irGWSRHlTvCArAcwxsZlLumoMz9ycGT6JwW1ij+cBYzhGOaVgi8bLQfp7TRTXeCW7h/VDqWtswa+swITY5xnAEinyAg4XWRVwOPK2z+/kjte/vhq0siuVcZ5VqYz0MiVf4anjP8RGzlu7hua/9ADPoiRQ4slL6KfN6h5/q0VltxEnL2/iW/5lTJRGb+5OZtJGJILq7p8Ei8T6d43At9BOiQ1JQS/qqrgh4PAo4bDOkh4D/EsaQdbm34/H1FwvnVWJ2sWjCvf4o3hUn0CAzuwE5Sqg1kP+KtOVn0pcAW9oONEt0R+crYPDmcrXGr09bAuizQiGEHm6N3OsYl9Bwb6kuB01v4eovRtyj3XpuS0Cb1QzL/KX1ynwBY9yirUCV/ApXJmt5hHfNJBxqIqmRGhfD48SoeWKO+jbiuIFodwTZ7gYq5tPMdYn2OHq9tgz4Gu70WhyyhFJ3MreehWmWIKSQm8oWYHhQn4FhreFyqdY6VX9pZxjB74G9FAkbUemOO2rDRpFs6silkDR7AfoFGvD0f7b2MhGhY23/f5UO//y5B2vFV3fFBPA6Sp+2N3n/abfVwh+XU7ZtHdLpT2r3U+F4H/xTfElxsWtWEGJ9KxvipcqqGuqLwYCpP2FAGl/IUDaXwiQ9hcCpP0Fy6fAdFhm+RiYDkHm/OanKb+uasrv2FpWA5NhtWUeHwBT4YOFr2B/CEyED5dbFrDGPN8bXwN92X3ViqX/ZfdlQStWLXzZ/f9lIl6GRQ86yQAAAABJRU5ErkJggg=="
+              alt="logo" class="iconowhatsappX iconwhatsappPacked" /></a>
+        </div>
+        <div class="megamenu-rowattachment-phone xyleft">
+          <a href="tel:+34910301288" class="noneforthemoment"><span>Madrid</span><img style="max-height: 32px"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAABTVBMVEVHcEz///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+TP3goAAAAbnRSTlMABgP7AgTsAf4F9xMRB/Ch+O3Y5TgeyWWrMw785+aJFA3u6gp1jvqo6XsjrvHWiAwwNVkbXowLEFg5YiQuyL3bHCGNc/kWRPO/PoGlzk12vsOkCQitMXQX79W2ymEYo6cymcdyNHf9hOiKPNCX8gv6g/EAAAEmSURBVHjaddLFdsMwEAVQOWY7TdI2aaBhKDMzMzMzo/5/WY/itjnS6G28uOdJI1lEIyzHlcujE5fgsRfOKKVWGVdtY4lCwjgnC5SlSUOX7rSqPB3AeLSB+m0F41jG59kUxn1dPqfnMJ40qtq8f4hxRz3TYvZUxzjHRrtIphQTvZVh4KzCumLMCTj3rq9i+mHzxpiM6zZh7kUZayurnnePSNjMz3isxonMd1TYfVC2+vwWPIeELXsuV47nkSFTUi8loG6MwznaW6O8B6JpuLq1XjIVjtDQGD/cQdwB3+tpg48xwNeDtxb9T2ibG0O/vm+pcWOd6yu511o/X+ZP55adP7VubOH0wXf1lzNP4g/W3co3G/Cl+FjyZhP7H1+fb4WH57s8K/8Ar+RdbtG332gAAAAASUVORK5CYII="
+              alt="logo" class="iconphonePacked" /><span class="off-on-mobile">91 03 01 288</span></a>
+        </div>
+      </div>
+      <div class="megamenu-columnattachment xyright">
+        <div class="megamenu-rowattachment-whatsapp xyright">
+          <a href="https://api.whatsapp.com/send?phone=34608852688" class="noneforthemoment"><span>Barcelona</span><img
+              style="max-height: 32px"
+              src="data:image/png;base64,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"
+              alt="logo" class="iconowhatsappX iconwhatsappPacked" /></a>
+        </div>
+        <div class="megamenu-rowattachment-phone xyright">
+          <a href="tel:+34932933628" class="noneforthemoment"><span>Barcelona</span><img style="max-height: 32px"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAABTVBMVEVHcEz///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+TP3goAAAAbnRSTlMABgP7AgTsAf4F9xMRB/Ch+O3Y5TgeyWWrMw785+aJFA3u6gp1jvqo6XsjrvHWiAwwNVkbXowLEFg5YiQuyL3bHCGNc/kWRPO/PoGlzk12vsOkCQitMXQX79W2ymEYo6cymcdyNHf9hOiKPNCX8gv6g/EAAAEmSURBVHjaddLFdsMwEAVQOWY7TdI2aaBhKDMzMzMzo/5/WY/itjnS6G28uOdJI1lEIyzHlcujE5fgsRfOKKVWGVdtY4lCwjgnC5SlSUOX7rSqPB3AeLSB+m0F41jG59kUxn1dPqfnMJ40qtq8f4hxRz3TYvZUxzjHRrtIphQTvZVh4KzCumLMCTj3rq9i+mHzxpiM6zZh7kUZayurnnePSNjMz3isxonMd1TYfVC2+vwWPIeELXsuV47nkSFTUi8loG6MwznaW6O8B6JpuLq1XjIVjtDQGD/cQdwB3+tpg48xwNeDtxb9T2ibG0O/vm+pcWOd6yu511o/X+ZP55adP7VubOH0wXf1lzNP4g/W3co3G/Cl+FjyZhP7H1+fb4WH57s8K/8Ar+RdbtG332gAAAAASUVORK5CYII="
+              alt="logo" class="iconphonePacked" /><span class="off-on-mobile">93 29 33 628</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="xmegamenu-particulares" class="megamenu">
+    <div class="megamenu-column xycolumn1">
+      <h2>Trasteros para particulares</h2>
+    </div>
+    <div class="megamenu-column xycolumn2">
+      <div class="megamenu-row xyrowfirst">
+        <a href="/alquiler-trasteros-particulares/madrid/">
+          <h3>COMUNIDAD DE MADRID</h3>
+        </a>
+      </div>
+      <div class="megamenu-row xyrowsecond">
+        
+        <div class="megamenu-subcolumn">
+          <a href="/alquiler-trasteros-particulares/madrid/mostoles-alcorcon/">Móstoles - Alcorcón</a>
+          <a href="/alquiler-trasteros-particulares/madrid/vicalvaro-madrid/">Vicalvaro - Madrid</a>
+        </div>
+        <div class="megamenu-subcolumn">
+          <a href="/alquiler-trasteros-particulares/madrid/fuenlabrada-getafe/">Fuenlabrada - Getafe</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="megamenu-column xycolumn3">
+      <div class="megamenu-row xyrowfirst">
+        <a href="/alquiler-trasteros-particulares/barcelona/">
+          <h3>PROVINCIA DE BARCELONA</h3>
+        </a>
+      </div>
+      <div class="megamenu-row xyrowsecond">
+        <div class="megamenu-subcolumn">
+          <a href="/alquiler-trasteros-particulares/barcelona/cornella-hospitalet/">Cornellà - Hospitalet</a>
+          <a href="/alquiler-trasteros-particulares/barcelona/gava-castelldefels/">Gavà - Castelldefels</a>
+          <a href="/alquiler-trasteros-particulares/barcelona/llagosta-mollet-valles/">Llagosta - Mollet del Vallès</a>
+        </div>
+        <div class="megamenu-subcolumn">
+          <a href="/alquiler-trasteros-particulares/barcelona/mataro-maresme/">Mataró - Maresme</a>
+          <a href="/alquiler-trasteros-particulares/barcelona/vilanova-sant-pere-de-ribes/">Vilanova - Sant Pere de
+            Ribes</a>
+        </div>
+        
+
+        
+
+        
+      </div>
+    </div>
+  </div>
+  <div id="xmegamenu-autonomos" class="megamenu">
+    <div class="megamenu-column xycolumn1">
+      <h2>Trasteros para autonomos</h2>
+    </div>
+    <div class="megamenu-column xycolumn2">
+      <div class="megamenu-row xyrowfirst">
+        <a href="/alquiler-trasteros-autonomos/madrid/">
+          <h3>COMUNIDAD DE MADRID</h3>
+        </a>
+      </div>
+      <div class="megamenu-row xyrowsecond">
+        <div class="megamenu-subcolumn">
+          <a href="/alquiler-trasteros-autonomos/madrid/mostoles-alcorcon/">Móstoles - Alcorcón</a>
+          <a href="/alquiler-trasteros-autonomos/madrid/vicalvaro-madrid/">Vicalvaro - Madrid</a>
+        </div>
+        <div class="megamenu-subcolumn">
+          <a href="/alquiler-trasteros-autonomos/madrid/fuenlabrada-getafe/">Fuenlabrada - Getafe</a>
+        </div>
+      </div>
+    </div>
+    <div class="megamenu-column xycolumn3">
+      <div class="megamenu-row xyrowfirst">
+        <a href="/alquiler-trasteros-autonomos/barcelona/">
+          <h3>PROVINCIA DE BARCELONA</h3>
+        </a>
+      </div>
+      <div class="megamenu-row xyrowsecond">
+        <div class="megamenu-subcolumn">
+          <a href="/alquiler-trasteros-autonomos/barcelona/cornella-hospitalet/">Cornellà - Hospitalet</a>
+          <a href="/alquiler-trasteros-autonomos/barcelona/gava-castelldefels/">Gavà - Castelldefels</a>
+          <a href="/alquiler-trasteros-autonomos/barcelona/llagosta-mollet-valles/">Llagosta - Mollet del Vallès</a>
+        </div>
+        <div class="megamenu-subcolumn">
+          <a href="/alquiler-trasteros-autonomos/barcelona/mataro-maresme/">Mataró - Maresme</a>
+          <a href="/alquiler-trasteros-autonomos/barcelona/vilanova-sant-pere-de-ribes/">Vilanova - Sant Pere de
+            Ribes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="xmegamenu-empresas" class="megamenu">
+    <div class="megamenu-column xycolumn1">
+      <h2>Almacenes para empresas</h2>
+    </div>
+    <div class="megamenu-column xycolumn2">
+      <div class="megamenu-row xyrowfirst">
+        <a href="/alquiler-almacenes-empresas/madrid/">
+          <h3>COMUNIDAD DE MADRID</h3>
+        </a>
+      </div>
+      <div class="megamenu-row xyrowsecond">
+        <div class="megamenu-subcolumn">
+          <a href="/alquiler-almacenes-empresas/madrid/mostoles-alcorcon/">Móstoles - Alcorcón</a>
+          <a href="/alquiler-almacenes-empresas/madrid/vicalvaro-madrid/">Vicalvaro - Madrid</a>
+        </div>
+        <div class="megamenu-subcolumn">
+          <a href="/alquiler-almacenes-empresas/madrid/fuenlabrada-getafe/">Fuenlabrada - Getafe</a>
+        </div>
+      </div>
+    </div>
+    <div class="megamenu-column xycolumn3">
+      <div class="megamenu-row xyrowfirst">
+        <a href="/alquiler-almacenes-empresas/barcelona/">
+          <h3>PROVINCIA DE BARCELONA</h3>
+        </a>
+      </div>
+      <div class="megamenu-row xyrowsecond">
+        <div class="megamenu-subcolumn">
+          <a href="/alquiler-almacenes-empresas/barcelona/cornella-hospitalet/">Cornellà - Hospitalet</a>
+          <a href="/alquiler-almacenes-empresas/barcelona/gava-castelldefels/">Gavà - Castelldefels</a>
+          <a href="/alquiler-almacenes-empresas/barcelona/llagosta-mollet-valles/">Llagosta - Mollet del Vallès</a>
+        </div>
+        <div class="megamenu-subcolumn">
+          <a href="/alquiler-almacenes-empresas/barcelona/mataro-maresme/">Mataró - Maresme</a>
+          <a href="/alquiler-almacenes-empresas/barcelona/vilanova-sant-pere-de-ribes/">Vilanova - Sant Pere de
+            Ribes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- para mostrar el nombre del template que se está ejecutando --->
+  <script type="f9ec5ce7d6a636dfd023f300-text/javascript">
+    console.log("templateBasename:", "xy1-s-header.tpl");
+  </script>
+<!-- //// fin de para mostrar el nombre del template que se está ejecutando --->
+
+<script type="f9ec5ce7d6a636dfd023f300-text/javascript">
+  console.log('Template name: xy1_blog-trastering_6-empresa-mini-almacen.tpl');
+</script>
+
+<div class="xycontainer">
+<main>
+  <!-- <h1 id="greeting"></h1> -->
+  <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+  <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+  <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+  <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+  <!-------------------------------------------------- COMIENZA SECCION H1 + Slider inicial ------------------------------------------------------------------------------------>
+  <div class="xycontainer-0">
+
+    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!--------------------------------------------------------- COMIENZA SECCION Los trasteros más prácticos y seguros del mercado  ----------------------------------------------------->
+    <div class="xz7y7-container xysection-gray-top-rounded-no-background xy-display-nonXe">
+      <section class="xsection xygeneral-padding faq-section">
+        <h1 class="xy-single-main-column-container">Razones clave para que tu empresa alquile un mini almacén</h1>
+        <div class="xsection blog-s-lev-0 xy-flex-reverse-on xy-display-nonXe xy-single-main-column-container">
+          <div class="lev2 blog-s-text-right halfprop xy-align-items-flex-end blog-entry-img empresa-mini-almacen"><img src="../../template/leo-trastering-dev/xy1-images/empresa-mini-almacen.jpg">
+          </div>
+          <div class="lev2 blog-s-text-left halfprop">
+            <p>En el mundo empresarial actual, la gestión eficiente del espacio es fundamental. Alquilar un mini almacén puede ser la solución perfecta para tu empresa, permitiéndote optimizar recursos y mejorar la operatividad. <strong>En Trastering, ofrecemos mini almacenes para empresas</strong>, así que en este artículo te queremos explicar por qué elegirnos puede ser la mejor decisión para tu negocio.</p>
+          </div>
+        </div>
+        <div class="xy-single-main-column-container">
+          <h2>¿Qué es un mini almacén?</h2>
+          <p>Un mini almacén es un <strong>espacio de almacenamiento más pequeño y flexible</strong> que los almacenes tradicionales. Está diseñado para satisfacer las necesidades de empresas que requieren espacio extra para almacenar productos, documentos o equipos sin los compromisos y costes asociados a un almacén grande. Además, como te contamos más adelante, los mini almacenes de Trastering están disponibles en varias ubicaciones estratégicas, lo que facilita su acceso y uso.</p>
+          <h2 style="text-align:left;">¿Por qué alquilar un mini almacén para tu empresa?</h2>
+          <p>Optar por un mini almacén con Trastering tiene múltiples ventajas que pueden beneficiar a tu empresa.</p>
+          <ul>
+          <li><h3 style="text-align:left;">Disponibilidad inmediata</h3><p>Uno de los mayores beneficios de alquilar un mini almacén con Trastering es la disponibilidad inmediata del espacio. <strong>No tendrás que esperar meses o incluso años para obtener los permisos necesarios del Ayuntamiento</strong> si quieres construir un almacén propio o adecuar un almacén y hacer obras. Con Trastering, puedes empezar a utilizar tu espacio de almacenamiento de inmediato, lo que te permite responder rápidamente a las necesidades de tu negocio.</p></li>
+          <li><h3 style="text-align:left;">Evitarse dolores de cabeza, estrés e incertidumbre con el Ayuntamiento</h3><p>Gestionar los permisos y las labores burocráticas con el Ayuntamiento puede ser una tarea compleja y agotadora. <strong>En Trastering, ya hemos asumido todas estas gestiones, asegurándonos de que nuestros almacenes cumplen con las normativas vigente</strong>. Esto significa que puedes concentrarte en lo que realmente importa: hacer crecer tu negocio, sin tener que preocuparte por trámites administrativos.</p></li>
+          <li><h3 style="text-align:left;">No tienes que hacer ninguna inversión</h3><p>Alquilar un mini almacén con Trastering no requiere grandes inversiones iniciales, a diferencia de lo que sucede con un almacén propio. <strong>No tendrás que desembolsar capital para comprar o construir un almacén, ni para realizar mejoras o adaptaciones</strong>. Esto te permite destinar tus recursos financieros a otras áreas críticas de tu empresa, como la expansión del mercado o el desarrollo de nuevos productos.</p></li>
+          <li><h3 style="text-align:left;">Flexibilidad de tamaño</h3><p>En Trastering, entendemos que las necesidades de almacenamiento pueden cambiar con el tiempo. Por eso, ofrecemos una <a href="/faqs/tamanos-trasteros/">flexibilidad de tamaños:</a> <strong>puedes reducir o ampliar el espacio que alquilas en cualquier momento</strong>, adaptándolo a las fluctuaciones de tu negocio. Esto te asegura que siempre tendrás el espacio justo que necesitas, sin pagar de más por espacio innecesario.</p></li>
+          <li><h3 style="text-align:left;">No comprometes tu empresa a largo plazo</h3><p>A diferencia de los contratos de alquiler de almacenes tradicionales, que suelen ser a largo plazo, en los mini almacenes de Trastering <strong>puedes darte de baja con solo 15 días de preaviso</strong> cuando ya no necesites el espacio o no puedas asumir el coste. Esto te proporciona una gran tranquilidad y capacidad de adaptación.</p></li>
+          <li><h3 style="text-align:left;">Gran facilidad de gestión administrativa y técnica</h3><p>En Trastering nos encargamos de todos los aspectos administrativos y técnicos del almacenamiento. <strong>Nuestro sistema de facturación y pago es automático, con una cuota única que incluye todos los servicios</strong>. Además, nos ocupamos del mantenimiento, las reparaciones y cualquier emergencia que pueda surgir, para que tú no tengas que preocuparte por nada. </p></li>
+          </ul>
+          <h2>¿Dónde puedes encontrar almacenes cerca de tu empresa?</h2>
+          <p>Para terminar, en Trastering disponemos de mini almacenes en varias ubicaciones estratégicas, lo que facilita que encuentres un espacio cercano a tu empresa. Puedes encontrar nuestros almacenes en <strong>Madrid-Vicálvaro, Cornellà-Hospitalet, Gavà-Castelldefels, Llagosta-Mollet del Vallès, Mataró-Maresme y Vilanova-Sant Pere de Ribes</strong>. <a href="/">Visita nuestra web</a> para más información y para elegir el mini almacén que mejor se adapte a tus necesidades.</p>
+          <p>En definitiva, <strong>alquilar un mini almacén con Trastering</strong> es una solución inteligente y práctica para tu empresa, ya que te ofrecemos flexibilidad, ahorro y comodidad, garantizando que tus necesidades de almacenamiento estén siempre cubiertas sin complicaciones.</p>
+          <a href="/blog-trastering">
+            <h2>Blog Trastering</h2>
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+    <!--------------------------------------------------------- ACABA SECCION Los trasteros más prácticos y seguros del mercado  ----------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------SEPARACION DE SECCIONES ------------------------------------------------------------------------>
+    <!-----------------------------------------------------------------SEPARACION DE SECCIONES ------------------------------------------------------------------------>
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!-------------------------------------------------- COMIENZA SECCION ¿Qué opinan nuestros clientes? ------------------------------------------------------------------------->
+
+    <div class="xysection-gray-top-rounded xy-display-nonXe">
+      <div class="xygeneral-padding xy-single-main-column-container">
+        <h2>Consulta precios y reserva tu trastero gratuitamente ahora</h2>
+      </div>
+      
+      
+  <script type="f9ec5ce7d6a636dfd023f300-text/javascript">
+    console.log('Template name: xy1m_app_selector_segmento_contra_centro_level2.tpl');
+  </script>
+  
+<div id="app-selector-segmento-contra-centro-level-2" class="xsection" style="justify-content: center; align-items: center;">
+<div class="xsection lev2 selector__center">
+  <!--------------------------------------------------------------   app selector entre 18 opciones segmento x centro --------- appsel.js ------------------->
+  <div class="radbt__sect">
+    <ul>
+      <li><input id="trasteros-particulares" type="radio" name="option" value="trasteros-particulares" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleDiv('trasteros-particulares')" checked data-cf-modified-f9ec5ce7d6a636dfd023f300-=""><label for="trasteros-particulares">Particular</label>
+      </li>
+      <li><input id="trasteros-autonomos" type="radio" name="option" value="trasteros-autonomos" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleDiv('trasteros-autonomos')" data-cf-modified-f9ec5ce7d6a636dfd023f300-=""><label for="trasteros-autonomos">Autónomo</label></li>
+      <li><input id="almacenes-empresas" type="radio" name="option" value="almacenes-empresas" onclick="if (!window.__cfRLUnblockHandlers) return false; toggleDiv('almacenes-empresas')" data-cf-modified-f9ec5ce7d6a636dfd023f300-=""><label for="almacenes-empresas">Empresa</label></li>
+    </ul>
+  </div>
+  <div id="xcxcontent" class="xcxcontent-xcontainer">
+    <!-- <div class="xcxcontent-div empty">
+      <select id="fake-select">
+        <option>Selecciona un centro</option>
+      </select>
+      <button onclick="showInitialModal()">Consulta precios y reserva</button>
+    </div> -->
+    <div class="xcxcontent-div empty trasteros-particulares">
+      <select id="trasteros-particulares-select" onchange="if (!window.__cfRLUnblockHandlers) return false; updateButtonUrl('/trasteros-particulares')" data-cf-modified-f9ec5ce7d6a636dfd023f300-="">
+        <option value="">Selecciona un centro</option>
+        <option value="madrid/vicalvaro-madrid">Vicálvaro - Madrid</option>
+        <option value="madrid/mostoles-alcorcon">Móstoles - Alcorcón</option>
+        <option value="barcelona/cornella-hospitalet">Cornellà - Hospitalet</option>
+        <option value="barcelona/gava-castelldefels">Gavà - Castelldefels</option>
+        <option value="barcelona/llagosta-mollet-valles">Llagosta - Mollet del Vallès
+        </option>
+        <option value="barcelona/mataro-maresme">Mataró - Maresme</option>
+        <option value="barcelona/vilanova-sant-pere-de-ribes">Vilanova - Sant Pere de Ribes
+        </option>
+      </select>
+      <button id="trasteros-particulares-button" onclick="if (!window.__cfRLUnblockHandlers) return false; checkSelection('trasteros-particulares')" data-cf-modified-f9ec5ce7d6a636dfd023f300-="">Consulta
+        precios y
+        reserva</button>
+    </div>
+    <div class="xcxcontent-div trasteros-autonomos">
+      <select id="trasteros-autonomos-select" onchange="if (!window.__cfRLUnblockHandlers) return false; updateButtonUrl('/trasteros-autonomos')" data-cf-modified-f9ec5ce7d6a636dfd023f300-="">
+        <option value="">Selecciona un centro</option>
+        <option value="madrid/vicalvaro-madrid">Vicálvaro - Madrid</option>
+        <option value="madrid/mostoles-alcorcon">Móstoles - Alcorcón</option>
+        <option value="barcelona/cornella-hospitalet">Cornellà - Hospitalet</option>
+        <option value="barcelona/gava-castelldefels">Gavà - Castelldefels</option>
+        <option value="barcelona/llagosta-mollet-valles">Llagosta - Mollet del Vallès
+        </option>
+        <option value="barcelona/mataro-maresme">Mataró - Maresme</option>
+        <option value="barcelona/vilanova-sant-pere-de-ribes">Vilanova - Sant Pere de Ribes
+        </option>
+      </select>
+      <button id="trasteros-autonomos-button" onclick="if (!window.__cfRLUnblockHandlers) return false; checkSelection('trasteros-autonomos')" data-cf-modified-f9ec5ce7d6a636dfd023f300-="">Consulta precios
+        y reserva</button>
+    </div>
+    <div class="xcxcontent-div almacenes-empresas">
+      <select id="almacenes-empresas-select" onchange="if (!window.__cfRLUnblockHandlers) return false; updateButtonUrl('/almacenes-empresas')" data-cf-modified-f9ec5ce7d6a636dfd023f300-="">
+        <option value="">Selecciona un centro</option>
+        <option value="madrid/vicalvaro-madrid">Vicálvaro - Madrid</option>
+        <option value="madrid/mostoles-alcorcon">Móstoles - Alcorcón</option>
+        <option value="barcelona/cornella-hospitalet">Cornellà - Hospitalet</option>
+        <option value="barcelona/gava-castelldefels">Gavà - Castelldefels</option>
+        <option value="barcelona/llagosta-mollet-valles">Llagosta - Mollet del Vallès
+        </option>
+        <option value="barcelona/mataro-maresme">Mataró - Maresme</option>
+        <option value="barcelona/vilanova-sant-pere-de-ribes">Vilanova - Sant Pere de Ribes
+        </option>
+      </select>
+      <button id="almacenes-empresas-button" onclick="if (!window.__cfRLUnblockHandlers) return false; checkSelection('almacenes-empresas')" data-cf-modified-f9ec5ce7d6a636dfd023f300-="">Consulta precios y
+        reserva</button>
+    </div>
+  </div>
+
+  <div id="myModal" class="xmxmodal">
+    <div class="xmxmodal-xcxcontent">
+      <span class="xcxclose" onclick="if (!window.__cfRLUnblockHandlers) return false; xcxcloseModal()" data-cf-modified-f9ec5ce7d6a636dfd023f300-="">&times;</span>
+      <p id="xmxmodal-message">Tienes que seleccionar una opción antes</p>
+    </div>
+  </div>
+
+  <div id="centerModal" class="xmxmodal">
+    <div class="xmxmodal-xcxcontent">
+      <span class="xcxclose" onclick="if (!window.__cfRLUnblockHandlers) return false; xcxcloseModal()" data-cf-modified-f9ec5ce7d6a636dfd023f300-="">&times;</span>
+      <p id="center-xmxmodal-message">Tienes que seleccionar un centro para continuar</p>
+    </div>
+  </div>
+  <!--------------------------------------------------------------   //app selector entre 18 opciones segmento x centro ----- appsel.js ------------------------>
+</div>
+
+</div>
+    </div>
+    <!--------------------------------------------------------- ACABA SECCION Los trasteros más prácticos y seguros del mercado  ----------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!------------------------------------------------------------------------SEPARACION DE SECCIONES ------------------------------------------------------------------------>
+</main>
+</div>
+
+<div class="xy-rounded-end-site"></div>
+<!---- terminacion con esquinas redondeadas  ------------------------------------------------------------------>
+
+
+
+
+    
+
+
+
+  <!-- nuevo mostrar contacto flotante 20251018 EB3 ---------------------------->
+
+<style>
+/* Asegurar que el contacto del footer mantenga sus estilos */
+.wrapping-dropupward-content {
+  /* Tus estilos existentes para el footer */
+}
+
+#contact-from-footer {
+  /* Tus estilos existentes para el footer */
+}
+
+/* Estilos específicos para el contacto flotante */
+.floating-contact-trigger {
+  position: fixed;
+  bottom: 15px;
+  width: 102px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  opacity: 1;
+  /* right se controla dinámicamente via JavaScript */
+  /* Sombra suave para destacar el botón flotante sobre fondo blanco */
+  border-radius: 25px;
+  /* border: solid red 4px; */
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12), 0 1.5px 6px rgba(0, 0, 0, 0.08);
+}
+
+.floating-contact-trigger.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.floating-contact-trigger img {
+  width: 102px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.floating-contact-content {
+  position: fixed;
+  bottom: 170px;
+  /* background: white; */
+  border-radius: 22px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+  display: none;
+  min-width: 250px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  /* right se controla dinámicamente via JavaScript */
+}
+
+.floating-contact-content.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.floating-contact-inner {
+  /* padding: 15px; */
+  display: flex;
+  /* gap: 20px; */
+}
+
+/* Resto de tus estilos... */
+
+/* Asegurar que los estilos existentes se mantengan para el footer */
+.floating-contact-inner .dropupward-column {
+  display: flex;
+  flex-direction: column;
+  /* gap: 10px; */
+}
+
+.floating-contact-inner .xy__footer_contact_whatsapp_zone,
+.floating-contact-inner .xy__footer_contact_phone_zone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.floating-contact-inner .noneforthemoment {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Importante: Asegurar que el z-index del footer sea menor */
+footer {
+  position: relative;
+  z-index: 100;
+  /* Menor que el flotante (1000-1001) */
+}
+
+.xy-wrapp-trigger-contacto-footer {
+  position: relative;
+  z-index: auto;
+}
+</style>
+<div id="floating-contact-trigger" class="floating-contact-trigger">
+  <img src="../../template/leo-trastering-dev/xy1-images/contact-hub-trigger.webp" alt="Contacto" />
+</div>
+
+<div id="floating-contact-content" class="floating-contact-content">
+  <div class="floating-contact-inner">
+    <!-- Mismo contenido que tu contacto del footer -->
+    <div class="dropupward-column">
+      <div class="xy__footer_contact_whatsapp_zone xy__top_left">
+        <a href="https://api.whatsapp.com/send?phone=34627718264" class="noneforthemoment">
+          <span>Madrid</span>
+          <img style="max-height: 32px"
+            src="data:image/png;base64,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"
+            alt="logo" class="iconowhatsappX iconwhatsappPacked" />
+        </a>
+      </div>
+      <div class="xy__footer_contact_phone_zone xy__bottom_left">
+        <a href="tel:+34910301288" class="noneforthemoment">
+          <span>Madrid</span>
+          <img style="max-height: 32px"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAABTVBMVEVHcEz///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+TP3goAAAAbnRSTlMABgP7AgTsAf4F9xMRB/Ch+O3Y5TgeyWWrMw785+aJFA3u6gp1jvqo6XsjrvHWiAwwNVkbXowLEFg5YiQuyL3bHCGNc/kWRPO/PoGlzk12vsOkCQitMXQX79W2ymEYo6cymcdyNHf9hOiKPNCX8gv6g/EAAAEmSURBVHjaddLFdsMwEAVQOWY7TdI2aaBhKDMzMzMzo/5/WY/itjnS6G28uOdJI1lEIyzHlcujE5fgsRfOKKVWGVdtY4lCwjgnC5SlSUOX7rSqPB3AeLSB+m0F41jG59kUxn1dPqfnMJ40qtq8f4hxRz3TYvZUxzjHRrtIphQTvZVh4KzCumLMCTj3rq9i+mHzxpiM6zZh7kUZayurnnePSNjMz3isxonMd1TYfVC2+vwWPIeELXsuV47nkSFTUi8loG6MwznaW6O8B6JpuLq1XjIVjtDQGD/cQdwB3+tpg48xwNeDtxb9T2ibG0O/vm+pcWOd6yu511o/X+ZP55adP7VubOH0wXf1lzNP4g/W3co3G/Cl+FjyZhP7H1+fb4WH57s8K/8Ar+RdbtG332gAAAAASUVORK5CYII="
+            alt="logo" class="iconphonePacked" />
+          <span class="off-on-mobile">91 03 01 288</span>
+        </a>
+      </div>
+    </div>
+    <div class="dropupward-column">
+      <div class="xy__footer_contact_whatsapp_zone xy__top_right">
+        <a href="https://api.whatsapp.com/send?phone=34608852688" class="noneforthemoment">
+          <span>Barcelona</span>
+          <img style="max-height: 32px"
+            src="data:image/png;base64,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"
+            alt="logo" class="iconowhatsappX iconwhatsappPacked" />
+        </a>
+      </div>
+      <div class="xy__footer_contact_phone_zone xy__bottom_right">
+        <a href="tel:+34932933628" class="noneforthemoment">
+          <span>Barcelona</span>
+          <img style="max-height: 32px"
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAABTVBMVEVHcEz///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+TP3goAAAAbnRSTlMABgP7AgTsAf4F9xMRB/Ch+O3Y5TgeyWWrMw785+aJFA3u6gp1jvqo6XsjrvHWiAwwNVkbXowLEFg5YiQuyL3bHCGNc/kWRPO/PoGlzk12vsOkCQitMXQX79W2ymEYo6cymcdyNHf9hOiKPNCX8gv6g/EAAAEmSURBVHjaddLFdsMwEAVQOWY7TdI2aaBhKDMzMzMzo/5/WY/itjnS6G28uOdJI1lEIyzHlcujE5fgsRfOKKVWGVdtY4lCwjgnC5SlSUOX7rSqPB3AeLSB+m0F41jG59kUxn1dPqfnMJ40qtq8f4hxRz3TYvZUxzjHRrtIphQTvZVh4KzCumLMCTj3rq9i+mHzxpiM6zZh7kUZayurnnePSNjMz3isxonMd1TYfVC2+vwWPIeELXsuV47nkSFTUi8loG6MwznaW6O8B6JpuLq1XjIVjtDQGD/cQdwB3+tpg48xwNeDtxb9T2ibG0O/vm+pcWOd6yu511o/X+ZP55adP7VubOH0wXf1lzNP4g/W3co3G/Cl+FjyZhP7H1+fb4WH57s8K/8Ar+RdbtG332gAAAAASUVORK5CYII="
+            alt="logo" class="iconphonePacked" />
+          <span class="off-on-mobile">93 29 33 628</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- // nuevo mostrar contacto flotante 20251018 EB3 ---------------------------->
+
+
+   
+
+
+
+<div class="wrapp-xy__footer xy__footer">
+  <footer>
+    <nav id="footer-nav">
+      <ul class="xy__footer-item">
+        <li class="xy__logo_tr_footer">
+          <a href="index.html">
+            <img src="../../template/leo-trastering-dev/xy1-images/logoN.webp" alt="Logo" />
+          </a>
+        </li>
+        <li class="xy__footer off-on-mobile">
+          Accede a tu trastero de 6h a 24h, 365 días al año     
+        </li>
+        <li class="li-dropupward turning-floating-contact-element">
+          <div class="containerdemodropupward">
+            <div id="trigger-contacto-footers">
+              <div class="xy-footer-contact-text off-on-mobile">
+                Contáctanos ahora
+              </div>
+              <div class="xy-wrapp-trigger-contacto-footer">
+                <img id="trigger-contacto-footer" src="../../template/leo-trastering-dev/xy1-images/contact-hub-trigger.webp" alt="Logo" />
+              </div>
+            </div>
+            <div class="wrapping-dropupward-content">
+              <div id="contact-from-footer" class="dropupward-content">
+                <div class="dropupward-column">
+                  <div class="xy__footer_contact_whatsapp_zone xy__top_left">
+                    <a href="https://api.whatsapp.com/send?phone=34627718264"
+                      class="noneforthemoment"><span>Madrid</span><img style="max-height: 32px"
+                        src="data:image/png;base64,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"
+                        alt="logo" class="iconowhatsappX iconwhatsappPacked" /></a>
+                  </div>
+                  <div class="xy__footer_contact_phone_zone xy__bottom_left">
+                    <a href="tel:+34910301288" class="noneforthemoment"><span>Madrid</span><img style="max-height: 32px"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAABTVBMVEVHcEz///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+TP3goAAAAbnRSTlMABgP7AgTsAf4F9xMRB/Ch+O3Y5TgeyWWrMw785+aJFA3u6gp1jvqo6XsjrvHWiAwwNVkbXowLEFg5YiQuyL3bHCGNc/kWRPO/PoGlzk12vsOkCQitMXQX79W2ymEYo6cymcdyNHf9hOiKPNCX8gv6g/EAAAEmSURBVHjaddLFdsMwEAVQOWY7TdI2aaBhKDMzMzMzo/5/WY/itjnS6G28uOdJI1lEIyzHlcujE5fgsRfOKKVWGVdtY4lCwjgnC5SlSUOX7rSqPB3AeLSB+m0F41jG59kUxn1dPqfnMJ40qtq8f4hxRz3TYvZUxzjHRrtIphQTvZVh4KzCumLMCTj3rq9i+mHzxpiM6zZh7kUZayurnnePSNjMz3isxonMd1TYfVC2+vwWPIeELXsuV47nkSFTUi8loG6MwznaW6O8B6JpuLq1XjIVjtDQGD/cQdwB3+tpg48xwNeDtxb9T2ibG0O/vm+pcWOd6yu511o/X+ZP55adP7VubOH0wXf1lzNP4g/W3co3G/Cl+FjyZhP7H1+fb4WH57s8K/8Ar+RdbtG332gAAAAASUVORK5CYII="
+                        alt="logo" class="iconphonePacked" /><span class="off-on-mobile">91 03 01 288</span></a>
+                  </div>
+                </div>
+                <div class="dropupward-column">
+                  <div class="xy__footer_contact_whatsapp_zone xy__top_right">
+                    <a href="https://api.whatsapp.com/send?phone=34608852688"
+                      class="noneforthemoment"><span>Barcelona</span><img style="max-height: 32px"
+                        src="data:image/png;base64,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"
+                        alt="logo" class="iconowhatsappX iconwhatsappPacked" /></a>
+                  </div>
+                  <div class="xy__footer_contact_phone_zone xy__bottom_right">
+                    <a href="tel:+34932933628" class="noneforthemoment"><span>Barcelona</span><img
+                        style="max-height: 32px"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAMAAAAM7l6QAAABTVBMVEVHcEz///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+TP3goAAAAbnRSTlMABgP7AgTsAf4F9xMRB/Ch+O3Y5TgeyWWrMw785+aJFA3u6gp1jvqo6XsjrvHWiAwwNVkbXowLEFg5YiQuyL3bHCGNc/kWRPO/PoGlzk12vsOkCQitMXQX79W2ymEYo6cymcdyNHf9hOiKPNCX8gv6g/EAAAEmSURBVHjaddLFdsMwEAVQOWY7TdI2aaBhKDMzMzMzo/5/WY/itjnS6G28uOdJI1lEIyzHlcujE5fgsRfOKKVWGVdtY4lCwjgnC5SlSUOX7rSqPB3AeLSB+m0F41jG59kUxn1dPqfnMJ40qtq8f4hxRz3TYvZUxzjHRrtIphQTvZVh4KzCumLMCTj3rq9i+mHzxpiM6zZh7kUZayurnnePSNjMz3isxonMd1TYfVC2+vwWPIeELXsuV47nkSFTUi8loG6MwznaW6O8B6JpuLq1XjIVjtDQGD/cQdwB3+tpg48xwNeDtxb9T2ibG0O/vm+pcWOd6yu511o/X+ZP55adP7VubOH0wXf1lzNP4g/W3co3G/Cl+FjyZhP7H1+fb4WH57s8K/8Ar+RdbtG332gAAAAASUVORK5CYII="
+                        alt="logo" class="iconphonePacked" /><span class="off-on-mobile">93 29 33 628</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </footer>
+  <div class="footer-bottom-level2 off-on-mobile">
+    <!-- <div class="desktop footer-zone-timetable-open-info">
+                <ul>
+                    <li class="dest1">Horario acceso trasteros:</li>
+                    <li class="dest2">365 días al año</li>
+                    <li class="dest3">6h-24h</li>
+                </ul>
+            </div> -->
+    <div class="desktop footer-zone-timetable-info">
+      <ul>
+        <li class="dest1">Horario de Atención Telefónica:</li>
+        <li class="dest2">Lunes a viernes:</li>
+        <li class="dest3">9h30 a 14h y de 15h30 a 19h</li>
+        <li class="dest2">Sábados:</li>
+        <li class="dest3">10h a 13h (salvo en agosto)</li>
+        <li class="dest3">Cerrado domingos y festivos</li>
+      </ul>
+    </div>
+  </div>
+  <div class="xy-footer-zona-ssmm-icons">
+    <ul>
+      <li>
+        <a href="https://www.instagram.com/trastering.es/" target="_blank"><svg class="ig-icon" width="27" height="27"
+            viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_4231_1460)">
+              <path
+                d="M13.5 0C9.83644 0 9.37575 0.016875 7.93631 0.081C6.49688 0.1485 5.51644 0.374625 4.6575 0.70875C3.75611 1.0468 2.93986 1.57848 2.26631 2.26631C1.57848 2.93986 1.0468 3.75611 0.70875 4.6575C0.374625 5.51475 0.146813 6.49687 0.081 7.93125C0.016875 9.37406 0 9.83306 0 13.5017C0 17.1669 0.016875 17.6259 0.081 19.0654C0.1485 20.5031 0.374625 21.4836 0.70875 22.3425C1.05469 23.2301 1.51538 23.9827 2.26631 24.7337C3.01556 25.4846 3.76819 25.947 4.65581 26.2912C5.51644 26.6254 6.49519 26.8532 7.93294 26.919C9.37406 26.9831 9.83306 27 13.5 27C17.1669 27 17.6243 26.9831 19.0654 26.919C20.5014 26.8515 21.4853 26.6254 22.3442 26.2912C23.245 25.953 24.0606 25.4213 24.7337 24.7337C25.4846 23.9827 25.9453 23.2301 26.2912 22.3425C26.6237 21.4836 26.8515 20.5031 26.919 19.0654C26.9831 17.6259 27 17.1669 27 13.5C27 9.83306 26.9831 9.37406 26.919 7.93294C26.8515 6.49688 26.6237 5.51475 26.2912 4.6575C25.9532 3.75611 25.4215 2.93986 24.7337 2.26631C24.0601 1.57848 23.2439 1.0468 22.3425 0.70875C21.4819 0.374625 20.4997 0.146813 19.0637 0.081C17.6226 0.016875 17.1653 0 13.4966 0H13.5ZM12.2901 2.43338H13.5017C17.1062 2.43338 17.5331 2.44519 18.9557 2.511C20.2719 2.57006 20.9874 2.79113 21.4633 2.97506C22.0927 3.21975 22.5433 3.51337 23.0158 3.98587C23.4883 4.45837 23.7803 4.90725 24.0249 5.53838C24.2106 6.01256 24.4299 6.72806 24.489 8.04431C24.5548 9.46688 24.5683 9.89381 24.5683 13.4966C24.5683 17.0994 24.5548 17.5281 24.489 18.9506C24.4299 20.2669 24.2089 20.9807 24.0249 21.4566C23.807 22.042 23.4617 22.5716 23.0141 23.0074C22.5416 23.4799 22.0928 23.7718 21.4616 24.0165C20.9891 24.2021 20.2736 24.4215 18.9557 24.4823C17.5331 24.5464 17.1062 24.5616 13.5017 24.5616C9.89719 24.5616 9.46856 24.5464 8.046 24.4823C6.72975 24.4215 6.01594 24.2021 5.54006 24.0165C4.95422 23.7992 4.42395 23.4546 3.98756 23.0074C3.53915 22.5713 3.1933 22.041 2.97506 21.4549C2.79113 20.9807 2.57006 20.2652 2.511 18.9489C2.44688 17.5264 2.43338 17.0994 2.43338 13.4932C2.43338 9.88706 2.44688 9.4635 2.511 8.04094C2.57175 6.72469 2.79113 6.00919 2.97675 5.53331C3.22144 4.90388 3.51506 4.45331 3.98756 3.98081C4.46006 3.50831 4.90894 3.21638 5.54006 2.97169C6.01594 2.78606 6.72975 2.56669 8.046 2.50594C9.29138 2.44856 9.774 2.43169 12.2901 2.43V2.43338ZM20.7073 4.67437C20.4946 4.67437 20.2839 4.71628 20.0874 4.79769C19.8908 4.8791 19.7122 4.99843 19.5618 5.14886C19.4114 5.29929 19.292 5.47788 19.2106 5.67443C19.1292 5.87098 19.0873 6.08163 19.0873 6.29438C19.0873 6.50712 19.1292 6.71777 19.2106 6.91432C19.292 7.11087 19.4114 7.28946 19.5618 7.43989C19.7122 7.59032 19.8908 7.70965 20.0874 7.79106C20.2839 7.87247 20.4946 7.91438 20.7073 7.91438C21.137 7.91438 21.549 7.7437 21.8528 7.43989C22.1566 7.13608 22.3273 6.72403 22.3273 6.29438C22.3273 5.86472 22.1566 5.45267 21.8528 5.14886C21.549 4.84505 21.137 4.67437 20.7073 4.67437ZM13.5017 6.56775C12.5821 6.5534 11.6689 6.72213 10.8152 7.06411C9.96142 7.40609 9.18424 7.91449 8.52888 8.55971C7.87351 9.20493 7.35305 9.97408 6.99779 10.8224C6.64254 11.6707 6.45958 12.5812 6.45958 13.5008C6.45958 14.4205 6.64254 15.331 6.99779 16.1793C7.35305 17.0276 7.87351 17.7968 8.52888 18.442C9.18424 19.0872 9.96142 19.5956 10.8152 19.9376C11.6689 20.2796 12.5821 20.4483 13.5017 20.4339C15.3217 20.4055 17.0576 19.6626 18.3346 18.3655C19.6117 17.0684 20.3275 15.3211 20.3275 13.5008C20.3275 11.6806 19.6117 9.93332 18.3346 8.6362C17.0576 7.33908 15.3217 6.59615 13.5017 6.56775ZM13.5017 8.99944C14.0927 8.99944 14.6779 9.11585 15.224 9.34202C15.77 9.5682 16.2662 9.89971 16.6841 10.3176C17.102 10.7355 17.4335 11.2317 17.6597 11.7777C17.8858 12.3237 18.0023 12.909 18.0023 13.5C18.0023 14.091 17.8858 14.6763 17.6597 15.2223C17.4335 15.7683 17.102 16.2645 16.6841 16.6824C16.2662 17.1003 15.77 17.4318 15.224 17.658C14.6779 17.8842 14.0927 18.0006 13.5017 18.0006C12.3081 18.0006 11.1633 17.5264 10.3193 16.6824C9.47529 15.8384 9.00113 14.6936 9.00113 13.5C9.00113 12.3064 9.47529 11.1616 10.3193 10.3176C11.1633 9.4736 12.3081 8.99944 13.5017 8.99944Z"
+                fill="white" />
+            </g>
+            <defs>
+              <clipPath id="clip0_4231_1460">
+                <rect width="27" height="27" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </a>
+      </li>
+      <li class="xy-display-none">
+        <a href="https://es.linkedin.com/company/trastering" target="_blank"><svg class="in-icon" width="26" height="27"
+            viewBox="0 0 26 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M5.90495 9.63871V26.7697H0.777368V9.63871H5.90495ZM13.9577 16.4425V26.8656H9.03696V9.6642H13.9577V12.0286C14.7178 11.147 15.9397 10.066 17.5889 9.67469C20.5515 8.97302 22.5051 9.48729 24.3268 11.075C26.1469 12.6643 25.997 14.8818 25.997 14.8818V26.8146H20.9489V17.0032C20.9489 17.0032 20.8829 13.9987 17.5889 13.9987C15.9502 13.9987 14.7223 15.297 13.9577 16.4425ZM3.34114 0.924805C5.01435 0.924805 6.37271 2.28318 6.37271 3.95639C6.37271 5.62961 5.01435 6.98796 3.34114 6.98796C1.66793 6.98796 0.30957 5.62961 0.30957 3.95639C0.30957 2.28318 1.66793 0.924805 3.34114 0.924805Z"
+              fill="white" />
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/@trastering-alquiler-trasteros" target="_blank"><svg class="yt-icon" width="37"
+            height="26" viewBox="0 0 37 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M0.00676786 12.6359C-0.0113716 11.7964 -0.122718 3.94823 1.98126 1.89114C3.86024 0.0540417 17.1059 0.00192973 17.9955 0C18.0109 0 18.0264 0 18.0418 0C18.9314 0.00192973 32.1771 0.0540417 34.0566 1.89114C36.16 3.94823 36.0481 11.7964 36.0307 12.6359C36.0481 13.4753 36.16 21.3235 34.0566 23.3806C32.1771 25.2177 18.9314 25.2717 18.0418 25.2717C18.0264 25.2737 18.0109 25.2737 17.9955 25.2717C17.1059 25.2717 3.86024 25.2177 1.98126 23.3806C-0.122718 21.3235 -0.0113716 13.4753 0.00676786 12.6359ZM22.706 12.6359L13.3313 7.16894V18.1028L22.706 12.6359Z"
+              fill="white" />
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.facebook.com/Trastering" target="_blank"><svg class="fb-icon" width="14" height="27"
+            viewBox="0 0 14 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M9.27134 7.14713V10.477H13.6954L12.998 15.115H9.27134V26.5984H4.22336V15.115H0V10.477H4.22336V6.80383H4.22459V6.53687C4.22459 6.53687 4.15852 4.61372 5.49698 2.69645C6.83544 0.779291 9.47321 0.674316 9.47321 0.674316L14 0.960362V4.77155H11.7782C11.7782 4.77155 10.6404 4.75417 9.95037 5.45791C9.26156 6.16176 9.29459 7.14089 9.29459 7.14089L9.27134 7.14713Z"
+              fill="white" />
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="footer-bottom-level2 off-on-desktop">
+  <div class="mobile footer-zone-timetable-open-info">
+    <ul>
+      <li class="dest1">Horario acceso trasteros:</li>
+      <li class="dest2">365 días al año</li>
+      <li class="dest3">6h-24h</li>
+    </ul>
+  </div>
+  <div class="mobile footer-zone-timetable-info">
+    <ul>
+      <li class="dest1">Horario de Atención Telefónica:</li>
+      <li class="dest2">Lunes a viernes:</li>
+      <li class="dest3">9h30 a 14h y de 15h30 a 19h</li>
+      <li class="dest2">Sábados:</li>
+      <li class="dest3">10h a 13h (salvo en agosto)</li>
+      <li class="dest3">Cerrado domingos y festivos</li>
+    </ul>
+  </div>
+</div>
+<div class="subfooter-nav-columns">
+  <div class="subfooter-column">
+    <h3>Column 1</h3>
+    <ul>
+      <li><a href="https://adbeo.agency" target="_blank">2025 ®</a></li>
+    </ul>
+  </div>
+  <div class="subfooter-column">
+    <h3>Column 2</h3>
+    <ul>
+      <li><a href="/template/leo-trastering-dev/pdf/Aviso_Legal_v2021-06-11.pdf" target="_blank">Aviso legal</a></li>
+    </ul>
+  </div>
+  <div class="subfooter-column">
+    <h3>Column 3</h3>
+    <ul>
+      <li><a href="/template/leo-trastering-dev/pdf/Politica_de_cookies_v2021-06-11.pdf" target="_blank">Política de cookies</a></li>
+    </ul>
+  </div>
+  <div class="subfooter-column">
+    <h3>Column 4</h3>
+    <ul>
+      <li><a href="/template/leo-trastering-dev/pdf/Politica_de_Privacidad_v2021-06-11.pdf" target="_blank">Política de privacidad</a></li>
+    </ul>
+  </div>
+  
+</div>
+
+<div style="height: 200px"></div>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js" type="f9ec5ce7d6a636dfd023f300-text/javascript"></script>
+
+
+              
+
+
+    <script src="../../template/leo-trastering-dev/template7a4/js/script-splited-new.js" type="f9ec5ce7d6a636dfd023f300-text/javascript"></script>
+<!-- Axeptio -->
+  
+    <script type="f9ec5ce7d6a636dfd023f300-text/javascript">
+      window.axeptioSettings = {
+        clientId: "64492bbb71a329fea62b1f2b",
+      };
+      (function(d, s) {
+        var t = d.getElementsByTagName(s)[0],
+          e = d.createElement(s);
+        e.async = true;
+        e.src = "//static.axept.io/sdk.js";
+        t.parentNode.insertBefore(e, t);
+      })(document, "script");
+    </script>
+  
+<!-- Axeptio -->
+<!-- HELLOBAR -->
+<script src="https://my.hellobar.com/159938ad97cb45ed97465ca1a66ea0fedad836ed.js" type="f9ec5ce7d6a636dfd023f300-text/javascript" charset="utf-8" async="async"> </script>
+<!-- // END HELLOBAR -->
+
+<script src="../../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="f9ec5ce7d6a636dfd023f300-|49" defer></script></body>
+
+</html>
+<!-- para mostrar el nombre del template que se está ejecutando --->
+<script type="f9ec5ce7d6a636dfd023f300-text/javascript">
+  console.log("templateBasename:", "xy1-s-footer.tpl");
+</script>
+<!-- //// fin de para mostrar el nombre del template que se está ejecutando --->
