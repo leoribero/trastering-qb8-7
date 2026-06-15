@@ -36,34 +36,34 @@ div#vContainerPricesBa div#price_1 {
 
 
 .illustration_small_p1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/iso-sm.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/iso-sm.jpg);
 }
 
 .illustration_small {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/demo-pequeno-particular.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/demo-pequeno-particular.jpg);
 }
 
 .illustration_medium_p1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/iso-md.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/iso-md.jpg);
 }
 
 .illustration_medium {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/demo-mediano-particular.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/demo-mediano-particular.jpg);
 }
 
 .illustration_big_p1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/iso-bg.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/iso-bg.jpg);
 }
 .illustration_big {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/demo-grande-particular.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/demo-grande-particular.jpg);
 }
 
 .illustration_maxi_p1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/iso-mx.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/iso-mx.jpg);
 }
 
 .illustration_maxi {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/demo-maxi-particular.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/demo-maxi-particular.jpg);
 }
 .illustration_small {
     background-size: contain;
@@ -378,13 +378,13 @@ span.numeracion-trastero {
 }
 
 .xy-center-prices-app .figure_P0 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/figure_P0-V0.png);
+    background-image: url(/template/leo-trastering-dev/xy1-images/figure_P0-V0.png);
     background-position-x: -37px;
     background-position-y: -27px;
 }
 
 .xy-center-prices-app .figure_P1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/figure_P1-V0.png);
+    background-image: url(/template/leo-trastering-dev/xy1-images/figure_P1-V0.png);
     background-position-x: -35px;
     background-position-y: -7px;
 }
@@ -2454,7 +2454,7 @@ a {
     color: red;
     padding: 14px 0 15px 20px;
     /* background: url({/literal}{$base_dir}{literal}/imagenes/arrow_down_icon_0_5x.png) center no-repeat!important; */
-    background: url(https://trastering.es/template/leo-trastering-dev/xy1-images/arrow_down_icon_0_5x.png) center no-repeat !important;
+    background: url(/template/leo-trastering-dev/xy1-images/arrow_down_icon_0_5x.png) center no-repeat !important;
     background-size: 20px !important;
     background-position-x: 270px !important;
 }
@@ -2679,302 +2679,302 @@ li.xlist {
     width: 30%;
 }
 #compara-precios-barcelona .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 #compara-precios-barcelona .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 #compara-precios-barcelona .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #particulares-mostoles-madrid .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #particulares-mostoles-madrid .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #particulares-mostoles-madrid .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #particulares-fuenlabrada-madrid .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #particulares-fuenlabrada-madrid .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #particulares-fuenlabrada-madrid .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 #particulares-vicalvaro-madrid .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #particulares-vicalvaro-madrid .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #particulares-vicalvaro-madrid .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #particulares-cornella-hospitalet .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #particulares-cornella-hospitalet .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #particulares-cornella-hospitalet .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #particulares-gava-castelldefels .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #particulares-gava-castelldefels .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #particulares-gava-castelldefels .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #particulares-llagosta-mollet-valles .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #particulares-llagosta-mollet-valles .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #particulares-llagosta-mollet-valles .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #particulares-mataro-maresme .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #particulares-mataro-maresme .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #particulares-mataro-maresme .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #particulares-vilanova-sant-pere-de-ribes .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #particulares-vilanova-sant-pere-de-ribes .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #particulares-vilanova-sant-pere-de-ribes .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #autonomos-mostoles-madrid .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #autonomos-mostoles-madrid .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #autonomos-mostoles-madrid .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 
 #autonomos-fuenlabrada-madrid .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #autonomos-fuenlabrada-madrid .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #autonomos-fuenlabrada-madrid .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #autonomos-vicalvaro-madrid .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #autonomos-vicalvaro-madrid .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #autonomos-vicalvaro-madrid .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #autonomos-cornella-hospitalet .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #autonomos-cornella-hospitalet .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #autonomos-cornella-hospitalet .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #autonomos-gava-castelldefels .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #autonomos-gava-castelldefels .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #autonomos-gava-castelldefels .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #autonomos-llagosta-mollet-valles .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #autonomos-llagosta-mollet-valles .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #autonomos-llagosta-mollet-valles .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #autonomos-mataro-maresme .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #autonomos-mataro-maresme .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #autonomos-mataro-maresme .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #autonomos-vilanova-sant-pere-de-ribes .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #autonomos-vilanova-sant-pere-de-ribes .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #autonomos-vilanova-sant-pere-de-ribes .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #empresas-mostoles-madrid .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #empresas-mostoles-madrid .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #empresas-mostoles-madrid .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 
 #empresas-fuenlabrada-madrid .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #empresas-fuenlabrada-madrid .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #empresas-fuenlabrada-madrid .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #empresas-vicalvaro-madrid .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #empresas-vicalvaro-madrid .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #empresas-vicalvaro-madrid .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #empresas-cornella-hospitalet .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #empresas-cornella-hospitalet .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #empresas-cornella-hospitalet .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #empresas-gava-castelldefels .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #empresas-gava-castelldefels .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #empresas-gava-castelldefels .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #empresas-llagosta-mollet-valles .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #empresas-llagosta-mollet-valles .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #empresas-llagosta-mollet-valles .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #empresas-mataro-maresme .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #empresas-mataro-maresme .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #empresas-mataro-maresme .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 #empresas-vilanova-sant-pere-de-ribes .xyimg.n1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n1.jpg);
 }
 
 #empresas-vilanova-sant-pere-de-ribes .xyimg.n2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n2-updated1.jpg);
 }
 
 #empresas-vilanova-sant-pere-de-ribes .xyimg.n3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/ximg-n3-updated1.jpg);
 }
 
 .xyimg.n1,
@@ -3006,11 +3006,11 @@ ol.menusubitems li a {
 }
 
 .tteesst.one {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/maskti.png);
+    background-image: url(/template/leo-trastering-dev/xy1-images/maskti.png);
 }
 
 .tteesst.three {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/masktd.png);
+    background-image: url(/template/leo-trastering-dev/xy1-images/masktd.png);
 }
 
 .containerBc,
@@ -4745,483 +4745,483 @@ button.xycta-center {
 }
 
 #particulares-cornella-hospitalet .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/cornella/slider_particulares_cornella_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/cornella/slider_particulares_cornella_1.jpg);
 }
 
 #particulares-cornella-hospitalet .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/cornella/slider_particulares_cornella_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/cornella/slider_particulares_cornella_2.jpg);
 }
 
 #particulares-cornella-hospitalet .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/cornella/slider_particulares_cornella_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/cornella/slider_particulares_cornella_3.jpg);
 }
 
 #particulares-cornella-hospitalet .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/cornella/slider_particulares_cornella_4.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/cornella/slider_particulares_cornella_4.jpg);
 }
 
 #particulares-cornella-hospitalet .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/cornella/slider_particulares_cornella_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/cornella/slider_particulares_cornella_5.jpg);
 }
 
 #particulares-mostoles-madrid .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/mostoles/slider_particulares_mostoles_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/mostoles/slider_particulares_mostoles_1.jpg);
 }
 
 #particulares-mostoles-madrid .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/mostoles/slider_particulares_mostoles_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/mostoles/slider_particulares_mostoles_2.jpg);
 }
 
 #particulares-mostoles-madrid .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/mostoles/slider_particulares_mostoles_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/mostoles/slider_particulares_mostoles_3.jpg);
 }
 
 #particulares-mostoles-madrid .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/mostoles/slider_particulares_mostoles_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/mostoles/slider_particulares_mostoles_5.jpg);
 }
 
 #particulares-mostoles-madrid .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/mostoles/slider_particulares_mostoles_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/mostoles/slider_particulares_mostoles_5.jpg);
 }
 
 #particulares-fuenlabrada-madrid .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/fuenlabrada/slider_particulares_fuenlabrada_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/fuenlabrada/slider_particulares_fuenlabrada_1.jpg);
 }
 
 #particulares-fuenlabrada-madrid .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/fuenlabrada/slider_particulares_fuenlabrada_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/fuenlabrada/slider_particulares_fuenlabrada_2.jpg);
 }
 
 #particulares-fuenlabrada-madrid .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/fuenlabrada/slider_particulares_fuenlabrada_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/fuenlabrada/slider_particulares_fuenlabrada_3.jpg);
 }
 
 #particulares-fuenlabrada-madrid .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/fuenlabrada/slider_particulares_fuenlabrada_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/fuenlabrada/slider_particulares_fuenlabrada_5.jpg);
 }
 
 #particulares-fuenlabrada-madrid .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/fuenlabrada/slider_particulares_fuenlabrada_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/fuenlabrada/slider_particulares_fuenlabrada_5.jpg);
 }
 
 #particulares-vicalvaro-madrid .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/vicalvaro/slider_particulares_vicalvaro_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/vicalvaro/slider_particulares_vicalvaro_1.jpg);
 }
 
 #particulares-vicalvaro-madrid .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/vicalvaro/slider_particulares_vicalvaro_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/vicalvaro/slider_particulares_vicalvaro_2.jpg);
 }
 
 #particulares-vicalvaro-madrid .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/vicalvaro/slider_particulares_vicalvaro_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/vicalvaro/slider_particulares_vicalvaro_3.jpg);
 }
 
 #particulares-vicalvaro-madrid .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/vicalvaro/slider_particulares_vicalvaro_4.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/vicalvaro/slider_particulares_vicalvaro_4.jpg);
 }
 
 #particulares-vicalvaro-madrid .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/vicalvaro/slider_particulares_vicalvaro_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/vicalvaro/slider_particulares_vicalvaro_5.jpg);
 }
 
 #particulares-gava-castelldefels .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/gava/slider_particulares_gava_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/gava/slider_particulares_gava_1.jpg);
 }
 
 #particulares-gava-castelldefels .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/gava/slider_particulares_gava_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/gava/slider_particulares_gava_2.jpg);
 }
 
 #particulares-gava-castelldefels .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/gava/slider_particulares_gava_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/gava/slider_particulares_gava_3.jpg);
 }
 
 #particulares-gava-castelldefels .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/gava/slider_particulares_gava_4.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/gava/slider_particulares_gava_4.jpg);
 }
 
 #particulares-gava-castelldefels .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/gava/slider_particulares_gava_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/gava/slider_particulares_gava_5.jpg);
 }
 
 #particulares-llagosta-mollet-valles .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/llagosta/slider_particulares_llagosta_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/llagosta/slider_particulares_llagosta_1.jpg);
 }
 
 #particulares-llagosta-mollet-valles .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/llagosta/slider_particulares_llagosta_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/llagosta/slider_particulares_llagosta_2.jpg);
 }
 
 #particulares-llagosta-mollet-valles .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/llagosta/slider_particulares_llagosta_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/llagosta/slider_particulares_llagosta_3.jpg);
 }
 
 #particulares-llagosta-mollet-valles .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/llagosta/slider_particulares_llagosta_4.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/llagosta/slider_particulares_llagosta_4.jpg);
 }
 
 #particulares-llagosta-mollet-valles .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/llagosta/slider_particulares_llagosta_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/llagosta/slider_particulares_llagosta_5.jpg);
 }
 
 #particulares-mataro-maresme .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/mataro/slider_particulares_mataro_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/mataro/slider_particulares_mataro_1.jpg);
 }
 
 #particulares-mataro-maresme .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/mataro/slider_particulares_mataro_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/mataro/slider_particulares_mataro_2.jpg);
 }
 
 #particulares-mataro-maresme .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/mataro/slider_particulares_mataro_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/mataro/slider_particulares_mataro_3.jpg);
 }
 
 #particulares-mataro-maresme .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/mataro/slider_particulares_mataro_4.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/mataro/slider_particulares_mataro_4.jpg);
 }
 
 #particulares-mataro-maresme .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/mataro/slider_particulares_mataro_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/mataro/slider_particulares_mataro_5.jpg);
 }
 
 #particulares-vilanova-sant-pere-de-ribes .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/vilanova/slider_particulares_vilanova_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/vilanova/slider_particulares_vilanova_1.jpg);
 }
 
 #particulares-vilanova-sant-pere-de-ribes .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/vilanova/slider_particulares_vilanova_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/vilanova/slider_particulares_vilanova_2.jpg);
 }
 
 #particulares-vilanova-sant-pere-de-ribes .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/vilanova/slider_particulares_vilanova_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/vilanova/slider_particulares_vilanova_3.jpg);
 }
 
 #particulares-vilanova-sant-pere-de-ribes .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/vilanova/slider_particulares_vilanova_4.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/vilanova/slider_particulares_vilanova_4.jpg);
 }
 
 #particulares-vilanova-sant-pere-de-ribes .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/particulares/vilanova/slider_particulares_vilanova_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/particulares/vilanova/slider_particulares_vilanova_5.jpg);
 }
 
 #autonomos-cornella-hospitalet .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/cornella/slider_autonomos_cornella_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/cornella/slider_autonomos_cornella_1.jpg);
 }
 
 #autonomos-cornella-hospitalet .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/cornella/slider_autonomos_cornella_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/cornella/slider_autonomos_cornella_2.jpg);
 }
 
 #autonomos-cornella-hospitalet .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/cornella/slider_autonomos_cornella_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/cornella/slider_autonomos_cornella_3.jpg);
 }
 
 #autonomos-cornella-hospitalet .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/cornella/slider_autonomos_cornella_4.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/cornella/slider_autonomos_cornella_4.jpg);
 }
 
 #autonomos-cornella-hospitalet .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/cornella/slider_autonomos_cornella_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/cornella/slider_autonomos_cornella_5.jpg);
 }
 
 #autonomos-mostoles-madrid .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/mostoles/slider_autonomos_mostoles_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/mostoles/slider_autonomos_mostoles_1.jpg);
 }
 
 #autonomos-mostoles-madrid .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/mostoles/slider_autonomos_mostoles_2b.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/mostoles/slider_autonomos_mostoles_2b.jpg);
 }
 
 #autonomos-mostoles-madrid .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/mostoles/slider_autonomos_mostoles_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/mostoles/slider_autonomos_mostoles_3.jpg);
 }
 
 #autonomos-mostoles-madrid .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/mostoles/slider_autonomos_mostoles_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/mostoles/slider_autonomos_mostoles_5.jpg);
 }
 
 #autonomos-mostoles-madrid .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/mostoles/slider_autonomos_mostoles_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/mostoles/slider_autonomos_mostoles_5.jpg);
 }
 
 
 #autonomos-vicalvaro-madrid .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/vicalvaro/slider_autonomos_vicalvaro_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/vicalvaro/slider_autonomos_vicalvaro_1.jpg);
 }
 
 #autonomos-vicalvaro-madrid .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/vicalvaro/slider_autonomos_vicalvaro_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/vicalvaro/slider_autonomos_vicalvaro_2.jpg);
 }
 
 #autonomos-vicalvaro-madrid .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/vicalvaro/slider_autonomos_vicalvaro_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/vicalvaro/slider_autonomos_vicalvaro_3.jpg);
 }
 
 #autonomos-vicalvaro-madrid .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/vicalvaro/slider_autonomos_vicalvaro_4.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/vicalvaro/slider_autonomos_vicalvaro_4.jpg);
 }
 
 #autonomos-vicalvaro-madrid .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/vicalvaro/slider_autonomos_vicalvaro_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/vicalvaro/slider_autonomos_vicalvaro_5.jpg);
 }
 
 #autonomos-gava-castelldefels .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/gava/slider_autonomos_gava_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/gava/slider_autonomos_gava_1.jpg);
 }
 
 #autonomos-gava-castelldefels .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/gava/slider_autonomos_gava_2b.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/gava/slider_autonomos_gava_2b.jpg);
 }
 
 #autonomos-gava-castelldefels .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/gava/slider_autonomos_gava_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/gava/slider_autonomos_gava_3.jpg);
 }
 
 #autonomos-gava-castelldefels .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/gava/slider_autonomos_gava_4.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/gava/slider_autonomos_gava_4.jpg);
 }
 
 #autonomos-gava-castelldefels .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/gava/slider_autonomos_gava_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/gava/slider_autonomos_gava_5.jpg);
 }
 
 #autonomos-llagosta-mollet-valles .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/llagosta/slider_autonomos_llagosta_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/llagosta/slider_autonomos_llagosta_1.jpg);
 }
 
 #autonomos-llagosta-mollet-valles .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/llagosta/slider_autonomos_llagosta_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/llagosta/slider_autonomos_llagosta_2.jpg);
 }
 
 #autonomos-llagosta-mollet-valles .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/llagosta/slider_autonomos_llagosta_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/llagosta/slider_autonomos_llagosta_3.jpg);
 }
 
 #autonomos-llagosta-mollet-valles .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/llagosta/slider_autonomos_llagosta_4.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/llagosta/slider_autonomos_llagosta_4.jpg);
 }
 
 #autonomos-llagosta-mollet-valles .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/llagosta/slider_autonomos_llagosta_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/llagosta/slider_autonomos_llagosta_5.jpg);
 }
 
 #autonomos-mataro-maresme .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/mataro/slider_autonomos_mataro_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/mataro/slider_autonomos_mataro_1.jpg);
 }
 
 #autonomos-mataro-maresme .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/mataro/slider_autonomos_mataro_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/mataro/slider_autonomos_mataro_2.jpg);
 }
 
 #autonomos-mataro-maresme .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/mataro/slider_autonomos_mataro_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/mataro/slider_autonomos_mataro_3.jpg);
 }
 
 #autonomos-mataro-maresme .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/mataro/slider_autonomos_mataro_4.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/mataro/slider_autonomos_mataro_4.jpg);
 }
 
 #autonomos-mataro-maresme .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/mataro/slider_autonomos_mataro_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/mataro/slider_autonomos_mataro_5.jpg);
 }
 
 #autonomos-vilanova-sant-pere-de-ribes .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/vilanova/slider_autonomos_vilanova_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/vilanova/slider_autonomos_vilanova_1.jpg);
 }
 
 #autonomos-vilanova-sant-pere-de-ribes .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/vilanova/slider_autonomos_vilanova_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/vilanova/slider_autonomos_vilanova_2.jpg);
 }
 
 #autonomos-vilanova-sant-pere-de-ribes .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/vilanova/slider_autonomos_vilanova_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/vilanova/slider_autonomos_vilanova_3.jpg);
 }
 
 #autonomos-vilanova-sant-pere-de-ribes .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/vilanova/slider_autonomos_vilanova_4.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/vilanova/slider_autonomos_vilanova_4.jpg);
 }
 
 #autonomos-vilanova-sant-pere-de-ribes .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/vilanova/slider_autonomos_vilanova_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/vilanova/slider_autonomos_vilanova_5.jpg);
 }
 
 #autonomos-fuenlabrada-madrid .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/fuenlabrada/slider_autonomos_fuenlabrada_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/fuenlabrada/slider_autonomos_fuenlabrada_1.jpg);
 }
 
 #autonomos-fuenlabrada-madrid .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/fuenlabrada/slider_autonomos_fuenlabrada_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/fuenlabrada/slider_autonomos_fuenlabrada_2.jpg);
 }
 
 #autonomos-fuenlabrada-madrid .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/fuenlabrada/slider_autonomos_fuenlabrada_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/fuenlabrada/slider_autonomos_fuenlabrada_3.jpg);
 }
 
 #autonomos-fuenlabrada-madrid .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/fuenlabrada/slider_autonomos_fuenlabrada_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/fuenlabrada/slider_autonomos_fuenlabrada_5.jpg);
 }
 
 #autonomos-fuenlabrada-madrid .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/autonomos/fuenlabrada/slider_autonomos_fuenlabrada_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/autonomos/fuenlabrada/slider_autonomos_fuenlabrada_5.jpg);
 }
 
 #empresas-cornella-hospitalet .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/cornella/slider_empresas_cornella_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/cornella/slider_empresas_cornella_1.jpg);
 }
 
 #empresas-cornella-hospitalet .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/cornella/slider_empresas_cornella_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/cornella/slider_empresas_cornella_2.jpg);
 }
 
 #empresas-cornella-hospitalet .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/cornella/slider_empresas_cornella_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/cornella/slider_empresas_cornella_3.jpg);
 }
 
 #empresas-cornella-hospitalet .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/cornella/slider_empresas_cornella_4.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/cornella/slider_empresas_cornella_4.jpg);
 }
 
 #empresas-cornella-hospitalet .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/cornella/slider_empresas_cornella_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/cornella/slider_empresas_cornella_5.jpg);
 }
 
 #empresas-mostoles-madrid .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/mostoles/slider_empresas_mostoles_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/mostoles/slider_empresas_mostoles_1.jpg);
 }
 
 #empresas-mostoles-madrid .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/mostoles/slider_empresas_mostoles_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/mostoles/slider_empresas_mostoles_2.jpg);
 }
 
 #empresas-mostoles-madrid .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/mostoles/slider_empresas_mostoles_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/mostoles/slider_empresas_mostoles_3.jpg);
 }
 
 #empresas-mostoles-madrid .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/mostoles/slider_empresas_mostoles_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/mostoles/slider_empresas_mostoles_5.jpg);
 }
 
 #empresas-mostoles-madrid .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/mostoles/slider_empresas_mostoles_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/mostoles/slider_empresas_mostoles_5.jpg);
 }
 
 #empresas-vicalvaro-madrid .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/vicalvaro/slider_empresas_vicalvaro_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/vicalvaro/slider_empresas_vicalvaro_1.jpg);
 }
 
 #empresas-vicalvaro-madrid .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/vicalvaro/slider_empresas_vicalvaro_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/vicalvaro/slider_empresas_vicalvaro_2.jpg);
 }
 
 #empresas-vicalvaro-madrid .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/vicalvaro/slider_empresas_vicalvaro_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/vicalvaro/slider_empresas_vicalvaro_3.jpg);
 }
 
 #empresas-vicalvaro-madrid .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/vicalvaro/slider_empresas_vicalvaro_4.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/vicalvaro/slider_empresas_vicalvaro_4.jpg);
 }
 
 #empresas-vicalvaro-madrid .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/vicalvaro/slider_empresas_vicalvaro_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/vicalvaro/slider_empresas_vicalvaro_5.jpg);
 }
 
 #empresas-gava-castelldefels .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/gava/slider_empresas_gava_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/gava/slider_empresas_gava_1.jpg);
 }
 
 #empresas-gava-castelldefels .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/gava/slider_empresas_gava_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/gava/slider_empresas_gava_2.jpg);
 }
 
 #empresas-gava-castelldefels .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/gava/slider_empresas_gava_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/gava/slider_empresas_gava_3.jpg);
 }
 
 #empresas-gava-castelldefels .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/gava/slider_empresas_gava_4.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/gava/slider_empresas_gava_4.jpg);
 }
 
 #empresas-gava-castelldefels .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/gava/slider_empresas_gava_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/gava/slider_empresas_gava_5.jpg);
 }
 
 #empresas-llagosta-mollet-valles .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/llagosta/slider_empresas_llagosta_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/llagosta/slider_empresas_llagosta_1.jpg);
 }
 
 #empresas-llagosta-mollet-valles .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/llagosta/slider_empresas_llagosta_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/llagosta/slider_empresas_llagosta_2.jpg);
 }
 
 #empresas-llagosta-mollet-valles .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/llagosta/slider_empresas_llagosta_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/llagosta/slider_empresas_llagosta_3.jpg);
 }
 
 #empresas-llagosta-mollet-valles .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/llagosta/slider_empresas_llagosta_4.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/llagosta/slider_empresas_llagosta_4.jpg);
 }
 
 #empresas-llagosta-mollet-valles .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/llagosta/slider_empresas_llagosta_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/llagosta/slider_empresas_llagosta_5.jpg);
 }
 
 #empresas-mataro-maresme .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/mataro/slider_empresas_mataro_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/mataro/slider_empresas_mataro_1.jpg);
 }
 
 #empresas-mataro-maresme .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/mataro/slider_empresas_mataro_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/mataro/slider_empresas_mataro_2.jpg);
 }
 
 #empresas-mataro-maresme .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/mataro/slider_empresas_mataro_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/mataro/slider_empresas_mataro_3.jpg);
 }
 
 #empresas-mataro-maresme .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/mataro/slider_empresas_mataro_4.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/mataro/slider_empresas_mataro_4.jpg);
 }
 
 #empresas-mataro-maresme .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/mataro/slider_empresas_mataro_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/mataro/slider_empresas_mataro_5.jpg);
 }
 
 #empresas-vilanova-sant-pere-de-ribes .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/vilanova/slider_empresas_vilanova_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/vilanova/slider_empresas_vilanova_1.jpg);
 }
 
 #empresas-vilanova-sant-pere-de-ribes .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/vilanova/slider_empresas_vilanova_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/vilanova/slider_empresas_vilanova_2.jpg);
 }
 
 #empresas-vilanova-sant-pere-de-ribes .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/vilanova/slider_empresas_vilanova_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/vilanova/slider_empresas_vilanova_3.jpg);
 }
 
 #empresas-vilanova-sant-pere-de-ribes .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/vilanova/slider_empresas_vilanova_4.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/vilanova/slider_empresas_vilanova_4.jpg);
 }
 
 #empresas-vilanova-sant-pere-de-ribes .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/vilanova/slider_empresas_vilanova_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/vilanova/slider_empresas_vilanova_5.jpg);
 }
 #empresas-fuenlabrada-madrid .carousel__slideq1x1.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/fuenlabrada/slider_empresas_fuenlabrada_1.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/fuenlabrada/slider_empresas_fuenlabrada_1.jpg);
 }
 
 #empresas-fuenlabrada-madrid .carousel__slideq1x1.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/fuenlabrada/slider_empresas_fuenlabrada_2.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/fuenlabrada/slider_empresas_fuenlabrada_2.jpg);
 }
 
 #empresas-fuenlabrada-madrid .carousel__slideq1x1.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/fuenlabrada/slider_empresas_fuenlabrada_3.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/fuenlabrada/slider_empresas_fuenlabrada_3.jpg);
 }
 
 #empresas-fuenlabrada-madrid .carousel__slideq1x1.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/fuenlabrada/slider_empresas_fuenlabrada_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/fuenlabrada/slider_empresas_fuenlabrada_5.jpg);
 }
 
 #empresas-fuenlabrada-madrid .carousel__slideq1x1.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/empresas/fuenlabrada/slider_empresas_fuenlabrada_5.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/empresas/fuenlabrada/slider_empresas_fuenlabrada_5.jpg);
 }
 
 /* Make carouselq1x1 swipeable */
@@ -5376,59 +5376,59 @@ ol.menusubitems {
 }
 
 .carousel__slide.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/home/1-slider-home-familia-feliz.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/home/1-slider-home-familia-feliz.jpg);
 }
 
 .carousel__slide.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/home/2b-slider-home-chica-descargando-suv.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/home/2b-slider-home-chica-descargando-suv.jpg);
 }
 
 .carousel__slide.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/home/3b-slider-home-autonomo-descargando-furgoneta.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/home/3b-slider-home-autonomo-descargando-furgoneta.jpg);
 }
 
 .carousel__slide.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/sliders/home/4-slider-home-interior-centro.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/sliders/home/4-slider-home-interior-centro.jpg);
 }
 
 .carousel__slide2.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xslimg1b.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/xslimg1b.jpg);
 }
 
 .carousel__slide2.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xslimg2b.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/xslimg2b.jpg);
 }
 
 .carousel__slide2.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xslimg3b.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/xslimg3b.jpg);
 }
 
 .carousel__slide2.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xslimg4b.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/xslimg4b.jpg);
 }
 
 .carousel__slide3.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xslimg0halfYc.png);
+    background-image: url(/template/leo-trastering-dev/xy1-images/xslimg0halfYc.png);
 }
 
 .carousel__slide3.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xslimg0halfYc.png);
+    background-image: url(/template/leo-trastering-dev/xy1-images/xslimg0halfYc.png);
 }
 
 .carousel__slide3.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xslimg0halfYc.png);
+    background-image: url(/template/leo-trastering-dev/xy1-images/xslimg0halfYc.png);
 }
 
 .carousel__slide3.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xslimg0halfYc.png);
+    background-image: url(/template/leo-trastering-dev/xy1-images/xslimg0halfYc.png);
 }
 
 .carousel__slide3.xslimg5 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xslimg0halfYc.png);
+    background-image: url(/template/leo-trastering-dev/xy1-images/xslimg0halfYc.png);
 }
 
 .carousel__slide3.xslimg6 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xslimg0halfYc.png);
+    background-image: url(/template/leo-trastering-dev/xy1-images/xslimg0halfYc.png);
 }
 
 .carousel__slides,
@@ -5554,19 +5554,19 @@ ol.menusubitems {
 }
 
 .carousel__slideq0x0.xslimg1 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xslimg1d.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/xslimg1d.jpg);
 }
 
 .carousel__slideq0x0.xslimg2 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xslimg2d.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/xslimg2d.jpg);
 }
 
 .carousel__slideq0x0.xslimg3 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xslimg3d.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/xslimg3d.jpg);
 }
 
 .carousel__slideq0x0.xslimg4 {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/xy1-images/xslimg4d.jpg);
+    background-image: url(/template/leo-trastering-dev/xy1-images/xslimg4d.jpg);
 }
 
 .carousel__slidesq0x0,

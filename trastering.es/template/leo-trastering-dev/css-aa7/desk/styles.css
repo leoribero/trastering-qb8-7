@@ -1398,7 +1398,7 @@ aside#modulo_eKomi\.tpl {
     background-color: #fff !important;
     border: 1px solid #15DA88;
     cursor: pointer;
-    background: url(https://trastering.es/template/leo-trastering-dev/css-aa7/imagenes/iconos-plus-b.png) center right no-repeat;
+    background: url(/template/leo-trastering-dev/css-aa7/imagenes/iconos-plus-b.png) center right no-repeat;
     background-size: 30px !important;
     font-weight: 900
   }
@@ -1439,7 +1439,7 @@ aside#modulo_eKomi\.tpl {
     margin-right: auto;
     letter-spacing: 1px;
     color: #222;
-    background-image: url(https://trastering.es/template/leo-trastering-dev/css-aa7/images/loader.gif);
+    background-image: url(/template/leo-trastering-dev/css-aa7/images/loader.gif);
     background-repeat: no-repeat;
     background-position: 0 153px
   }
@@ -1601,7 +1601,7 @@ aside#modulo_eKomi\.tpl {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    background-image: url(https://trastering.es/template/leo-trastering-dev/css-aa7/images/loader.gif);
+    background-image: url(/template/leo-trastering-dev/css-aa7/images/loader.gif);
     background-repeat: no-repeat;
     background-position: center 40%;
     padding-top: 45px;

@@ -1316,7 +1316,7 @@ div#mapping.squareVersion {
     background-color: #fff !important;
     border: 1px solid #15DA88;
     cursor: pointer;
-    background: url(https://trastering.es/template/leo-trastering-dev/css-aa7/imagenes/iconos-plus-b.png) center right no-repeat;
+    background: url(/template/leo-trastering-dev/css-aa7/imagenes/iconos-plus-b.png) center right no-repeat;
     background-size: 23px !important;
     font-weight: 900;
     background-position-y: 9px !important

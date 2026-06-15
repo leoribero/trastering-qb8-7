@@ -1153,7 +1153,7 @@ div#mapping.squareVersion {
   }
 
   span.iconTrigger-close {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/imagenes/arrow_icon_0_5x.png);
+    background-image: url(/template/leo-trastering-dev/imagenes/arrow_icon_0_5x.png);
     background-repeat: no-repeat;
     height: 100%;
     background-size: contain;
@@ -1162,7 +1162,7 @@ div#mapping.squareVersion {
   }
 
   span.iconTrigger {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/imagenes/arrow_down_icon_0_5x.png);
+    background-image: url(/template/leo-trastering-dev/imagenes/arrow_down_icon_0_5x.png);
     background-repeat: no-repeat;
     height: 100%;
     background-size: contain;
@@ -1316,7 +1316,7 @@ div#mapping.squareVersion {
     background-color: #fff !important;
     border: 1px solid #15DA88;
     cursor: pointer;
-    background: url(https://trastering.es/template/leo-trastering-dev/css-aa7/imagenes/iconos-plus-b.png) center right no-repeat;
+    background: url(/template/leo-trastering-dev/css-aa7/imagenes/iconos-plus-b.png) center right no-repeat;
     background-size: 23px !important;
     font-weight: 900;
     background-position-y: 9px !important
@@ -1578,11 +1578,11 @@ div#mapping.squareVersion {
   }
 
   #pageResultatsReservation .produit .tarifs .colonnes .tarif .selecteur.actif {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/images/selector-activo.png)
+    background-image: url(/template/leo-trastering-dev/images/selector-activo.png)
   }
 
   #pageResultatsReservation .produit .tarifs .colonnes .tarif .selecteur {
-    background-image: url(https://trastering.es/template/leo-trastering-dev/images/selector-pasivo.png);
+    background-image: url(/template/leo-trastering-dev/images/selector-pasivo.png);
     background-size: contain;
     background-repeat: no-repeat;
     height: 30px;

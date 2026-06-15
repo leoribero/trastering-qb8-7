@@ -4911,7 +4911,7 @@ section.cta_cero.mgTop-f1 {
   .illustration
   .taille {
   float: left;
-  background-image: url(https://trastering.es/template/leo-trastering-dev/images/tailleDefaut.jpg);
+  background-image: url(/template/leo-trastering-dev/images/tailleDefaut.jpg);
   background-repeat: no-repeat;
   background-position: 0 30px;
   height: 177px;
